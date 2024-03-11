@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+
+.login-container {
+    background-color: #f0f0f0; 
+    width: 30%;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  height: 400px;
+  padding: 35px;
+}
+
+input[type=text],input[type=password]{
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    border-radius: 0%;
+    box-shadow: none;
+    background-color: #f0f0f0;
+} 
+input[type=text]:focus,input[type=password]:focus {
+  border-bottom-color: black; 
+  outline: none; 
+}
+.loginbtn{
+    display: flex;
+  justify-content: center;
+
+}
+/* .container-fluid{
+    background-image: url('/assets/Voctor-1.png');
+} */
+</style>
+<div class="container-fluid">
+<div class="login-container">
+    <form >
+        <h3 style="text-align: center;">Login</h3><br>
+        <div class="form-group">
+          <label for="email">Email </label>
+          <input type="text" class="form-control" id="email"   placeholder="Enter email" ngModel>
+        </div><br>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password"   placeholder="Password" ngModel>
+        </div><br>
+        <div class="loginbtn">
+        <button type="submit" class="btn btn-primary" (click)="Submit(email.value,password.value)" >Login</button></div>
+        <a routerLink="forgotpassword" style="color:blue; text-align: center;justify-content: center;display:flex">Forgot password</a>
+        <a routerLink="signup" style="color:blue; text-align: center;justify-content: center;display:flex">Not a member, &nbsp; SIGNUP </a>
+        <a routerLink="/content2" style="color:blue; text-align: center;justify-content: center;display:flex">Back </a>
+      </form>
+  </div>
+  
+</div>
