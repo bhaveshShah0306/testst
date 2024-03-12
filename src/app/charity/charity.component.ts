@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@an
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CharityService } from '../charity.service';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-charity',
   templateUrl: './charity.component.html',
@@ -61,7 +61,7 @@ refer2Address:new FormControl(''),
   inputmotherAdhaarNumber:boolean=false;
   inputmotherProofOfIncome: boolean=false;
   inputstudentAccountDetails:boolean=false;
-  constructor(private formBuilder: FormBuilder, private toastr : ToastrService , private charity :CharityService,private snackBar: MatSnackBar) {}
+  constructor(private formBuilder: FormBuilder, private charity :CharityService,private snackBar: MatSnackBar) {}
   
   ngOnInit(): void { 
  
@@ -110,10 +110,10 @@ refer2Address:new FormControl(''),
       refer2Address: [''],
     })
     
-  }
+}
   onAssociationChange() {
     debugger; 
-     this.showSuccess()
+
     const connectedToCommunityControl = this.studentForm.get('isConnectedToPrajapathiCommunity');
     const controlsToValidate = ['refer1', 'refer1Contact', 'refer1Address', 'refer2', 'refer2Contact', 'refer2Address'];
   
@@ -131,9 +131,9 @@ refer2Address:new FormControl(''),
       
     }
   } 
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
-  }
+  // showSuccess() {
+  //   this.toastr.success('Hello world!', 'Toastr fun!');
+  // }
   handleFileInput(event: any, controlName: string) {
    
     console.log(controlName)
