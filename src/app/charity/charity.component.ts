@@ -1,7 +1,8 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CharityService } from '../charity.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar'; 
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-charity',
   templateUrl: './charity.component.html',
@@ -53,57 +54,94 @@ refer2Contact:new FormControl(''),
 refer2Address:new FormControl(''),
   });
   fileName: { [key: string]: string } = {};
- 
-  constructor(private formBuilder: FormBuilder, private charity :CharityService,private snackBar: MatSnackBar) {}
+  inputadhaarCard: boolean=false;
+  inputgranduationproofs: boolean=false;
+  inputadhaarNumber : boolean=false ;
+  inputproofofincome: boolean=false ;
+  inputmotherAdhaarNumber:boolean=false;
+  inputmotherProofOfIncome: boolean=false;
+  inputstudentAccountDetails:boolean=false;
+  constructor(private formBuilder: FormBuilder, private toastr : ToastrService , private charity :CharityService,private snackBar: MatSnackBar) {}
   
-  ngOnInit(): void {
+  ngOnInit(): void { 
+ 
     this.studentForm = this.formBuilder.group({
+      studentApplicationsId: [''],
+      studentName: ['', Validators.required],
+      email: ['', Validators.required , Validators.email] ,
+      dob: ['', Validators.required],
+      mobile: ['', Validators.required ],
+      adhaarCard: ['', Validators.required],
+      studentQualificationDetailsId: [''],
+      ssccgpa: ['', Validators.required],
+      hsccgpa: ['', Validators.required],
+      granduationCGPA: ['', Validators.required],
+      otherGraduation: [''],
+      granduationproofs: ['', Validators.required],
+      otherCGPA: ['', Validators.required],
+      appliedFor: ['', Validators.required],
+      collegeName: ['', Validators.required],
+      annualFee: ['', Validators.required],
+      studentAccountDetails: ['', Validators.required],
+      collegeDetails: ['', Validators.required],
+      collegeAccountDetails: ['', Validators.required],
+      collegeContact: ['', Validators.required],
+      periodForRequiredGrant: ['', Validators.required],
+      familyDetailsId: [''],
+      fatherName: ['', Validators.required],
+      fatherNumber: ['', Validators.required ],
+      adhaarNumber: ['', Validators.required],
+      fatherOccupation: ['', Validators.required],
+      proofofincome: ['', Validators.required],
+      motherName: ['', Validators.required],
+      motherNumber: ['', Validators.required],
+      motherAdhaarNumber: ['', Validators.required],
+      motherOccupation: ['', Validators.required],
+      motherProofOfIncome: ['', Validators.required],
+      familyAnnualIncome: ['', Validators.required],
+      pincode: ['', Validators.required],
+      dependentsInTheFamily: ['', Validators.required],
+      isConnectedToPrajapathiCommunity: ['', Validators.required],
+      refer1: [''],
+      refer1Contact: [''],
+      refer1Address: [''],
+      refer2: [''],
+      refer2Contact: [''],
+      refer2Address: [''],
+    })
     
-      studentApplicationsId:[''],
-      studentName:[''],
-      email:[''],
-      dob:[''],
-      mobile:[''],
-      adhaarCard:[''],
-      studentQualificationDetailsId:[''],
-      ssccgpa:[''],
-      hsccgpa:[''],
-      granduationCGPA:[''],
-      otherGraduation:[''],
-      granduationproofs:[''],
-      otherCGPA:[''],
-      appliedFor:[''],
-      collegeName:[''],
-      annualFee:[''],
-      studentAccountDetails:[''],
-      collegeDetails:[''],
-      collegeAccountDetails:[''],
-      collegeContact:[''],
-      periodForRequiredGrant:[''],
-      familyDetailsId:[''],
-      fatherName:[''],
-      fatherNumber:[''],
-      adhaarNumber:[''],
-      fatherOccupation:[''],
-      proofofincome:[''],
-      motherName:[''],
-      motherNumber:[''],
-      motherAdhaarNumber:[''],
-      motherOccupation:[''],
-      motherProofOfIncome:[''],
-      familyAnnualIncome:[''],
-      pincode:[''],
-      dependentsInTheFamily:[''],
-      isConnectedToPrajapathiCommunity:[''],
-      refer1:[''],
-      refer1Contact:[''],
-      refer1Address:[''],
-      refer2:[''],
-      refer2Contact:[''],
-      refer2Address:[''],
-  })}
+  }
+  onAssociationChange() {
+    debugger; 
+     this.showSuccess()
+    const connectedToCommunityControl = this.studentForm.get('isConnectedToPrajapathiCommunity');
+    const controlsToValidate = ['refer1', 'refer1Contact', 'refer1Address', 'refer2', 'refer2Contact', 'refer2Address'];
+  
+    for (const controlName of controlsToValidate) {
+      const control = this.studentForm.get(controlName);
+      if (connectedToCommunityControl?.value === 'yes') {
+        control?.setValidators([Validators.required]);
+        control?.markAsUntouched();
+       
+      } else {
+        control?.clearValidators();
+        control?.patchValue('')
+      }
+      control?.updateValueAndValidity();
+      
+    }
+  } 
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
   handleFileInput(event: any, controlName: string) {
-    debugger;
+   
+    console.log(controlName)
+    const control = this.studentForm.get(controlName);
+        if (control) {
+          control.markAsTouched();
+          
+        } 
     const file = event.target.files[0];
     if (file) {
        this.charity.uploadFile(file).subscribe(response => {
@@ -122,11 +160,55 @@ refer2Address:new FormControl(''),
     } else {
        this.fileName[controlName] = '';
     }
-   }
    
+   }
+   onMobileInput(event: any) {
+    const input = event.target.value; 
+    
+    const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
+    this.studentForm.controls['mobile'].setValue(numericInput);
+  }
+  onMobileInput1(event: any) {
+    const input = event.target.value; 
+    
+    const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+    this.studentForm.controls['fatherNumber'].setValue(numericInput);
+  } 
+  onMobileInput2(event:any){
+  const input = event.target.value;
+  
+  const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+  this.studentForm.controls['motherNumber'].setValue(numericInput);
+}  
+onMobileInput4(event:any){
+  const input = event.target.value;
+  
+  const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+  this.studentForm.controls['refer1Contact'].setValue(numericInput);
+}
+onMobileInput5(event:any){
+  const input = event.target.value;
+ 
+  const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+  this.studentForm.controls['refer2Contact'].setValue(numericInput);
+}
+onMobileInput6(event:any){
+  const input = event.target.value;
+ 
+  const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+  this.studentForm.controls['collegeContact'].setValue(numericInput);
+}
+  
  onSubmit() {
   debugger;
+  console.log(this.studentForm.controls)
+   this.studentForm.markAllAsTouched()
     if (this.studentForm.valid) {
 
       let prajapathicommunity = false; // Assuming the default value is false
@@ -183,13 +265,13 @@ refer2Address:new FormControl(''),
         refer2Contact:value.refer2Contact,
         refer2Address:value.refer2Address,
       }
-
+      console.log(obj)
       this.charity.postcharity(obj).subscribe(apidata=>{
         debugger;
         var res = apidata;
         if (apidata.data != null) {
           // Show toast message
-       window.alert("Form added successfully")
+       window.alert("Application submitted successfully")
        this.studentForm.reset();  
       }
       },

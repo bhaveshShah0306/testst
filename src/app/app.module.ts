@@ -19,14 +19,13 @@ import { LayoutcomponentComponent } from './layoutcomponent/layoutcomponent.comp
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-  
     Content2Component,
     ServicesComponent,
     CharityComponent,
@@ -44,7 +43,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule  ,NgbModule,MatSnackBarModule,
+    RouterModule  ,NgbModule,MatSnackBarModule,  
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     provideAnimationsAsync()
