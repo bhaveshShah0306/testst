@@ -63,7 +63,8 @@ refer2Address:new FormControl(''),
   inputstudentAccountDetails:boolean=false;
   constructor(private formBuilder: FormBuilder, private toastr : ToastrService , private charity :CharityService,private snackBar: MatSnackBar) {}
   
-  ngOnInit(): void {
+  ngOnInit(): void { 
+ 
     this.studentForm = this.formBuilder.group({
       studentApplicationsId: [''],
       studentName: ['', Validators.required],
@@ -163,54 +164,42 @@ refer2Address:new FormControl(''),
    }
    onMobileInput(event: any) {
     const input = event.target.value; 
-    if(input.length==10){
-      return;
-    }
+    
     const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
     this.studentForm.controls['mobile'].setValue(numericInput);
   }
   onMobileInput1(event: any) {
     const input = event.target.value; 
-    if(input.length==10){
-      return;
-    }
+    
     const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
     this.studentForm.controls['fatherNumber'].setValue(numericInput);
   } 
   onMobileInput2(event:any){
   const input = event.target.value;
-  if(input.length==10){
-    return;
-  }
+  
   const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
   this.studentForm.controls['motherNumber'].setValue(numericInput);
 }  
 onMobileInput4(event:any){
   const input = event.target.value;
-  if(input.length==10){
-    return;
-  }
+  
   const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
   this.studentForm.controls['refer1Contact'].setValue(numericInput);
 }
 onMobileInput5(event:any){
   const input = event.target.value;
-  if(input.length==10){
-    return;
-  }
+ 
   const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
   this.studentForm.controls['refer2Contact'].setValue(numericInput);
 }
 onMobileInput6(event:any){
   const input = event.target.value;
-  if(input.length==10){
-    return;
-  }
+ 
   const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
   this.studentForm.controls['collegeContact'].setValue(numericInput);
