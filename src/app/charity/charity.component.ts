@@ -271,7 +271,7 @@ onMobileInput6(event:any){
         var res = apidata;
         if (apidata.data != null) {
           // Show toast message
-       window.alert("Form added successfully")
+       window.alert("Application submitted successfully")
        this.studentForm.reset();  
       }
       },
