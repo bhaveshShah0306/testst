@@ -10,6 +10,7 @@
 
  .footer p{
     font-size: 45px;
+    line-height: normal;
  }
     .text {
             background-color: black;
@@ -17,8 +18,7 @@
             border-radius: 30px;         
             border: none; 
            padding: 15px 90px;
-           width: 400px; 
-           
+           width: 400px;           
         } 
          
         .btn {        
@@ -26,25 +26,33 @@
             color: brown;
             border-radius: 25px;
             padding: 10px 20px; 
-            /* border: none;  */
-           
-           
+            /* border: none;  */  
+            position: absolute; 
+            right: 2%; top: 50%; 
+            transform: translateY(-50%);       
         }
   .footer-sec{
     background-color: black;
     color: white;
     column-count: 5;
   }
+  .btn:hover{
+    background-color: white;
+    color: #834333;
+  }
 
 </style>
 <div>
     <div class="footer">
-      <p><strong>Join our newsletter to get the<br><br> <br>latest guides!</strong></p><br>
-        <div class="container-fluid">
-            
+      <p><strong>Join our newsletter to get the <br>latest guides!</strong></p>
+        <div class="container-fluid">      
             <div style="position: relative; display: inline-block;">
-              <input type="email" class="text" placeholder="Enter your email" [(ngModel)]="email">
-              <button type="button" class="btn" style="position: absolute; right: 2%; top: 50%; transform: translateY(-50%);" (click)="onSubmitEmail()">Submit</button>
+              <input type="email" class="text" placeholder="Enter your email" [(ngModel)]="email" required>
+              <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <div *ngIf="email.errors.required">Email is required.</div>
+                <div *ngIf="email.errors.email"> Please enter a valid email address.</div>
+            </div> -->
+              <button type="button" class="btn"  (click)="onSubmitEmail()">Submit</button>
           </div>
         </div>
 
