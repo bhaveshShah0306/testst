@@ -2,7 +2,7 @@
 <style>
 
 .login-container {
-    background-color: #f0f0f0; 
+    background-color: white; 
     width: 30%;
     position: absolute;
   top: 50%;
@@ -19,7 +19,7 @@ input[type=text],input[type=password]{
     border-bottom: 2px solid black;
     border-radius: 0%;
     box-shadow: none;
-    background-color: #f0f0f0;
+    background-color: white;
 } 
 input[type=text]:focus,input[type=password]:focus {
   border-bottom-color: black; 
@@ -28,30 +28,39 @@ input[type=text]:focus,input[type=password]:focus {
 .loginbtn{
     display: flex;
   justify-content: center;
-
+  
 }
-/* .container-fluid{
-    background-image: url('/assets/Voctor-1.png');
-} */
+  .container-fluid{
+    /* background-image: url('src/assets/Voctor-1.png'); */
+    background-color: #f0f0f0;
+    height: 100vh;
+} 
 </style>
-<!-- <div class="container-fluid">
+<div class="container-fluid">
 <div class="login-container">
-    <form >
-        <h3 style="text-align: center;">Login</h3><br>
+    <form [formGroup]="loginForm">
+        <h3 style="text-align: center;">Sign In</h3><br>
         <div class="form-group">
-          <label for="email">Email </label>
-          <input type="text" class="form-control" id="email"   placeholder="Enter email" ngModel>
-        </div><br>
+          <!-- <label for="email">Email </label> -->
+          <input type="text" class="form-control" id="email"   placeholder="Enter email"  formControlName="email" >
+          <div *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].invalid" class="text-danger">
+            <div *ngIf="loginForm.controls['email'].errors?.['required']">Email is required.</div>
+           </div>
+        </div><br><br>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password"   placeholder="Password" ngModel>
+          <!-- <label for="password">Password</label> -->
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" >
+          <div *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].invalid" class="text-danger">
+            <div *ngIf="loginForm.controls['password'].errors?.['required']">password is required.</div>
+           </div>
         </div><br>
+        <a routerLink="forgotpassword" >Forgot password</a>
         <div class="loginbtn">
-        <button type="submit" class="btn btn-primary" (click)="Submit(email.value,password.value)" >Login</button></div>
-        <a routerLink="forgotpassword" style="color:blue; text-align: center;justify-content: center;display:flex">Forgot password</a>
+        <button type="submit" class="btn btn-primary" (click)="Submit(this.loginForm.value)"  >Sign In</button></div><br>
+       
         <a routerLink="signup" style="color:blue; text-align: center;justify-content: center;display:flex">Not a member, &nbsp; SIGNUP </a>
         <a routerLink="/content2" style="color:blue; text-align: center;justify-content: center;display:flex">Back </a>
       </form>
   </div>
   
-</div> -->
+</div>
