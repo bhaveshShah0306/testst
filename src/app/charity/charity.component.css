@@ -1,0 +1,85 @@
+h1{
+    color: #834333;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+}
+.content .left-side {
+   line-height: normal;
+    height: auto;
+    width: 80%;
+    padding-left: 90px;
+}
+.content .right-side {
+    width: 100%;
+    padding-right: 40px;
+}
+.btn1{
+  background-color: #834333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 25px 60px;
+  width: 190px;
+  height:50px;
+  border: none;
+}
+.form-sec{
+border: 2px solid lightgray;
+border-radius: 20px;
+width: 90%;
+margin-left: 65px;
+}
+.form-row {
+/* margin-bottom: 60px; */
+column-count: 3;
+padding-left: 20px;
+padding-right: 15px;
+display: flex;
+flex-wrap: wrap;
+/* justify-content: space-between; */
+  }
+  .form-group {
+flex: 0 0 calc(31% - 10px); 
+ margin-right: 20px; 
+margin-bottom: 40px;  
+}
+input[type=text],input[type=email],input[type=date], select{ 
+border: none;
+outline: none;
+border-bottom: 2px solid #f0f0f0;
+border-radius: 0%;
+}
+ input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,select:focus,input[type=file] { 
+border-bottom-color: black;
+box-shadow: none;
+}
+.description {
+  /* font-style: italic; */
+  color: #666;
+  font-size: small;
+  line-height: 0.6;
+}
+.horizontal-line {
+        border-top: 1px solid lightgray;
+        margin-bottom: 20px ; 
+    }
+
+
+
+
+.Update_file{
+border: none;
+color: blue;
+background: transparent;
+display: flex;
+flex-direction: row;
+gap: 10px;
+padding-top: 20px;
+}
+.upload-icon {
+    height: 20px; /* Adjust size as needed */
+   }
+   

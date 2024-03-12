@@ -15,16 +15,16 @@ export class CharityService extends HttpResponseService{
   constructor(protected http: HttpClient,private router:Router) {
     super(http)}
 
-    postcharity(data:charity){
+    postcharity(data: any): Observable<any>{
       const token ="";
-
+debugger;
       // Set up the headers with the bearer token
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       });
       var url = `${this.baseUrl}Application`
-      return this.http.post<charity>(`url`,data, { headers: headers })
+      return this.http.post<charity>(url,data, { headers: headers })
       .pipe(
         map(res => {
           return this.formatHttpOkResponse<charity>(res);
@@ -35,5 +35,11 @@ export class CharityService extends HttpResponseService{
       )
      }
 
-
+     uploadFile(file: File): Observable<any> {
+      const formData = new FormData();
+      formData.append('postedFile', file, file.name);
+  
+      // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+      return this.http.post(`${this.baseUrl}upload`, formData);
+   }
 }
