@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LayoutcomponentComponent } from './layoutcomponent/layoutcomponent.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -43,9 +44,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule  ,NgbModule
+    RouterModule  ,NgbModule,MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

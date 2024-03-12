@@ -1,465 +1,362 @@
+<div class="content">
+  <div class="left-side"> <br><br><br>
+    <h6 style="color: #834333;">WELCOME TO </h6>
+    <p class="d" style="font-size: 55px;"><strong>Be the <span style="color: #834333;">reason</span> someone <span
+          style="color: #834333;">smiles</span> today.</strong></p>
+    <div>For over a decade, Community.co has pioneered and growth to become the global leader of proffesional
+      communities of influence.</div>
+    <button class="btn1">Become A Member</button>
+  </div>
+  <div class="right-side">
+    <img src="/assets/Frame.png" alt="image" class="d-block" style="width:100%;height: 480px;">
+  </div>
+</div>
+<img src="/assets/cloud.png" alt="image" style=" height: 200px;background-color: #f0f0f0;width:100%">
+<div class="second-sec">
+  <h1 style="text-align: center;"><strong>Prajapati Community Service Foundation</strong></h1>
 
-<style>
-    h1{
-        color: #834333;
-    }
-    .content {
-        display: flex;
-        justify-content: space-between;
-        background-color: #f0f0f0;
-    }
-    .content .left-side {
-       line-height: normal;
-        height: auto;
-        width: 80%;
-        padding-left: 90px;
-    }
-    .content .right-side {
-        width: 100%;
-        padding-right: 40px;
-    }
-    .btn1{
-      background-color: #834333;
-      color: white;
-      padding: 10px;
-      border-radius: 10px;
-      margin: 25px 60px;
-      width: 190px;
-      height:50px;
-      border: none;
-   }
-   .form-sec{
-    border: 2px solid lightgray;
-    border-radius: 20px;
-    width: 90%;
-    margin-left: 65px;
-   }
-   .form-row {
-    /* margin-bottom: 60px; */
-    column-count: 3;
-    padding-left: 20px;
-    padding-right: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
-      }
-      .form-group {
-    flex: 0 0 calc(31% - 10px); 
-     margin-right: 20px; 
-    margin-bottom: 40px;  
-    }
-    input[type=text],input[type=email],input[type=date], select{ 
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #f0f0f0;
-    border-radius: 0%;
-    }
-     input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,select:focus,input[type=file] { 
-    border-bottom-color: black;
-    box-shadow: none;
-    }
-   .description {
-      /* font-style: italic; */
-      color: #666;
-      font-size: small;
-      line-height: 0.6;
-    }
-    .horizontal-line {
-            border-top: 1px solid lightgray;
-            margin-bottom: 20px ; 
-        }
-   
- 
+  <div class="form-sec">
+    <div
+      style="background-color: #834333;color: white; text-align: center;width: 100%;border-top-left-radius: 20px;border-top-right-radius: 20px;margin-bottom: 20px;">
+      STUDENT'S BASIC DETAILS</div>
 
-
-.Update_file{
-  border: none;
-  color: blue;
-  background: transparent;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding-top: 20px;
-}
-
-
-
-
-</style>
- <div class="content">
-    <div class="left-side">  <br><br><br>
-      <h6 style="color: #834333;">WELCOME TO </h6>
-      <p class="d" style="font-size: 55px;"><strong>Be the <span style="color: #834333;">reason</span> someone   <span style="color: #834333;">smiles</span> today.</strong></p>
-      <div >For over a decade, Community.co has pioneered and growth to become the global leader of proffesional communities of influence.</div>
-      <button  class="btn1">Become A Member</button>
-     </div>
-     <div class="right-side">
-        <img src="/assets/Frame.png" alt="image"  class="d-block" style="width:100%;height: 480px;">
-     </div>
- </div>
- <img src="/assets/cloud.png" alt="image"  style=" height: 200px;background-color: #f0f0f0;width:100%"> 
- <div class="second-sec" >
-    <h1 style="text-align: center;"><strong>Prajapati Community Service Foundation</strong></h1>
-
-<div class="form-sec">
-  <div style="background-color: #834333;color: white; text-align: center;width: 100%;border-top-left-radius: 20px;border-top-right-radius: 20px;margin-bottom: 20px;">STUDENT'S BASIC DETAILS</div>
-  <!--   #studentForm="ngForm"   (ngSubmit)="submitForm(studentForm)"-->
-      <form  [formGroup]="studentForm" >  
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="studentName">Full Name<span style="color: red;">*</span></label>
+          <input type="text" formControlName="studentName" class="form-control" id="studentName">
+        </div>
+        <div class="form-group">
+          <label for="email">Email<span style="color: red;">*</span></label>
+          <input type="email" formControlName="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth<span style="color: red;">*</span></label>
+          <input type="date" formControlName="dob" class="form-control" id="dob">
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile Number<span style="color: red;">*</span></label>
+          <input type="text" formControlName="mobile" class="form-control" id="mobile">
+        </div>
+        <div class="form-group">
+          <label for="adhaarCard">Aadhar<span style="color: red;">*</span></label>
+          <button class="Update_file" (click)="fileInputAadhar.click()">
+            <img src='/assets/fileupload.png' alt="">
+            <label for="">Click to Upload</label>
+          </button>
+          <input type="file" #fileInputAadhar style="display: none;" (change)="handleFileInput($event, 'adhaarCard')">
+          <p *ngIf="fileName['adhaarCard']">Selected file: {{ fileName['adhaarCard'] }}</p>
+        </div>
+      </div>
+      <div class="form-row">
+        <!-- Education fields here -->
+        <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">
+          STUDENT'S EDUCATION</div>
         <div class="form-row">
-         <div class="form-group">
-            <label for="name">Full Name<span style="color: red;">*</span></label>
-            <input type="text" id="name" name="name" formControlName="name" class="form-control" ngModel required>
-            <div *ngIf="studentForm.controls['name'].invalid && studentForm.controls['name'].touched" class="text-danger">field is required. </div>
-          </div>       
           <div class="form-group">
-            <label for="email">Email<span style="color: red;">*</span></label>
-            <input type="email" id="email" name="email" formControlName="email" class="form-control" ngModel required>
-            <div *ngIf="studentForm.controls['email'].invalid && studentForm.controls['email'].touched"  class="text-danger">field is required.</div> 
-          </div>        
-            <div class="form-group">
-              <label for="dob">Date of Birth<span style="color: red;">*</span></label>
-              <input type="date" id="dob" name="dob" formControlName="dob" class="form-control" ngModel required >
-              <div *ngIf="studentForm.controls['dob'].invalid && studentForm.controls['dob'].touched"  class="text-danger">field is required.</div>
-            </div>
-       
-            <div class="form-group">
-               <label for="mobileno">Mobile Number<span style="color: red;">*</span></label>
-               <input type="text" id="mobileno" name="mobileno" formControlName="mobileno" class="form-control" ngModel required>
-               <div *ngIf="studentForm.controls['mobileno'].invalid && studentForm.controls['mobileno'].touched"  class="text-danger">field is required.</div>
-             </div>
-           
-             <!-- <div class="form-group">
-               <label for="aadhar">Aadhar<span style="color: red;">*</span></label>
-               <input type="file" id="aadhar" name="aadhar" formControlName="aadhar" class="form-control" ngModel required>
-               <div *ngIf="studentForm.controls['aadhar'].invalid && studentForm.controls['aadhar'].touched"  class="text-danger">field is required.</div>
-             </div> -->
-                      
-          <div  class="form-group">
-          <label for="aadhar">Aadhar<span style="color: red;">*</span></label>
-            <button class="Update_file" (click)="fileInput.click()" formControlName="aadhar">
+            <label for="ssccgpa">SSC Grade<span style="color: red;">*</span></label>
+            <input type="text" id="ssccgpa" name="ssccgpa" formControlName="ssccgpa" class="form-control">
+            <span class="description">Percentage / CGPA</span>
+          </div>
+          <div class="form-group">
+            <label for="hsccgpa">HSC Grade<span style="color: red;">*</span></label>
+            <input type="text" id="hsccgpa" name="hsccgpa" formControlName="hsccgpa" class="form-control">
+            <span class="description">Percentage / CGPA</span>
+          </div>
+          <div class="form-group">
+            <label for="granduationCGPA">Graduation Grade<span style="color: red;">*</span></label>
+            <input type="text" id="granduationCGPA" name="granduationCGPA" formControlName="granduationCGPA"
+              class="form-control">
+            <span class="description">Percentage / CGPA</span>
+          </div>
+          <div class="form-group">
+            <label for="otherCGPA">Qualification Details<span style="color: red;">*</span></label>
+            <input type="text" id="otherCGPA" name="otherCGPA" formControlName="otherCGPA"
+              class="form-control">
+            <span class="description">If any other than above please specify with Percentage / CGPA</span>
+          </div>
+          <div class="form-group">
+            <label for="granduationproofs">Proof<span style="color: red;">*</span></label>
+            <button class="Update_file" (click)="filegranduationproofs.click()" formControlName="granduationproofs">
               <img src='/assets/fileupload.png' alt="">
               <label for="">Click to Upload</label>
-              <input type="file" #fileInput style="display: none;" (change)="handleFileInput($event)">
+              <input type="file" #filegranduationproofs style="display: none;"
+                (change)="handleFileInput($event,'granduationproofs')">
             </button>
+            <span class="description">Attach all Educational proof/ Results(SSC/HSC/Graduation etc)</span>
+            <p *ngIf="fileName['granduationproofs']">Selected file: {{ fileName['granduationproofs'] }}</p>
           </div>
-          <div>
+          <div class="form-group">
+            <label for="appliedFor">Application done for course<span style="color: red;">*</span></label>
+            <select id="appliedFor" formControlName="appliedFor" class="form-control">
+              <option value=""> Select</option>
+              <option value="option2">Post Graduation Proffessional's Only</option>
+              <option value="option3">Graduation Only</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="collegeName">School & College Government / Private<span style="color: red;">*</span></label>
+            <input type="text" id="collegeName" name="collegeName" formControlName="collegeName" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="collegeDetails">School & College Address<span style="color: red;">*</span></label>
+            <input type="text" id="collegeDetails" name="collegeDetails" formControlName="collegeDetails"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="periodForRequiredGrant">Grant for the period of<span style="color: red;">*</span></label>
+            <select id="periodForRequiredGrant" formControlName="periodForRequiredGrant" class="form-control">
+              <option value=""> Select</option>
+              <option value="3">3 Years</option>
+              <option value="5">5 Years</option>
+              <option value="10">10 Years</option>
+            </select>
+            <span class="description">Kindly select for how many years you the grant</span>
+          </div>
+          <div class="form-group">
+            <label for="annualFee">Annual College fees per year (Rs)<span style="color: red;">*</span></label>
+            <input type="text" id="annualFee" name="annualFee" formControlName="annualFee" class="form-control">
           </div>
         </div>
-        <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">STUDENT'S EDUCATION</div>
-        <div class="form-row">
-          <div class="form-group">
-             <label for="ssc">SSC Grade<span style="color: red;">*</span></label>
-             <input type="text" id="ssc" name="ssc" formControlName="ssc" class="form-control" ngModel required>
-             <span class="description">Percentage / CGPA</span>
-             <div *ngIf="studentForm.controls['ssc'].invalid && studentForm.controls['ssc'].touched"  class="text-danger">field is required.</div>
-           </div>       
-           <div class="form-group">
-             <label for="hsc">HSC Grade<span style="color: red;">*</span></label>
-             <input type="text" id="hsc" name="hsc" formControlName="hsc" class="form-control" ngModel required>
-             <span class="description">Percentage / CGPA</span>
-             <div *ngIf="studentForm.controls['hsc'].invalid && studentForm.controls['hsc'].touched"  class="text-danger">field is required.</div>
-           </div>       
-             <div class="form-group">
-               <label for="graduation">Graduation Grade<span style="color: red;">*</span></label>
-               <input type="text" id="graduation" name="graduation" formControlName="graduation" class="form-control" ngModel  required >
-               <span class="description">Percentage / CGPA</span>
-               <div *ngIf="studentForm.controls['graduation'].invalid && studentForm.controls['graduation'].touched"  class="text-danger">field is required.</div>
-             </div>           
-          <div class="form-group">
-             <label for="qualification">Qualification Details<span style="color: red;">*</span></label>
-             <input type="text" id="qualification" name="qualification" formControlName="qualification" class="form-control" ngModel required>
-             <span class="description">If any other than above please specify with Percentage / CGPA</span>
-             <div *ngIf="studentForm.controls['qualification'].invalid && studentForm.controls['qualification'].touched"  class="text-danger">field is required.</div>
-           </div>       
-           <!-- <div class="form-group">
-             <label for="proofupload">Proof<span style="color: red;">*</span></label>
-             <input type="file" id="proofupload" name="proofupload" formControlName="proofupload" class="form-control" ngModel required>
-             <span class="description">Attach all Educational proof/ Results(SSC/HSC/Graduation etc)</span>
-             <div *ngIf="studentForm.controls['proofupload'].invalid && studentForm.controls['proofupload'].touched"  class="text-danger">field is required.</div>
-           </div>  -->
-           <div  class="form-group">
-            <label for="proofupload">Proof<span style="color: red;">*</span></label>
-              <button class="Update_file" (click)="fileInput.click()" formControlName="proofupload">
-                <img src='/assets/fileupload.png' alt="">
-                <label for="">Click to Upload</label>
-                <input type="file" #fileInput style="display: none;" (change)="handleFileInput($event)">
-              </button>
-              <span class="description">Attach all Educational proof/ Results(SSC/HSC/Graduation etc)</span>
-            </div>      
-             <div class="form-group">
-               <label for="course">Application done for course<span style="color: red;">*</span></label>
-              <select id="course"  formControlName="course" class="form-control" ngModel>  
-                <!--  [(ngModel)]="selectedOption" (change)="onSelectionChange()" -->
-                <option value=""> Select</option>     
-                <option value="option2">Post Graduation Proffessional's Only</option>
-                 <option value="option3">Graduation Only</option>             
-               </select>
-               <div *ngIf="studentForm.controls['course'].invalid && studentForm.controls['course'].touched"  class="text-danger">field is required.</div>
-              </div>  
 
-          <div class="form-group">
-             <label for="school">School & College Government / Private<span style="color: red;">*</span></label>
-             <input type="text" id="school" name="school" formControlName="school" class="form-control" ngModel required>
-             <!-- <span class="description">Name of the college where you are selected/studing. Write full Address</span> -->
-             <div *ngIf="studentForm.controls['school'].invalid && studentForm.controls['school'].touched"  class="text-danger">field is required.</div>
-           </div>       
-           <div class="form-group">
-             <label for="sc_address">School & College Address<span style="color: red;">*</span></label>
-             <input type="text" id="sc_address" name="sc_address" formControlName="sc_address" class="form-control" ngModel required>
-             <div *ngIf="studentForm.controls['sc_address'].invalid && studentForm.controls['sc_address'].touched"  class="text-danger">field is required.</div>
-           </div>       
-             <div class="form-group">
-               <label for="grant_period">Grant required for the period of<span style="color: red;">*</span></label>
-               <select id="grant_period" formControlName="grant_period" class="form-control" ngModel>  
-                <!--  [(ngModel)]="selectedOption" (change)="onSelectionChange()" -->
-                <option value=""> Select</option>     
-                <option value="option2">3  Years</option>
-                 <option value="option3">5 Years</option>  
-                 <option value="option4">10 Years</option>             
-               </select>
-               <span class="description">Kindly select for how many years you required the grant</span>
-               <div *ngIf="studentForm.controls['grant_period'].invalid && studentForm.controls['grant_period'].touched"  class="text-danger">field is required.</div>
-              </div>           
-
-          <div class="form-group">
-            <label for="clg_fee">Annual College fees required per year (Rs)<span style="color: red;">*</span></label>
-            <input type="text" id="clg_fee" name="clg_fee" formControlName="clg_fee" class="form-control" ngModel required>
-            <div *ngIf="studentForm.controls['clg_fee'].invalid && studentForm.controls['clg_fee'].touched"  class="text-danger">field is required.</div>
-          </div>  
-          </div> 
-          <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">FATHER'S DETAILS</div>
-          <div class="form-row">
-            <div class="form-group">
-               <label for="father_name">Full Name<span style="color: red;">*</span></label>
-               <input type="text" id="father_name" name="father_name" formControlName="father_name" class="form-control" ngModel required>
-               <div *ngIf="studentForm.controls['father_name'].invalid && studentForm.controls['father_name'].touched"  class="text-danger">field is required.</div>
-             </div>
-             <div class="form-group">
-              <label for="father_number">Mobile Number<span style="color: red;">*</span></label>
-              <input type="text" id="father_number" name="father_number" formControlName="father_number" class="form-control" required>
-              <div *ngIf="studentForm.controls['father_number'].invalid && studentForm.controls['father_number'].touched"  class="text-danger">field is required.</div>
-            </div>
-             <!-- <div class="form-group">
-               <label for="father_aadhar">Aadhar<span style="color: red;">*</span></label>
-               <input type="file" id="father_aadhar" name="father_aadhar" formControlName="father_aadhar" class="form-control" ngModel required>
-               <div *ngIf="studentForm.controls['father_aadhar'].invalid && studentForm.controls['father_aadhar'].touched"  class="text-danger">field is required.</div>
-              </div> -->
-              <div  class="form-group">
-                <label for="father_aadhar">Aadhar<span style="color: red;">*</span></label>
-                  <button class="Update_file" (click)="fileInput.click()" formControlName="father_aadhar">
-                    <img src='/assets/fileupload.png' alt="">
-                    <label for="">Click to Upload</label>
-                    <input type="file" #fileInput style="display: none;" (change)="handleFileInput($event)">
-                  </button>
-                </div> 
-             <div class="form-group">
-              <label for="father_occupation">Father's Occupation<span style="color: red;">*</span></label>
-              <select id="father_occupation" formControlName="father_occupation" class="form-control" ngModel>  
-               <!--  [(ngModel)]="selectedOption" (change)="onSelectionChange()" -->
-               <option value=""> Select</option>     
-               <option value="option2">Agriculture</option>
-                <option value="option3">Business</option>  
-                <option value="option4">Government Sector </option> 
-                <option value="option5">Private Sector </option>             
-              </select>
-              <div *ngIf="studentForm.controls['father_occupation'].invalid && studentForm.controls['father_occupation'].touched"  class="text-danger">field is required.</div>
-             </div> 
-             <!-- <div class="form-group">
-              <label for="father_incomeproof">Proof of Income<span style="color: red;">*</span></label>
-              <input type="file" id="father_incomeproof" name="father_incomeproof" formControlName="father_incomeproof" class="form-control" ngModel required>
-              <span class="description">Bank Passbook / Bank Statement / Salary Slip</span> 
-              <div *ngIf="studentForm.controls['father_incomeproof'].invalid && studentForm.controls['father_incomeproof'].touched"  class="text-danger">field is required.</div>
-            </div> -->
-            <div  class="form-group">
-              <label for="father_incomeproof">Proof of Income<span style="color: red;">*</span></label>
-                <button class="Update_file" (click)="fileInput.click()" formControlName="father_incomeproof">
-                  <img src='/assets/fileupload.png' alt="">
-                  <label for="">Click to Upload</label>
-                  <input type="file" #fileInput style="display: none;" (change)="handleFileInput($event)">
-                </button>
-              </div> 
+      </div>
+      <!-- Father's details fields here -->
+      <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">FATHER'S
+        DETAILS</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fatherName">Full Name<span style="color: red;">*</span></label>
+          <input type="text" id="fatherName" name="fatherName" formControlName="fatherName" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['fatherName'].invalid && studentForm.controls['fatherName'].touched" class="text-danger">field is .</div> -->
         </div>
-        <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">MOTHER'S DETAILS</div>
-          <div class="form-row">
-            <div class="form-group">
-               <label for="mother_name">Full Name<span style="color: red;">*</span></label>
-               <input type="text" id="mother_name" name="mother_name" formControlName="mother_name" class="form-control" ngModel required>
-               <div *ngIf="studentForm.controls['mother_name'].invalid && studentForm.controls['mother_name'].touched"  class="text-danger">field is required.</div>
-             </div>
-             <div class="form-group">
-              <label for="mother_number">Mobile Number<span style="color: red;">*</span></label>
-              <input type="text" id="mother_number" name="mother_number" formControlName="mother_number" class="form-control" ngModel required>
-              <div *ngIf="studentForm.controls['mother_number'].invalid && studentForm.controls['mother_number'].touched"  class="text-danger">field is required.</div>
-            </div>
-             <!-- <div class="form-group">
-               <label for="mother_aadhar">Aadhar<span style="color: red;">*</span></label>
-               <input type="file" id="mother_aadhar" name="mother_aadhar" formControlName="mother_aadhar" class="form-control" ngModel required>
-               <div *ngIf="studentForm.controls['mother_aadhar'].invalid && studentForm.controls['mother_aadhar'].touched"  class="text-danger">field is required.</div>
-              </div> -->
-              <div  class="form-group">
-                <label for="mother_aadhar">Aadhar<span style="color: red;">*</span></label>
-                  <button class="Update_file" (click)="fileInput.click()" formControlName="mother_aadhar">
-                    <img src='/assets/fileupload.png' alt="">
-                    <label for="">Click to Upload</label>
-                    <input type="file" #fileInput style="display: none;" (change)="handleFileInput($event)">
-                  </button>
-                </div> 
-             <div class="form-group">
-              <label for="mother_occupation">Mother's Occupation<span style="color: red;">*</span></label>
-              <select id="mother_occupation" formControlName="mother_occupation" class="form-control" ngModel>  
-               <!--  [(ngModel)]="selectedOption" (change)="onSelectionChange()" -->
-               <option value=""> Select</option>               
-                <option value="option3">Business</option>  
-                <option value="option4">Government Sector </option> 
-                <option value="option5">Private Sector </option> 
-                <option value="option5">Home maker </option> 
-                 <option value="option2">other</option>           
-              </select>
-              <div *ngIf="studentForm.controls['mother_occupation'].invalid && studentForm.controls['mother_occupation'].touched"  class="text-danger">field is required.</div>
-             </div> 
-             <!-- <div class="form-group">
-              <label for="mother_incomeproof">Proof of Income<span style="color: red;">*</span></label>
-              <input type="file" id="mother_incomeproof" name="mother_incomeproof" formControlName="mother_incomeproof" class="form-control" ngModel required>
-              <span class="description">Bank Passbook / Bank Statement / Salary Slip</span>
-              <div *ngIf="studentForm.controls['mother_incomeproof'].invalid && studentForm.controls['mother_incomeproof'].touched"  class="text-danger">field is required.</div>
-            </div> -->
-            <div  class="form-group">
-              <label for="mother_incomeproof">Proof of Income<span style="color: red;">*</span></label>
-                <button class="Update_file" (click)="fileInput.click()">
-                  <img src='/assets/fileupload.png' alt="">
-                  <label for="">Click to Upload</label>
-                  <input type="file" #fileInput style="display: none;" (change)="handleFileInput($event)">
-                </button>
-              </div> 
+        <div class="form-group">
+          <label for="fatherNumber">Mobile Number<span style="color: red;">*</span></label>
+          <input type="text" id="fatherNumber" name="fatherNumber" formControlName="fatherNumber" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['fatherNumber'].invalid && studentForm.controls['fatherNumber'].touched" class="text-danger">field is .</div> -->
         </div>
-        <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">FAMILY DETAILS</div>
-          <div class="form-row">
-            <div class="form-group">
-               <label for="family_income">Family's Annual Income<span style="color: red;">*</span></label>
-               <input type="text" id="family_income" name="family_income" formControlName="family_income" class="form-control" ngModel required>
-               <div *ngIf="studentForm.controls['family_income'].invalid && studentForm.controls['family_income'].touched"  class="text-danger">field is required.</div>
-             </div>
-             <div class="form-group">
-              <label for="postal_addr">Postal Address & Pin Code<span style="color: red;">*</span></label>
-              <input type="text" id="postal_addr" name="postal_addr" formControlName="postal_addr" class="form-control" ngModel required>
-              <div *ngIf="studentForm.controls['postal_addr'].invalid && studentForm.controls['postal_addr'].touched"  class="text-danger">field is required.</div>
-            </div>
-            <div class="form-group">
-              <label for="dependents">Details of Dependent's in your family<span style="color: red;">*</span></label>
-              <select id="dependents" formControlName="dependents" class="form-control" ngModel>  
-               <!--  [(ngModel)]="selectedOption" (change)="onSelectionChange()" -->
-               <option value="option1">Please Select</option>     
-               <option value="option2">1</option>
-                <option value="option3">2</option>  
-                <option value="option4">3</option>      
-              </select>
-              <div *ngIf="studentForm.controls['dependents'].invalid && studentForm.controls['dependents'].touched"  class="text-danger">field is required.</div>
-             </div>   
-        
-             <div class="form-group">
-              <label for="association">Association<span style="color: red;">*</span></label>
-              <select id="association" formControlName="association" class="form-control" ngModel>  
-               <!--  [(ngModel)]="selectedOption" (change)="onSelectionChange()" -->
-               <option value=""> Select</option>     
-               <option value="option2">Yes</option>
-                <option value="option3">No</option>               
-              </select>
-               <span class="description">Are you or your family members connected with local prajapati community</span> 
-              <div *ngIf="studentForm.controls['association'].invalid && studentForm.controls['association'].touched"  class="text-danger">field is required.</div>
-             </div> 
-             <div class="form-group" >
-              <label for="organization">Details of Organization<span style="color: red;">*</span></label>
-              <input type="text" id="organization" name="organization" formControlName="organization" class="form-control" ngModel required>
-              <span class="description">If you or your family members connected with local prajapati community/Association.(Name,Address,Contact details of Organization / Society)</span>
-              <div *ngIf="studentForm.controls['organization'].invalid && studentForm.controls['organization'].touched"  class="text-danger">field is required.</div>
-            </div>
+
+        <div class="form-group">
+          <label for="adhaarNumber">Aadhar<span style="color: red;">*</span></label>
+          <button class="Update_file" (click)="fileInputadhaarNumber.click()" formControlName="adhaarNumber">
+            <img src='/assets/fileupload.png' alt="">
+            <label for="">Click to Upload</label>
+          </button>
+          <input type="file" #fileInputadhaarNumber style="display: none;"
+            (change)="handleFileInput($event,'adhaarNumber')">
+          <p *ngIf="fileName['adhaarNumber']">Selected file: {{ fileName['adhaarNumber'] }}</p>
         </div>
-        <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">REFERENCE-1</div>
-        <div style="text-align: center;padding-bottom: 20px;" >Reference of 2 well known persons of your local prajapati Community / Society</div>
-        <div class="form-row">
-          <div class="form-group">
-             <label for="ref_name1">Name<span style="color: red;">*</span></label>
-             <input type="text" id="ref_name1" name="ref_name1" formControlName="ref_name1" class="form-control" ngModel required>
-             <div *ngIf="studentForm.controls['ref_name1'].invalid && studentForm.controls['ref_name1'].touched"  class="text-danger">field is required.</div>
-           </div>       
-           <div class="form-group">
-             <label for="ref_mobile1">Mobile Number<span style="color: red;">*</span></label>
-             <input type="text" id="ref_mobile1" name="ref_mobile1" formControlName="ref_mobile1" class="form-control" ngModel required>
-             <div *ngIf="studentForm.controls['ref_mobile1'].invalid && studentForm.controls['ref_mobile1'].touched"  class="text-danger">field is required.</div>
-           </div>       
-             <div class="form-group">
-               <label for="ref_address1"> Address<span style="color: red;">*</span></label>
-               <input type="text" id="ref_address1" name="ref_address1" formControlName="ref_address1" class="form-control" ngModel required >
-               <div *ngIf="studentForm.controls['ref_address1'].invalid && studentForm.controls['ref_address1'].touched"  class="text-danger">field is required.</div>
-             </div>           
-         </div>
-         <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">REFERENCE-2</div>
-         <div style="text-align: center;padding-bottom: 20px;" >Reference of 2 well known persons of your local prajapati Community / Society</div>
-        <div class="form-row">
-          <div class="form-group">
-             <label for="ref_name2">Name<span style="color: red;">*</span></label>
-             <input type="text" id="ref_name2" name="ref_name2" formControlName="ref_name2" class="form-control" required>
-             <div *ngIf="studentForm.controls['ref_name2'].invalid && studentForm.controls['ref_name2'].touched"  class="text-danger">field is required.</div>
-           </div>       
-           <div class="form-group">
-             <label for="ref_mobile2">Mobile Number<span style="color: red;">*</span></label>
-             <input type="text" id="ref_mobile2" name="ref_mobile2" formControlName="ref_mobile2" class="form-control" ngModel required>
-             <div *ngIf="studentForm.controls['ref_mobile2'].invalid && studentForm.controls['ref_mobile2'].touched"  class="text-danger">field is required.</div>
-           </div>       
-             <div class="form-group">
-               <label for="ref_address2"> Address<span style="color: red;">*</span></label>
-               <input type="text" id="ref_address2" name="ref_address2" formControlName="ref_address2" class="form-control" ngModel  required >
-               <div *ngIf="studentForm.controls['ref_address2'].invalid && studentForm.controls['ref_address2'].touched"><span style="color:red">field is required.</span></div>
-             </div>           
-         </div>
-         <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">OTHER</div>
-        <div class="form-row">
-          <!-- <div class="form-group">
-             <label for="acc_details">Account Details<span style="color: red;">*</span></label>
-             <input type="file" id="acc_details" name="acc_details" formControlName="acc_details" class="form-control" ngModel required>
-             <span class="description">Student's bank Passbook / Student's bank Statement</span>
-             <div *ngIf="studentForm.controls['acc_details'].invalid && studentForm.controls['acc_details'].touched"  class="text-danger">field is required.</div>
-           </div>        -->
-           <div  class="form-group">
-            <label for="acc_details">Account Details
-              <span style="color: red;">*</span></label>
-              <button class="Update_file" (click)="fileInput.click()" >
-                <img src='/assets/fileupload.png' alt="">
-                <label for="">Click to Upload</label>
-                <input type="file" #fileInput style="display: none;" (change)="handleFileInput($event)">
-              </button>
-              <span class="description">Student's bank Passbook / Student's bank Statement</span>
-            </div> 
-           <div class="form-group">
-             <label for="clg_accountdetails">Account details of College<span style="color: red;">*</span></label>
-             <input type="text" id="clg_accountdetails" name="clg_accountdetails" formControlName="clg_accountdetails" class="form-control" ngModel required>
-             <span class="description">Account details of College where Grant Needed</span>
-             <div *ngIf="studentForm.controls['clg_accountdetails'].invalid && studentForm.controls['clg_accountdetails'].touched"  class="text-danger">field is required.</div>
-           </div>       
-             <div class="form-group">
-               <label for="clg_name"> College Name<span style="color: red;">*</span></label>
-               <input type="text" id="clg_name" name="clg_name" formControlName="clg_name" class="form-control" ngModel  required >
-               <div *ngIf="studentForm.controls['clg_name'].invalid && studentForm.controls['clg_name'].touched"  class="text-danger">field is required.</div>
-             </div>           
-          <div class="form-group">
-             <label for="clg_address">College Address<span style="color: red;">*</span></label>
-             <input type="text" id="clg_address" name="clg_address" formControlName="clg_address" class="form-control" ngModel required>
-             <div *ngIf="studentForm.controls['clg_address'].invalid && studentForm.controls['clg_address'].touched"  class="text-danger">field is required.</div>
-           </div>       
-           <div class="form-group">
-             <label for="clg_contactno">College Contact No<span style="color: red;">*</span></label>
-             <input type="text" id="clg_contactno" name="clg_contactno" formControlName="clg_contactno" class="form-control" ngModel required>
-             <div *ngIf="studentForm.controls['clg_contactno'].invalid && studentForm.controls['clg_contactno'].touched"  class="text-danger">field is required.</div>
-           </div>
-        </div> 
-          <div class="horizontal-line"></div>
-          <button type="submit"  style="background-color: #834333;padding: 10px;margin-bottom: 20px; border: none;height:50px;color: white;border-radius: 10px;width: 300px;margin-left: 430px; " (click)=onSubmit()>Submit</button>
-          <!-- [disabled]="studentForm.invalid" -->
-        </form> 
-        
-</div>
+        <div class="form-group">
+          <label for="fatherOccupation">Father's Occupation<span style="color: red;">*</span></label>
+          <select id="fatherOccupation" formControlName="fatherOccupation" class="form-control">
+            <option value=""> Select</option>
+            <option value="option2">Agriculture</option>
+            <option value="option3">Business</option>
+            <option value="option4">Government Sector </option>
+            <option value="option5">Private Sector </option>
+          </select>
+          <!-- <div *ngIf="studentForm.controls['fatherOccupation'].invalid && studentForm.controls['fatherOccupation'].touched" class="text-danger">field is .</div> -->
+        </div>
+
+        <div class="form-group">
+          <label for="proofofincome">Proof of Income<span style="color: red;">*</span></label>
+          <button class="Update_file" (click)="fileInputproofofincome.click()" formControlName="proofofincome">
+            <img src='/assets/fileupload.png' alt="">
+            <label for="">Click to Upload</label>
+          </button>
+          <input type="file" #fileInputproofofincome style="display: none;"
+            (change)="handleFileInput($event,'proofofincome')">
+          <p *ngIf="fileName['proofofincome']">Selected file: {{ fileName['proofofincome'] }}</p>
+        </div>
+      </div>
+
+      <!-- Mother's details fields here -->
+      <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">MOTHER'S
+        DETAILS</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="motherName">Full Name<span style="color: red;">*</span></label>
+          <input type="text" id="motherName" name="motherName" formControlName="motherName" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['motherName'].invalid && studentForm.controls['motherName'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="motherNumber">Mobile Number<span style="color: red;">*</span></label>
+          <input type="text" id="motherNumber" name="motherNumber" formControlName="motherNumber" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['motherNumber'].invalid && studentForm.controls['motherNumber'].touched" class="text-danger">field is .</div> -->
+        </div>
+
+        <div class="form-group">
+          <label for="motherAdhaarNumber">Aadhar<span style="color: red;">*</span></label>
+          <button class="Update_file" (click)="fileInputmotherAdhaarNumber.click()"
+            formControlName="motherAdhaarNumber">
+            <img src='/assets/fileupload.png' alt="">
+            <label for="">Click to Upload</label>
+          </button>
+          <input type="file" #fileInputmotherAdhaarNumber style="display: none;"
+            (change)="handleFileInput($event,'motherAdhaarNumber')">
+          <p *ngIf="fileName['motherAdhaarNumber']">Selected file: {{ fileName['motherAdhaarNumber'] }}</p>
+        </div>
+        <div class="form-group">
+          <label for="motherOccupation">Mother's Occupation<span style="color: red;">*</span></label>
+          <select id="motherOccupation" formControlName="motherOccupation" class="form-control">
+            <option value=""> Select</option>
+            <option value="option3">Business</option>
+            <option value="option4">Government Sector </option>
+            <option value="option5">Private Sector </option>
+            <option value="option5">Home maker </option>
+            <option value="option2">other</option>
+          </select>
+          <!-- <div *ngIf="studentForm.controls['motherOccupation'].invalid && studentForm.controls['motherOccupation'].touched" class="text-danger">field is .</div> -->
+        </div>
+
+        <div class="form-group">
+          <label for="motherProofOfIncome">Proof of Income<span style="color: red;">*</span></label>
+          <button class="Update_file" (click)="fileInputmotherProofOfIncome.click()"
+            formControlName="motherProofOfIncome">
+            <img src='/assets/fileupload.png' alt="">
+            <label for="">Click to Upload</label>
+          </button>
+          <input type="file" #fileInputmotherProofOfIncome style="display: none;"
+            (change)="handleFileInput($event,'motherProofOfIncome')">
+          <p *ngIf="fileName['motherProofOfIncome']">Selected file: {{ fileName['motherProofOfIncome'] }}</p>
+        </div>
+      </div>
+
+      <!-- Family details fields here -->
+      <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">FAMILY
+        DETAILS</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="familyAnnualIncome">Family's Annual Income<span style="color: red;">*</span></label>
+          <input type="text" id="familyAnnualIncome" name="familyAnnualIncome" formControlName="familyAnnualIncome"
+            class="form-control">
+          <!-- <div *ngIf="studentForm.controls['familyAnnualIncome'].invalid && studentForm.controls['familyAnnualIncome'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="pincode">Postal Address & Pin Code<span style="color: red;">*</span></label>
+          <input type="text" id="pincode" name="pincode" formControlName="pincode" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['pincode'].invalid && studentForm.controls['pincode'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="dependentsInTheFamily">Details of Dependent's in your family<span
+              style="color: red;">*</span></label>
+          <select id="dependentsInTheFamily" formControlName="dependentsInTheFamily" class="form-control">
+            <option value="option1">Please Select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <!-- <div *ngIf="studentForm.controls['dependentsInTheFamily'].invalid && studentForm.controls['dependentsInTheFamily'].touched" class="text-danger">field is .</div> -->
+        </div>
+
+        <div class="form-group">
+          <label for="isConnectedToPrajapathiCommunity">Association<span style="color: red;">*</span></label>
+          <select id="isConnectedToPrajapathiCommunity" formControlName="isConnectedToPrajapathiCommunity"
+            class="form-control">
+            <option value=""> Select</option>
+            <option value="yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <span class="description">Are you or your family members connected with local prajapati community</span>
+          <!-- <div *ngIf="studentForm.controls['isConnectedToPrajapathiCommunity'].invalid && studentForm.controls['isConnectedToPrajapathiCommunity'].touched" class="text-danger">field is .</div> -->
+        </div>
+      </div>
+
+      <!-- Reference 1 fields here -->
+      <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">
+        REFERENCE-1</div>
+      <div style="text-align: center;padding-bottom: 20px;">Reference of 2 well known persons of your local prajapati
+        Community / Society</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="refer1">Name<span style="color: red;">*</span></label>
+          <input type="text" id="refer1" name="refer1" formControlName="refer1" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['refer1'].invalid && studentForm.controls['refer1'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="refer1Contact">Mobile Number<span style="color: red;">*</span></label>
+          <input type="text" id="refer1Contact" name="refer1Contact" formControlName="refer1Contact"
+            class="form-control">
+          <!-- <div *ngIf="studentForm.controls['refer1Contact'].invalid && studentForm.controls['refer1Contact'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="refer1Address"> Address<span style="color: red;">*</span></label>
+          <input type="text" id="refer1Address" name="refer1Address" formControlName="refer1Address"
+            class="form-control">
+          <!-- <div *ngIf="studentForm.controls['refer1Address'].invalid && studentForm.controls['refer1Address'].touched" class="text-danger">field is .</div> -->
+        </div>
+      </div>
+
+      <!-- Reference 2 fields here -->
+      <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">
+        REFERENCE-2</div>
+      <div style="text-align: center;padding-bottom: 20px;">Reference of 2 well known persons of your local prajapati
+        Community / Society</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="refer2">Name<span style="color: red;">*</span></label>
+          <input type="text" id="refer2" name="refer2" formControlName="refer2" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['refer2'].invalid && studentForm.controls['refer2'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="refer2Contact">Mobile Number<span style="color: red;">*</span></label>
+          <input type="text" id="refer2Contact" name="refer2Contact" formControlName="refer2Contact"
+            class="form-control">
+          <!-- <div *ngIf="studentForm.controls['refer2Contact'].invalid && studentForm.controls['refer2Contact'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="refer2Address"> Address<span style="color: red;">*</span></label>
+          <input type="text" id="refer2Address" name="refer2Address" formControlName="refer2Address"
+            class="form-control">
+          <!-- <div *ngIf="studentForm.controls['refer2Address'].invalid && studentForm.controls['refer2Address'].touched" class="text-danger">field is .</div> -->
+        </div>
+      </div>
+
+      <!-- Other details fields here -->
+      <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">OTHER
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="studentAccountDetails">Account Details<span style="color: red;">*</span></label>
+          <button class="Update_file" (click)="fileInputstudentAccountDetails.click()"
+            formControlName="studentAccountDetails">
+            <img src='/assets/fileupload.png' alt="">
+            <label for="">Click to Upload</label>
+          </button>
+          <input type="file" #fileInputstudentAccountDetails style="display: none;"
+            (change)="handleFileInput($event,'studentAccountDetails')">
+          <p *ngIf="fileName['studentAccountDetails']">Selected file: {{ fileName['studentAccountDetails'] }}</p>
+          <span class="description">Student's bank Passbook / Student's bank Statement</span>
+        </div>
+        <div class="form-group">
+          <label for="collegeAccountDetails">Account details of College<span style="color: red;">*</span></label>
+          <input type="text" id="collegeAccountDetails" name="collegeAccountDetails"
+            formControlName="collegeAccountDetails" class="form-control">
+          <span class="description">Account details of College where Grant Needed</span>
+          <!-- <div *ngIf="studentForm.controls['collegeAccountDetails'].invalid && studentForm.controls['collegeAccountDetails'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="collegeName"> College Name<span style="color: red;">*</span></label>
+          <input type="text" id="collegeName" name="collegeName" formControlName="collegeName" class="form-control">
+          <!-- <div *ngIf="studentForm.controls['collegeName'].invalid && studentForm.controls['collegeName'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="collegeDetails">College Address<span style="color: red;">*</span></label>
+          <input type="text" id="collegeDetails" name="collegeDetails" formControlName="collegeDetails"
+            class="form-control">
+          <!-- <div *ngIf="studentForm.controls['collegeDetails'].invalid && studentForm.controls['collegeDetails'].touched" class="text-danger">field is .</div> -->
+        </div>
+        <div class="form-group">
+          <label for="collegeContact">College Contact No<span style="color: red;">*</span></label>
+          <input type="text" id="collegeContact" name="collegeContact" formControlName="collegeContact"
+            class="form-control">
+          <!-- <div *ngIf="studentForm.controls['collegeContact'].invalid && studentForm.controls['collegeContact'].touched" class="text-danger">field is .</div> -->
+        </div>
+      </div>
+
+      <div class="horizontal-line"></div>
+      <button type="submit"
+        style="background-color: #834333;padding: 10px;margin-bottom: 20px; border: none;height:50px;color: white;border-radius: 10px;width: 300px;margin-left: 430px;">Submit</button>
+    </form>
 
 
-
-
- 
+  </div>
