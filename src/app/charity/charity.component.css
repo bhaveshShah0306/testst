@@ -1,6 +1,4 @@
-h1{
-    color: #834333;
-}
+
 .content {
     display: flex;
     justify-content: space-between;
@@ -9,22 +7,22 @@ h1{
 .content .left-side {
    line-height: normal;
     height: auto;
-    width: 80%;
+    width: 100%;
     padding-left: 90px;
+    margin-top: 110px;
 }
 .content .right-side {
     width: 100%;
-    padding-right: 40px;
+    padding-left: 70px;
 }
 .btn1{
   background-color: #834333;
   color: white;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
-  margin: 25px 60px;
   width: 190px;
-  height:50px;
   border: none;
+  font-size: medium;
 }
 .form-sec{
 border: 2px solid lightgray;
@@ -66,7 +64,21 @@ box-shadow: none;
         border-top: 1px solid lightgray;
         margin-bottom: 20px ; 
     }
-
+    .content-sec1{
+      display: flex;
+      flex-direction: column;
+    }
+    .up-section {   
+      padding-top: 20px;
+        text-align: center;
+        width: 100%; 
+        background-color: #f0f0f0;
+       line-height: 1;
+    }
+     .down-section {       
+        width: 100%; 
+        background-color: #f0f0f0;
+     }   
 
 
 

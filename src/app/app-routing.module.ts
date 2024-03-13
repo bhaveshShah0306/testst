@@ -17,11 +17,11 @@ const routes: Routes = [
     { path:'charity', component: CharityComponent},
     { path:'career', component: CareerComponent},
     {path:'contact',component:ContactComponent},
-    {path:'becomemember',component:BecomememberComponent},
+    //{path:'becomemember',component:BecomememberComponent},
       ]
     },
     
-       { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+     //  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
 ];
 
 @NgModule({

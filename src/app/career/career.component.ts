@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./career.component.css']
 })
 export class CareerComponent {
-
+  constructor(){
+  
+  }
+  ngOnInit(): void { 
+  
+  }
 }
