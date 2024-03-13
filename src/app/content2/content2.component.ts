@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { EventserviceService } from '../eventservice.service';
+import { environment } from 'src/environment/environment';
 declare var bootstrap: any;
 @Component({
   selector: 'app-content2',
@@ -6,8 +8,13 @@ declare var bootstrap: any;
   styleUrls: ['./content2.component.css']
 })
 export class Content2Component {
+  baseurl: string;
+  eventdata: any;
 
-  constructor() { }
+  constructor(private service :EventserviceService)
+{
+  this.baseurl = environment.backendAPIURL;
+}
   ngOnInit(): void {
     // Initialize the carousel and set the interval
     var myCarousel = document.getElementById('demo');
@@ -32,4 +39,16 @@ export class Content2Component {
   toggle2(): void {
     this.AdditionalContent2 = !this.AdditionalContent2;
   }
+
+  getevents(){
+    debugger;
+    this.service.getevents().subscribe(apidata=>{
+      this.eventdata = apidata.data;
+    })
+  }
+
+  encodeURIComponentMethod(value: string): string {
+    return encodeURIComponent(value);
+ }
+
 }

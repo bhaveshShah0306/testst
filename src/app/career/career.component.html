@@ -12,10 +12,12 @@
        line-height: normal;
         height: auto;    
         width: 90%; 
-        padding-left: 90px;      
+        padding-left: 90px;  
+        margin-top: 90px;    
     }
      .right-side {       
-        width: 120%;   
+       margin-top: 30px;
+        width: 100%;   
         padding-right: 50px;
     }
     .left-sec{
@@ -27,42 +29,86 @@
       line-height: normal;
         height: auto;    
         width: 80%; 
-      
+       padding-right: 30px;
     }
     .btn1{
       background-color: #834333;
       color: white;
-      padding: 10px;
       border-radius: 10px;
-      margin: 25px 60px;
+      margin-top: 8px;
       width: 190px;
-      height:50px; 
+      height:45px; 
       border: none;
+      font-size: medium;
     }
-   
-    
+.form-member{
+border: 1px solid black;
+  border-radius: 20px;
+  width: 60%; 
+  margin: 10px auto 30px; 
+
+}
+.form-row {
+/* margin-bottom: 60px; */
+/* column-count: 2; */
+
+display: flex;
+flex-wrap: wrap;
+/* justify-content: space-between; */
+  }
+  .form-group {
+ flex: 1;
+  padding: 20px;
+}
+ input[type=text],input[type=email],input[type=date], select{ 
+border: none;
+outline: none;
+border-bottom: 2px solid #f0f0f0;
+border-radius: 0%;
+height: 45px;
+}
+ input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,select:focus,input[type=file] { 
+border-bottom-color: black;
+box-shadow: none;
+} 
+ .btn{
+  background-color: #834333;
+  margin-bottom: 20px;
+   border: none;
+  height:50px;
+  color: white;
+  border-radius: 10px;
+  width: 200px;
+ /* align-items: center;
+   display: flex;
+  justify-content: center; */
+  margin-left: 300px;
+ }   
+ .btn:hover{
+  background-color: #834333;
+ }
 </style>
 <div class="content">
-    <div class="left-side">   <br><br>                 
-      <h6 style="color: #834333;">WELCOME TO </h6>
-      <p class="d" style="font-size: 55px;"><strong><span style="color: #834333;">Empowering</span> communities for a better <span style="color: #834333;">tomorrow</span>.</strong></p>
-      <div >For over a decade, Community.co has pioneered and growth to become the global leader of proffesional communities of influence.</div>                   
-      <button  class="btn1">Become A Member</button>                 
+    <div class="left-side">                  
+     
+      <p class="d" style="font-size: 55px;letter-spacing:1.5">Step into the Future with the<span style="color: #834333;"><strong> Prajapathi Foundation</strong></span></p>
+      <p style=" font-size: 16px;">Join our community: Embrace the journey to support, learn, and grow with the Prajapathi Foundation.</p>                   
+      <!-- <button  class="btn1">Become A Member</button>                  -->
      </div>           
      <div class="right-side">
-        <img src="/assets/Frame 427319477.png" alt="image"  class="d-block" style="width:100%;height: 500px;">       
+        <img src="/assets/Frame 427319477.png" alt="image"  class="d-block" style="width:100%;height: 570px;">       
      </div>                     
  </div> 
- <img src="/assets/cloud.png" alt="image"  style=" height: 200px;background-color: #f0f0f0;width:100%"> 
- <div class="content1" style="background-color: white;">
+ <img src="/assets/cloud.png" alt="image"  style="background-color: #f0f0f0;width:100%"> 
+ <!-- <div class="content1" style="background-color: white;">
   <div class="left-sec">
-    <img src="/assets/Frame 75.png" alt="image"  class="d-block" style="width:100%;height: 450px;">       
+    <img src="/assets/Frame 75.png" alt="image"  class="d-block" style="width:90%;height: 450px;">       
  </div>       
     <div class="right-sec">   <br><br>                 
       <p class="d" style="font-size: 40px;"><strong>Our <span style="color: #834333;">Mission</span></strong></p>
-      <p style="font-size: 20px;padding-right: 20px;">Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
+      <p style="font-size: 17px;line-height: normal;letter-spacing: 0.9px;">Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
         For over a decade, Community.co has pioneered and growth to become the global leader of proffesional communities of influence.
-    </p><p style="font-size: 20px;padding-right: 20px;">Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
+        <br><br>Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
         For over a decade, Community.co has pioneered and growth to become the global leader of proffesional communities of influence.
     </p>    
       <button  class="btn1">Become A Member</button>                 
@@ -72,18 +118,62 @@
  <div class="content2" style="background-color: white;">
     <div class="left-side">   <br><br>                 
       <p class="d" style="font-size: 40px;"><strong>Our <span style="color: #834333;">Vision</span></strong></p>
-      <p style="font-size: 20px;">Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
+      <p style="font-size: 17px;padding-right: 20px;">Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
         For over a decade, Community.co has pioneered and growth to become the global leader of proffesional communities of influence.
-    </p><p style="font-size: 20px;padding-right: 20px;">Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
+        <br><br>Lorem ipsum dolor sit amet,consectetur elit,sed doeiusmod tempor, incididunt ut labore  et dolore magna aliqua.
         For over a decade, Community.co has pioneered and growth to become the global leader of proffesional communities of influence.
     </p>                   
       <button  class="btn1">Become A Member</button>                 
      </div>           
      <div class="right-side">
-        <img src="/assets/Frame 76.png" alt="image"  class="d-block" style="width:100%;height: 500px; padding-top: 30px;">       
+        <img src="/assets/Frame 76.png" alt="image"  class="d-block" style="width:100%;height: 490px; padding-top: 30px;">       
      </div>                     
- </div> 
+ </div>  -->
+ <h1 style="text-align: center; color: #834333;margin-top: 20px;"><strong>Become a Member</strong></h1>
+ <p style="text-align: center;color: #666;">Please, fill the form to become a member in prajapati</p>
+ <div class="form-member">
+   <form  >
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name">Name<span style="color: red;">*</span></label>
+        <input type="text" formControlName="name" class="form-control" id="name">
+        <!-- <p *ngIf="memberForm.get('memberForm')?.hasError('required') && memberForm.get('memberForm')?.touched" class="text-danger"> Name is required</p> -->
+      </div>
+      <div class="form-group">
+        <label for="mbl_number">Mobile Number<span style="color: red;">*</span></label>
+        <input type="text" formControlName="mbl_number" class="form-control" id="mbl_number">      
+      </div>
+      
+    </div>
+    
+      <div class="form-row">
+        <div class="form-group">
+          <label for="country">Country<span style="color: red;">*</span></label>
+          <input type="text" formControlName="country" class="form-control" id="country">      
+        </div> 
+        <div class="form-group">
+          <label for="city">City<span style="color: red;">*</span></label>
+          <input type="text" formControlName="city" class="form-control" id="city">      
+        </div>  
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email<span style="color: red;">*</span></label>
+          <input type="text" formControlName="email" class="form-control" id="email">      
+        </div>
+       
+      </div>
+    <div class="form-row">
+     <div class="form-group">
+        <label for="address">Address<span style="color: red;">*</span></label>
+        <input type="text" formControlName="address" class="form-control" id="address">      
+      </div>
+      
+      
+    </div>
+    <button type="submit" class="btn">Submit</button>
 
+  </form>
+  </div>
 
-<router-outlet></router-outlet>
 
