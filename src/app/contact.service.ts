@@ -4,7 +4,7 @@ import { HttpResponseService } from './http-response.service';
 import { Router } from '@angular/router';
 import { environment } from 'src/environment/environment';
 import { contact } from './model/contact.model';
-import { catchError, map, of } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ContactService extends HttpResponseService{
      protected baseUrl = environment.backendAPIURL;
   constructor(private http:HttpClient,private router:Router ) { 
   super(http)}
-     SaveContactUsData(data: contact) {
+     SaveContactUsData(data: any):Observable<any> {
       const token ="";
 
       // Set up the headers with the bearer token
@@ -22,7 +22,7 @@ export class ContactService extends HttpResponseService{
         Authorization: `Bearer ${token}`,
       });
       var url = `${this.baseUrl}ContactUs`
-      return this.http.post<contact>(`url`,data, { headers: headers })
+      return this.http.post<contact>(url,data, { headers: headers })
       .pipe(
         map(res => {
           return this.formatHttpOkResponse<contact>(res);

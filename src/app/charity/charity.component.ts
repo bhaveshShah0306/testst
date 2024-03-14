@@ -208,8 +208,8 @@ onMobileInput6(event:any){
  onSubmit() {
   debugger;
   console.log(this.studentForm.controls)
-   this.studentForm.markAllAsTouched()
-    if (this.studentForm.valid) {
+  //  this.studentForm.markAllAsTouched()
+  
 
       let prajapathicommunity = false; // Assuming the default value is false
 
@@ -283,8 +283,6 @@ onMobileInput6(event:any){
         });
       }
     );
- } else {
-    console.log("Form is invalid");
- }
+ 
 }
 }

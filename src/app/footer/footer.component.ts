@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EmailService } from '../email.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { EmailService } from '../email.service';
 export class FooterComponent {
   email: string='';
  
-  constructor(private emailservice: EmailService) { }
+  constructor(private emailservice: EmailService,private router : Router) { }
 
   onSubmitEmail(): void {
     console.log(this.email);
@@ -20,5 +21,10 @@ export class FooterComponent {
         
          this.email = '';      
        }
+
+
+       onclicklogo(){
+        this.router.navigateByUrl('/Home')
+      }
   }
 

@@ -1,0 +1,130 @@
+       .content {
+        display: flex;
+        justify-content: space-between;
+        background-color: #f0f0f0;
+    }
+
+    .content1 {
+        display: flex;
+        justify-content: space-between; /* Adjust space between the children */
+        align-items: start; /* Align items to the start of the container */
+        flex-wrap: wrap; /* Allows wrapping if the viewport is too narrow */
+    }
+    
+
+    .left-sec, .right-sec {
+        flex: 1; /* Allows the item to grow to fill the space */
+        max-width: calc(50% - 20px); /* Assumes a gap of 40px between items */
+        box-sizing: border-box; /* Include padding and border in the element's total width */
+    }
+    
+
+    .left-side, .right-sec {
+        line-height: normal;
+        height: auto;
+        padding-left: 90px;
+        margin-top: 90px;
+        width: 80%; /* Adjusted for consistency */
+    }
+
+    .right-side {
+        width: 100%;
+    }
+    .btn1{
+      background-color: #834333;
+      color: white;
+      border-radius: 10px;
+      width: 180px;
+      height:45px;
+      border: none;
+      font-size: medium;
+    }
+   .right-sec{
+    margin-top: 90px;
+    padding: 30px;
+     margin-right: 70px;
+     /* margin-bottom: 40px; */
+     width: 80%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+   background-color: #FFF5EE;
+   }
+   .left-sec {
+       line-height: normal;
+        height: auto;
+        width: 100%;
+        padding-left: 90px;
+    }
+
+input[type=text],input[type=email]{
+  width: 85%;
+   height: 40px; 
+  padding: 12px 20px;
+  margin: 8px 0;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #f0f0f0;
+  background-color: #FFF5EE;
+  box-shadow: none;
+  border-radius: 0%;
+}
+input[type=text]:focus,input[type=email]:focus {
+  border-bottom-color: black;
+  outline: none;
+}
+.sec1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjust based on your design preference */
+    gap: 20px; /* Provides space between the blocks */
+}
+
+.block {
+    flex: 1 1 calc(50% - 20px); /* Allows shrinking and growing but starts at less than half */
+    max-width: calc(50% - 20px); /* Ensures that the max width also accounts for the gap */
+}
+
+
+
+@media (max-width: 768px) {
+        .content, .content1 {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left-side, .right-sec {
+            width: 90%; /* Wider on small screens for better use of space */
+            padding-left: 15px; /* Less padding on smaller screens */
+            margin-top: 50px;
+        }
+        .left-sec, .right-sec {
+            flex-basis: 100%; /* Each section takes full width */
+            max-width: 100%;
+            padding-left: 15px; /* Adjust padding as necessary */
+            padding-right: 15px;
+        }
+        .sec1 {
+            justify-content: center; /* Center-align blocks for visual appeal on smaller screens */
+        }
+    
+        .block {
+            flex-basis: calc(50% - 20px); /* Two blocks per row on smaller screens */
+            max-width: calc(50% - 20px);
+        }
+        
+    }
+
+    /* You can add more breakpoints as needed, for example for very small screens */
+    @media (max-width: 480px) {
+        .left-side, .right-sec {
+            width: 100%; /* Use the full width on very small screens */
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        .block {
+            flex-basis: 100%; /* Full width for mobile */
+            max-width: 100%;
+        }
+    }

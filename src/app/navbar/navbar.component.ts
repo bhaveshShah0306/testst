@@ -12,5 +12,7 @@ export class NavbarComponent {
 login(){
   this.router.navigateByUrl('/login')
 }
-
+onclicklogo(){
+  this.router.navigateByUrl('/Home')
+}
 }

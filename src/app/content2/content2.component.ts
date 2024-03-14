@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EventserviceService } from '../eventservice.service';
 import { environment } from 'src/environment/environment';
+import { Router } from '@angular/router';
 declare var bootstrap: any;
 @Component({
   selector: 'app-content2',
@@ -11,7 +12,7 @@ export class Content2Component {
   baseurl: string;
   eventdata: any;
 
-  constructor(private service :EventserviceService)
+  constructor(private service :EventserviceService , private router : Router)
 {
   this.baseurl = environment.backendAPIURL;
 }
@@ -50,5 +51,7 @@ export class Content2Component {
   encodeURIComponentMethod(value: string): string {
     return encodeURIComponent(value);
  }
-
+ onclickmembership(){
+this.router.navigateByUrl("/Membership")
+ }
 }

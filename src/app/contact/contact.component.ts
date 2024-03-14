@@ -27,9 +27,20 @@ export class ContactComponent {
     debugger;
     this.submitted=true;
     if (this.contactForm.valid) {
+
+      var obj={
+        contactUsId: 0,
+        firstName:val.fname,
+        lastName:val.lname,
+        email:val.email,
+        message:val.message
+      }
+      
      // console.log('Form submitted:', this.contactForm.value);
-      this.service.SaveContactUsData(this.contactForm.value);
-      this.contactForm.reset();
+      this.service.SaveContactUsData(obj).subscribe(apidata=>{
+        window.alert("Form Submitted Success");
+        this.contactForm.reset();
+      })
     };
   } 
 

@@ -12,11 +12,11 @@ const routes: Routes = [
   {path:'', 
   component:LayoutcomponentComponent,
    children:[ 
-    { path:'', redirectTo:'content2', pathMatch:'full'},
-    { path:'content2', component: Content2Component},
-    { path:'charity', component: CharityComponent},
-    { path:'career', component: CareerComponent},
-    {path:'contact',component:ContactComponent},
+    { path:'', redirectTo:'Home', pathMatch:'full'},
+    { path:'Home', component: Content2Component},
+    { path:'Services', component: CharityComponent},
+    { path:'Membership', component: CareerComponent},
+    {path:'Contact',component:ContactComponent},
     //{path:'becomemember',component:BecomememberComponent},
       ]
     },
