@@ -29,6 +29,7 @@ border: 2px solid lightgray;
 border-radius: 20px;
 width: 90%;
 margin-left: 65px;
+margin-bottom: 10px;
 }
 .form-row {
 /* margin-bottom: 60px; */
@@ -40,17 +41,17 @@ flex-wrap: wrap;
 /* justify-content: space-between; */
   }
   .form-group {
-flex: 0 0 calc(31% - 10px); 
- margin-right: 20px; 
-margin-bottom: 40px;  
+flex: 0 0 calc(31% - 10px);
+ margin-right: 20px;
+margin-bottom: 40px;
 }
-input[type=text],input[type=email],input[type=date], select{ 
+input[type=text],input[type=email],input[type=date], select{
 border: none;
 outline: none;
 border-bottom: 2px solid #f0f0f0;
 border-radius: 0%;
 }
- input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,select:focus,input[type=file] { 
+ input[type=text]:focus,input[type=email]:focus,input[type=date]:focus,select:focus,input[type=file] {
 border-bottom-color: black;
 box-shadow: none;
 }
@@ -62,23 +63,23 @@ box-shadow: none;
 }
 .horizontal-line {
         border-top: 1px solid lightgray;
-        margin-bottom: 20px ; 
+        margin-bottom: 20px ;
     }
     .content-sec1{
       display: flex;
       flex-direction: column;
     }
-    .up-section {   
+    .up-section {
       padding-top: 20px;
         text-align: center;
-        width: 100%; 
+        width: 100%;
         background-color: #f0f0f0;
        line-height: 1;
     }
-     .down-section {       
-        width: 100%; 
+     .down-section {
+        width: 100%;
         background-color: #f0f0f0;
-     }   
+     }
 
 
 
@@ -94,4 +95,41 @@ padding-top: 20px;
 .upload-icon {
     height: 20px; /* Adjust size as needed */
    }
+   .button-container{
+    display: flex;
+    justify-content: center;
+   }
+   .button{
+    background-color: #834333;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    height:50px;
+    color: white;
+    border-radius: 10px;
+    width: 300px;
+    /* margin-left: 430px; */
+   }
+
+   @media (max-width: 480px) {
+     .form-sec{
+      border: 2px solid lightgray;
+      border-radius: 20px;
+      width: 90%;
+      /* margin-left: 10px; */
+      margin-bottom: 10px;
+      }
    
+  
+   }
+   @media (max-width: 768px) {
+    .form-sec{
+      border: 2px solid lightgray;
+      border-radius: 20px;
+      width: 90%;
+      margin-left: 25px;
+      margin-bottom: 10px;
+     
+    }
+    
+   }
