@@ -3,11 +3,15 @@
 
 
 <main class="main">
-  <div class="container-fluid ">
-    <nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg " style="justify-content: space-evenly;">
+
+        <!-- Logo for mobile view -->
+      <img class="d-lg-none" style="cursor: pointer;" height="50" width="100" (click)="onclicklogo()" src="/assets/Logo.png" alt="image">
+
       <!-- Hamburger Menu Toggle Button -->
-      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarSupportedContent" aria-expanded="!isMenuCollapsed" aria-label="Toggle navigation" style="color: #cb8372;">
-        <span style="color: #cb8372;" class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" style="margin-right: -114px;" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarSupportedContent" aria-expanded="!isMenuCollapsed" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
 
       <!-- Navbar Links -->
