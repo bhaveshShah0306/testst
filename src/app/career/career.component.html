@@ -3,7 +3,7 @@
     h1{
         color: #834333;
     }
-    .content, .content1, .content2 {
+    .content {
         display: flex; 
         justify-content: space-between;
         background-color: #f0f0f0;
@@ -20,27 +20,7 @@
         width: 100%;   
         padding-right: 50px;
     }
-    .left-sec{
-      padding-top: 10px;
-      width: 100%;   
-      padding-left: 60px;
-    }
-    .right-sec{
-      line-height: normal;
-        height: auto;    
-        width: 80%; 
-       padding-right: 30px;
-    }
-    .btn1{
-      background-color: #834333;
-      color: white;
-      border-radius: 10px;
-      margin-top: 8px;
-      width: 190px;
-      height:45px; 
-      border: none;
-      font-size: medium;
-    }
+
 .form-member{
 border: 1px solid black;
   border-radius: 20px;
@@ -71,6 +51,10 @@ height: 45px;
 border-bottom-color: black;
 box-shadow: none;
 } 
+.button-container {
+  display: flex;
+  justify-content: center;
+}
  .btn{
   background-color: #834333;
   margin-bottom: 20px;
@@ -81,17 +65,58 @@ box-shadow: none;
   width: 200px;
  /* align-items: center;
    display: flex;
-  justify-content: center; */
-  margin-left: 300px;
+  justify-content: center; 
+  margin-left: 300px;*/
  }   
  .btn:hover{
   background-color: #834333;
+ }
+ @media (max-width: 768px) {
+  /* .btn{
+  background-color: #834333;
+  margin-bottom: 20px;
+   border: none;
+  height:50px;
+  color: white;
+  border-radius: 10px;
+  width: 200px;
+ margin-left: 120px;
+  } */
+  .content {
+        display: flex; 
+        flex-direction: column;
+        background-color: #f0f0f0;
+    }
+    .left-side, .right-side {   
+       line-height: normal;
+        width: 100%; 
+        padding-left: 10px;  
+        margin-top: 30px;    
+    }
+ }
+
+ @media (max-width: 480px) {
+
+  .content {
+        display: flex; 
+        /* justify-content: space-between; */
+        flex-direction: column;
+        background-color: #f0f0f0;
+    }
+     .left-side, .right-side {   
+       line-height: normal;
+        width: 100%; 
+        padding-left: 10px;  
+        margin-top: 30px;    
+    }
+     
+   
  }
 </style>
 <div class="content">
     <div class="left-side">                  
      
-      <p class="d" style="font-size: 55px;letter-spacing:1.5">Step into the Future with the<span style="color: #834333;"><strong> Prajapathi Foundation</strong></span></p>
+      <p class="d" style="font-size: 55px;letter-spacing:1.2;font-family: Verdana;">Step into the Future with the<span style="color: #834333;"><strong> Prajapathi Foundation</strong></span></p>
       <p style=" font-size: 16px;">Join our community: Embrace the journey to support, learn, and grow with the Prajapathi Foundation.</p>                   
       <!-- <button  class="btn1">Become A Member</button>                  -->
      </div>           
@@ -144,8 +169,9 @@ box-shadow: none;
         <input type="text" formControlName="country" class="form-control" id="country">      
       </div>  
     </div>
+    <div class="button-container">
     <button type="submit" class="btn" (click)="onsubmit(this.membership.value)">Submit</button>
-
+</div>
   </form>
   </div>
 
