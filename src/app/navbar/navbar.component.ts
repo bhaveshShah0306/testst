@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  isMenuCollapsed = true;
   constructor(private router : Router){}
 login(){
   this.router.navigateByUrl('/login')

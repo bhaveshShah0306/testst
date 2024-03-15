@@ -1,0 +1,43 @@
+/* General Styles */
+.nav-link {
+    font-family: Arial;
+    font-size: 15px;
+  }
+  
+  .main {
+    background-color: #f0f0f0;
+  }
+  
+  /* Center Navbar Brand and Links on Large Screens */
+  .navbar {
+    justify-content: center; /* Centers the navbar content */
+  }
+  
+  .navbar-nav {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .navbar-collapse {
+    justify-content: center;
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 992px) {
+    .navbar-toggler {
+      display: block; /* Show the toggler on smaller screens */
+    }
+  
+    .navbar-nav {
+      flex-direction: column; /* Stack the nav items vertically on smaller screens */
+    }
+  
+    .nav-item img {
+      width: 60px; /* Adjust based on preference */
+    }
+  
+    .nav-link, .navbar-nav .nav-item {
+      margin: 8px 0; /* Adjust for better touch targets */
+    }
+  }
+  
