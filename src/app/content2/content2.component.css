@@ -5,7 +5,7 @@ h1{
   .d{
     text-align: center;
   }
-  .content2, .card-container{
+  .content2{
         display: flex; 
         justify-content: space-between;
   }
@@ -34,6 +34,8 @@ h1{
       
     }
     .card-container{
+      display: flex; 
+      justify-content: space-between;
       margin-left: 50px;
      margin-right: 50px;
      margin-bottom: 40px;
@@ -238,7 +240,7 @@ h1{
               height: auto;    
               width: 90%; 
               background-color: #f0f0f0;
-              padding: 10px;
+              /* padding: 10px; */
               margin-top: 10px; 
           }
           .left-side {    
@@ -256,21 +258,34 @@ h1{
         }
     }
     @media (max-width: 480px) {
-        .card-container{
-            margin-left: 5px;
-           margin-right: 5px;
+        /* .card-container{
+            /* margin-left: 2px;
+           margin-right: 2px; *
            margin-bottom: 10px;
-          }
+          } 
     .card1,.card2, .card3, .card4,.card5, .card6{
         background-color: white;
-        width: 70%; 
+        /* width: 70%;     
         padding: 20px; 
         margin-left:5px; 
+        margin-bottom: 10px;*
+        width: 50%;
         border-radius: 10px;
-        margin-bottom: 10px;
         height: auto;
-    }
-    .content1,.content3,.content2 {
+    } */
+     .card-container {
+    flex-wrap: wrap;
+    justify-content: center; /* Center cards horizontally */
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .card1, .card2, .card3, .card4, .card5, .card6 {
+    width: 100%; /* Occupy full width */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+  }
+    .content1,.content3,.content2{
         display: flex; 
         flex-direction: column;
         background-color: #f0f0f0;
@@ -280,7 +295,8 @@ h1{
         line-height: normal;
           height: auto;    
           width: 100%; 
-         padding:0 10px;   
+         padding:0 10px; 
+         padding-left: 5px;  
       }
       .left-sec1{
         padding-top: 10px;
@@ -303,8 +319,7 @@ h1{
         width: 100%; 
         background-color:white;
          padding-left: 40px;   
-         height: 350px;       
-        /* margin-left:80px;           */
+      
     }
      .right-side {      
         width: 100%; 
@@ -315,4 +330,29 @@ h1{
     .half-circle{
         margin-top: 10px;
     }
+    .content-sec {
+      display: flex; 
+      flex-direction: column;
+      background-color: #f0f0f0;
+      padding-left: 2px;
+  }
+    .left-sec {    
+      line-height: normal;
+        height: auto;   
+        background-color: #f0f0f0;
+        width: 100%;
+        padding-left:-5px;
     }
+     .right-sec {       
+        width: 100%; 
+        background-color:  #f0f0f0;;  
+        margin-top: 15px;
+    }
+    body {
+      overflow: hidden;
+      overflow-y: auto;
+    }
+  }
+   
+   
+  
