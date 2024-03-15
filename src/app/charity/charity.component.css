@@ -32,19 +32,18 @@ margin-left: 65px;
 margin-bottom: 10px;
 }
 .form-row {
-/* margin-bottom: 60px; */
-column-count: 3;
-padding-left: 20px;
-padding-right: 15px;
+  padding-left: 20px;
+padding-right: 20px;
+/* column-count: 3; 
+
 display: flex;
-flex-wrap: wrap;
-/* justify-content: space-between; */
+flex-wrap: wrap;*/
   }
-  .form-group {
-flex: 0 0 calc(31% - 10px);
+/*  .form-group {
+ flex: 0 0 calc(31% - 10px); 
  margin-right: 20px;
 margin-bottom: 40px;
-}
+}*/
 input[type=text],input[type=email],input[type=date], select{
 border: none;
 outline: none;

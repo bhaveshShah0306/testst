@@ -17,11 +17,11 @@ export class Content2Component {
   this.baseurl = environment.backendAPIURL;
 }
   ngOnInit(): void {
-    // Initialize the carousel and set the interval
-    var myCarousel = document.getElementById('demo');
-    var carousel = new bootstrap.Carousel(myCarousel, {
-      interval: 3000 // Set the interval to 2 seconds (2000 milliseconds)
-    });
+    // // Initialize the carousel and set the interval
+    // var myCarousel = document.getElementById('demo');
+    // var carousel = new bootstrap.Carousel(myCarousel, {
+    //   interval: 3000 // Set the interval to 3 seconds (2000 milliseconds)
+    // });
   }
   showAdditionalContent: boolean = false;
   AdditionalContent: boolean = false;
