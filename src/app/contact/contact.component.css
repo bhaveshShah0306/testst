@@ -41,6 +41,7 @@
     }
    .right-sec{
     margin-top: 90px;
+    margin-left: 20px;
     padding: 30px;
      margin-right: 70px;
      /* margin-bottom: 40px; */
@@ -58,8 +59,8 @@
     }
 
 input[type=text],input[type=email]{
-  width: 85%;
-   height: 40px; 
+  /* width: 85%; */
+   /* height: 40px;  */
   padding: 12px 20px;
   margin: 8px 0;
   outline: none;

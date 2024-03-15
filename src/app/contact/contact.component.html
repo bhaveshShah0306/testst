@@ -59,28 +59,28 @@
     <div class="right-sec">
 
       <form [formGroup]="contactForm" >
-        <div class="form-group">
+        <div class="form-group col-md-12 mb-4 px-3">
           <label for="fname">First Name</label>
           <input type="text" id="fname" formControlName="fname" class="form-control" required>
           <div *ngIf="contactForm.controls['fname'].touched && contactForm.controls['fname'].invalid" class="text-danger">
             <div *ngIf="contactForm.controls['fname'].errors?.['required']">First Name is required.</div>
            </div>
        </div>
-        <div class="form-group">
+        <div class="form-group col-md-12 mb-4 px-3">
           <label for="lname">Last Name</label>
           <input type="text" id="lname" formControlName="lname" class="form-control" >
           <div *ngIf="contactForm.controls['lname'].touched && contactForm.controls['lname'].invalid" class="text-danger">
             <div *ngIf="contactForm.controls['lname'].errors?.['required']">Last Name is required.</div>
            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-12 mb-4 px-3">
           <label for="email">Email</label>
           <input type="email" id="email" formControlName="email" class="form-control" >
           <div *ngIf="contactForm.controls['email'].touched && contactForm.controls['email'].invalid" class="text-danger">
             <div *ngIf="contactForm.controls['email'].errors?.['required']">Email is required.</div>
            </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-12 mb-4 px-3">
           <label for="message">Message</label>
           <input type="text" id="message" formControlName="message" class="form-control">
           <div *ngIf="contactForm.controls['message'].touched && contactForm.controls['message'].invalid" class="text-danger">
