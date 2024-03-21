@@ -118,7 +118,10 @@ padding-top: 20px;
       /* margin-left: 10px; */
       margin-bottom: 10px;
       }
-   
+      body {
+        overflow: hidden;
+        overflow-y: auto;
+      }
   
    }
    @media (max-width: 768px) {
@@ -130,5 +133,5 @@ padding-top: 20px;
       margin-bottom: 10px;
      
     }
-    
+   
    }

@@ -1,4 +1,8 @@
 <style>
+   body {
+      overflow: hidden;
+      overflow-y: auto;
+    }
   .footer {
     position: relative;
     text-align: center;
@@ -107,7 +111,13 @@
       /* This style is not necessary as text-align:center in the parent takes effect */
     }
   }
-
+  @media (max-width: 480px) {
+    .block1 img {
+    width: 100%; /* Set image width to 100% of container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 450px; /* Limit maximum width to 450px */
+  }
+  }
   .helpfullink {
     display: flex;
     justify-content: space-between;
