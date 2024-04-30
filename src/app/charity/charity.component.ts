@@ -135,7 +135,7 @@ refer2Address:new FormControl(''),
   //   this.toastr.success('Hello world!', 'Toastr fun!');
   // }
   handleFileInput(event: any, controlName: string) {
-   
+   debugger;
     console.log(controlName)
     const control = this.studentForm.get(controlName);
         if (control) {
@@ -206,9 +206,10 @@ onMobileInput6(event:any){
 }
   
  onSubmit() {
-  debugger;
-  console.log(this.studentForm.controls)
-  //  this.studentForm.markAllAsTouched()
+   if(this.studentForm.invalid){
+    this.studentForm.markAllAsTouched();
+    return;
+  }
   
 
       let prajapathicommunity = false; // Assuming the default value is false

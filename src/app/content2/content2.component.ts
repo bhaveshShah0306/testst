@@ -22,6 +22,7 @@ export class Content2Component {
     // var carousel = new bootstrap.Carousel(myCarousel, {
     //   interval: 3000 // Set the interval to 3 seconds (2000 milliseconds)
     // });
+    this.getevents();
   }
   showAdditionalContent: boolean = false;
   AdditionalContent: boolean = false;
