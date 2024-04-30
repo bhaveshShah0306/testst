@@ -28,7 +28,7 @@
       style="background-color: #834333;color: white; text-align: center;width: 100%;border-top-left-radius: 20px;border-top-right-radius: 20px;margin-bottom: 20px;">
       STUDENT'S BASIC DETAILS</div>
 
-    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="studentForm" >
       <div class="form-row">
         <div class="col-md-4 mb-4 px-3">
           <label for="studentName">Full Name<span style="color: red;">*</span></label>
@@ -405,7 +405,7 @@
 
       <div class="horizontal-line"></div>
       <div class="button-container">
-      <button type="submit" class="button">Submit</button></div>
+      <button type="submit" class="button" (click)="onSubmit()">Submit</button></div>
     </form>
 
 
