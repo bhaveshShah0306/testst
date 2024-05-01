@@ -55,14 +55,13 @@
         </div>
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="adhaarCard">Aadhar<span style="color: red;">*</span></label>
+          <label for="adhaarCard">Aadhar</label>
           <button class="Update_file" (click)="fileInputAadhar.click()">
             <img src='/assets/fileupload.png' alt="">
             <label for="">Click to Upload</label>
           </button>
           <input type="file" #fileInputAadhar style="display: none;" formControlName="adhaarCard" (change)="handleFileInput($event, 'adhaarCard')">
           <p *ngIf="fileName['adhaarCard']">Selected file: {{ fileName['adhaarCard'] }}</p>
-          <p *ngIf="!fileName['adhaarCard'] && studentForm.controls['adhaarCard'].touched" class="text-danger">Aadhar is required</p>
         </div>
         
       </div>
@@ -104,7 +103,7 @@
           </div>
       
           <div class="col-md-4 mb-4 px-3">
-            <label for="granduationproofs">Proof<span style="color: red;">*</span></label>
+            <label for="granduationproofs">Proof</label>
             <div>
               <button class="Update_file" (click)="filegranduationproofs.click()">
                 <img src='/assets/fileupload.png' alt="">
@@ -114,16 +113,15 @@
                      (change)="handleFileInput($event,'granduationproofs')">
             </div>
             <span class="description">Attach all Educational proof/ Results(SSC/HSC/Graduation etc)</span>
-            <p *ngIf="!fileName['granduationproofs'] && studentForm.controls['granduationproofs'].touched" class="text-danger">Proof is required</p>
             <p *ngIf="fileName['granduationproofs']">Selected file: {{ fileName['granduationproofs'] }}</p>
           </div>
           
           <div class="col-md-4 mb-4 px-3">
             <label for="appliedFor">Application done for course<span style="color: red;">*</span></label>
             <select id="appliedFor" formControlName="appliedFor" class="form-control">
-              <option value=""> Select</option>
-              <option value="option2">Post Graduation Proffessional's Only</option>
-              <option value="option3">Graduation Only</option>
+              
+              <option value="Post Graduation Proffessional's Only">Post Graduation Proffessional's Only</option>
+              <option value="Graduation Only">Graduation Only</option>
             </select>
             <p *ngIf="studentForm.get('appliedFor')?.hasError('required') && studentForm.get('appliedFor')?.touched" class="text-danger">Application course  is  required</p>
           </div>
@@ -137,7 +135,7 @@
           <div class="col-md-4 mb-4 px-3">
             <label for="periodForRequiredGrant">Grant for the period of<span style="color: red;">*</span></label>
             <select id="periodForRequiredGrant" formControlName="periodForRequiredGrant" class="form-control">
-              <option value=""> Select</option>
+             
               <option value="3">3 Years</option>
               <option value="5">5 Years</option>
               <option value="10">10 Years</option>
@@ -170,7 +168,7 @@
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="adhaarNumber">Aadhar<span style="color: red;">*</span></label>
+            <label for="adhaarNumber">Aadhar</label>
             <div>
               <button class="Update_file" (click)="fileInputadhaarNumber.click()">
                 <img src='/assets/fileupload.png' alt="">
@@ -178,23 +176,23 @@
               </button>
               <input type="file" #fileInputadhaarNumber style="display: none;" formControlName="adhaarNumber" (change)="handleFileInput($event,'adhaarNumber')">
             </div>
-            <p *ngIf="!fileName['adhaarNumber'] && studentForm.controls['adhaarNumber'].touched" class="text-danger">Aadhar is required</p>
+            
             <p *ngIf="fileName['adhaarNumber']">Selected file: {{ fileName['adhaarNumber'] }}</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
             <label for="fatherOccupation">Father's Occupation<span style="color: red;">*</span></label>
             <select id="fatherOccupation" formControlName="fatherOccupation" class="form-control">
-              <option value=""> Select</option>
-              <option value="option2">Agriculture</option>
-              <option value="option3">Business</option>
-              <option value="option4">Government Sector </option>
-              <option value="option5">Private Sector </option>
+             
+              <option value="Agriculture">Agriculture</option>
+              <option value="Business">Business</option>
+              <option value="Government Sector">Government Sector </option>
+              <option value="Private Sector">Private Sector </option>
             </select>
             <p *ngIf="studentForm.get('fatherOccupation')?.hasError('required') && studentForm.get('fatherOccupation')?.touched" class="text-danger">Father's Occupation is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="proofofincome">Proof of Income<span style="color: red;">*</span></label>
+            <label for="proofofincome">Proof of Income</label>
             <div>
               <button class="Update_file" (click)="fileInputproofofincome.click()">
                 <img src='/assets/fileupload.png' alt="">
@@ -202,7 +200,6 @@
               </button>
               <input type="file" #fileInputproofofincome style="display: none;" formControlName="proofofincome" (change)="handleFileInput($event,'proofofincome')">
             </div>
-            <p *ngIf="!fileName['proofofincome'] && studentForm.controls['proofofincome'].touched" class="text-danger">Proof of Income is required</p>
             <p *ngIf="fileName['proofofincome']">Selected file: {{ fileName['proofofincome'] }}</p>
           </div>
           
@@ -225,7 +222,7 @@
           </div>
         
           <div class="col-md-4 mb-4">
-            <label for="motherAdhaarNumber">Aadhar<span style="color: red;">*</span></label>
+            <label for="motherAdhaarNumber">Aadhar</label>
             <div>
               <button class="Update_file" (click)="fileInputmotherAdhaarNumber.click()">
                 <img src='/assets/fileupload.png' alt="">
@@ -233,24 +230,23 @@
               </button>
               <input type="file" #fileInputmotherAdhaarNumber style="display: none;" formControlName="motherAdhaarNumber" (change)="handleFileInput($event,'motherAdhaarNumber')">
             </div>
-            <p *ngIf="!fileName['motherAdhaarNumber'] && studentForm.controls['motherAdhaarNumber'].touched" class="text-danger">Aadhar is required</p>
+           
             <p *ngIf="fileName['motherAdhaarNumber']">Selected file: {{ fileName['motherAdhaarNumber'] }}</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
             <label for="motherOccupation">Mother's Occupation<span style="color: red;">*</span></label>
             <select id="motherOccupation" formControlName="motherOccupation" class="form-control">
-              <option value=""> Select</option>
-              <option value="option3">Business</option>
-              <option value="option4">Government Sector </option>
-              <option value="option5">Private Sector </option>
-              <option value="option5">Home maker </option>
-              <option value="option2">other</option>
+              <option value="Business">Business</option>
+              <option value="Government Sector">Government Sector </option>
+              <option value="Private Sector">Private Sector </option>
+              <option value="Home maker">Home maker </option>
+              <option value="Other">Other</option>
             </select>
             <p *ngIf="studentForm.get('motherOccupation')?.hasError('required') && studentForm.get('motherOccupation')?.touched" class="text-danger">Mother's Occupation is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="motherProofOfIncome">Proof of Income<span style="color: red;">*</span></label>
+            <label for="motherProofOfIncome">Proof of Income</label>
             <div>
               <button class="Update_file" (click)="fileInputmotherProofOfIncome.click()">
                 <img src='/assets/fileupload.png' alt="">
@@ -258,7 +254,7 @@
               </button>
               <input type="file" #fileInputmotherProofOfIncome style="display: none;" formControlName="motherProofOfIncome" (change)="handleFileInput($event,'motherProofOfIncome')">
             </div>
-            <p *ngIf="!fileName['motherProofOfIncome'] && studentForm.controls['motherProofOfIncome'].touched " class="text-danger">Proof of Income is required</p>
+           
             <p *ngIf="fileName['motherProofOfIncome']">Selected file: {{ fileName['motherProofOfIncome'] }}</p>
           </div>
         </div>
@@ -283,7 +279,7 @@
           <div class="col-md-4 mb-4 px-3">
             <label for="dependentsInTheFamily">Details of Dependent's in your family<span style="color: red;">*</span></label>
             <select id="dependentsInTheFamily" formControlName="dependentsInTheFamily" class="form-control">
-              <option value="option1">Please Select</option>
+             
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -294,7 +290,7 @@
           <div class="col-md-4 mb-4 px-3">
             <label for="isConnectedToPrajapathiCommunity">Association<span style="color: red;">*</span></label>
             <select id="isConnectedToPrajapathiCommunity" formControlName="isConnectedToPrajapathiCommunity" class="form-control" (change)="onAssociationChange()">
-              <option value="">Select</option>
+             
               <option value="yes">Yes</option>
               <option value="No">No</option>
             </select>
@@ -362,7 +358,7 @@
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-4 px-3">
-          <label for="studentAccountDetails">Account Details<span style="color: red;">*</span></label>
+          <label for="studentAccountDetails">Account Details</label>
           <div>
             <button class="Update_file" (click)="fileInputstudentAccountDetails.click()">
               <img src='/assets/fileupload.png' alt="">
@@ -371,7 +367,6 @@
             <input type="file" #fileInputstudentAccountDetails style="display: none;" formControlName="studentAccountDetails" (change)="handleFileInput($event,'studentAccountDetails')">
           </div>
           <p *ngIf="fileName['studentAccountDetails']">Selected file: {{ fileName['studentAccountDetails'] }}</p>
-          <p *ngIf="!fileName['studentAccountDetails'] && studentForm.controls['studentAccountDetails'].touched" class="text-danger">Account Details is required</p>
           <span class="description">Student's bank Passbook / Student's bank Statement</span>
         </div>
         
