@@ -64,44 +64,43 @@ refer2Address:new FormControl(''),
   constructor(private formBuilder: FormBuilder, private charity :CharityService,private snackBar: MatSnackBar) {}
   
   ngOnInit(): void { 
- 
     this.studentForm = this.formBuilder.group({
       studentApplicationsId: [''],
-      studentName: ['', Validators.required],
-      email: ['', Validators.required , Validators.email] ,
-      dob: ['', Validators.required],
-      mobile: ['', Validators.required ],
+      studentName: [''],
+      email: [''] ,
+      dob: [''],
+      mobile: ['' ],
       adhaarCard: [''],
       studentQualificationDetailsId: [''],
-      ssccgpa: ['', Validators.required],
-      hsccgpa: ['', Validators.required],
-      granduationCGPA: ['', Validators.required],
+      ssccgpa: [''],
+      hsccgpa: [''],
+      granduationCGPA: [''],
       otherGraduation: [''],
       granduationproofs: [''],
-      otherCGPA: ['', Validators.required],
-      appliedFor: ['', Validators.required],
-      collegeName: ['', Validators.required],
-      annualFee: ['', Validators.required],
+      otherCGPA: [''],
+      appliedFor: [''],
+      collegeName: [''],
+      annualFee: [''],
       studentAccountDetails: [''],
-      collegeDetails: ['', Validators.required],
-      collegeAccountDetails: ['', Validators.required],
-      collegeContact: ['', Validators.required],
-      periodForRequiredGrant: ['', Validators.required],
+      collegeDetails: [''],
+      collegeAccountDetails: [''],
+      collegeContact: [''],
+      periodForRequiredGrant: [''],
       familyDetailsId: [''],
-      fatherName: ['', Validators.required],
-      fatherNumber: ['', Validators.required ],
+      fatherName: [''],
+      fatherNumber: [''],
       adhaarNumber: [''],
-      fatherOccupation: ['', Validators.required],
+      fatherOccupation: [''],
       proofofincome: [''],
-      motherName: ['', Validators.required],
-      motherNumber: ['', Validators.required],
+      motherName: [''],
+      motherNumber: [''],
       motherAdhaarNumber: [''],
-      motherOccupation: ['', Validators.required],
+      motherOccupation: [''],
       motherProofOfIncome: [''],
-      familyAnnualIncome: ['', Validators.required],
-      pincode: ['', Validators.required],
-      dependentsInTheFamily: ['', Validators.required],
-      isConnectedToPrajapathiCommunity: ['', Validators.required],
+      familyAnnualIncome: [''],
+      pincode: [''],
+      dependentsInTheFamily: [''],
+      isConnectedToPrajapathiCommunity: [''],
       refer1: [''],
       refer1Contact: [''],
       refer1Address: [''],
@@ -110,6 +109,51 @@ refer2Address:new FormControl(''),
       refer2Address: [''],
     })
     
+    // this.studentForm = this.formBuilder.group({
+    //   studentApplicationsId: [''],
+    //   studentName: ['', Validators.required],
+    //   email: ['', Validators.required , Validators.email] ,
+    //   dob: ['', Validators.required],
+    //   mobile: ['', Validators.required ],
+    //   adhaarCard: [''],
+    //   studentQualificationDetailsId: [''],
+    //   ssccgpa: ['', Validators.required],
+    //   hsccgpa: ['', Validators.required],
+    //   granduationCGPA: ['', Validators.required],
+    //   otherGraduation: [''],
+    //   granduationproofs: [''],
+    //   otherCGPA: ['', Validators.required],
+    //   appliedFor: ['', Validators.required],
+    //   collegeName: ['', Validators.required],
+    //   annualFee: ['', Validators.required],
+    //   studentAccountDetails: [''],
+    //   collegeDetails: ['', Validators.required],
+    //   collegeAccountDetails: ['', Validators.required],
+    //   collegeContact: ['', Validators.required],
+    //   periodForRequiredGrant: ['', Validators.required],
+    //   familyDetailsId: [''],
+    //   fatherName: ['', Validators.required],
+    //   fatherNumber: ['', Validators.required ],
+    //   adhaarNumber: [''],
+    //   fatherOccupation: ['', Validators.required],
+    //   proofofincome: [''],
+    //   motherName: ['', Validators.required],
+    //   motherNumber: ['', Validators.required],
+    //   motherAdhaarNumber: [''],
+    //   motherOccupation: ['', Validators.required],
+    //   motherProofOfIncome: [''],
+    //   familyAnnualIncome: ['', Validators.required],
+    //   pincode: ['', Validators.required],
+    //   dependentsInTheFamily: ['', Validators.required],
+    //   isConnectedToPrajapathiCommunity: ['', Validators.required],
+    //   refer1: [''],
+    //   refer1Contact: [''],
+    //   refer1Address: [''],
+    //   refer2: [''],
+    //   refer2Contact: [''],
+    //   refer2Address: [''],
+    // })
+    
 }
   onAssociationChange() {
     debugger; 
@@ -117,19 +161,19 @@ refer2Address:new FormControl(''),
     const connectedToCommunityControl = this.studentForm.get('isConnectedToPrajapathiCommunity');
     const controlsToValidate = ['refer1', 'refer1Contact', 'refer1Address', 'refer2', 'refer2Contact', 'refer2Address'];
   
-    for (const controlName of controlsToValidate) {
-      const control = this.studentForm.get(controlName);
-      if (connectedToCommunityControl?.value === 'yes') {
-        control?.setValidators([Validators.required]);
-        control?.markAsUntouched();
+    // for (const controlName of controlsToValidate) {
+    //   const control = this.studentForm.get(controlName);
+    //   if (connectedToCommunityControl?.value === 'yes') {
+    //     control?.setValidators([Validators.required]);
+    //     control?.markAsUntouched();
        
-      } else {
-        control?.clearValidators();
-        control?.patchValue('')
-      }
-      control?.updateValueAndValidity();
+    //   } else {
+    //     control?.clearValidators();
+    //     control?.patchValue('')
+    //   }
+    //   control?.updateValueAndValidity();
       
-    }
+    // }
   } 
   // showSuccess() {
   //   this.toastr.success('Hello world!', 'Toastr fun!');
@@ -175,8 +219,16 @@ refer2Address:new FormControl(''),
     const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
 
     this.studentForm.controls['fatherNumber'].setValue(numericInput);
-  } 
-  onMobileInput2(event:any){
+  }  
+  onMobileInputFamily(event:any){
+    const input = event.target.value;
+    
+    const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+  
+    this.studentForm.controls['dependentsInTheFamily'].setValue(numericInput);
+  }  
+
+   onMobileInput2(event:any){
   const input = event.target.value;
   
   const numericInput = input.replace(/[^0-9]/g, ''); // Remove non-numeric characters
@@ -206,6 +258,10 @@ onMobileInput6(event:any){
 }
   
  onSubmit() {
+   if(this.studentForm.invalid){
+    this.studentForm.markAllAsTouched();
+    return;
+  }
    if(this.studentForm.invalid){
     this.studentForm.markAllAsTouched();
     return;
@@ -274,6 +330,13 @@ onMobileInput6(event:any){
           // Show toast message
        window.alert("Application submitted successfully")
        this.studentForm.reset();  
+       this.fileName['adhaarCard']=''
+       this.fileName['granduationproofs']=''
+       this.fileName['adhaarNumber']=''
+       this.fileName['proofofincome']=''
+       this.fileName['motherAdhaarNumber']=''
+       this.fileName['motherProofOfIncome']=''
+       this.fileName['studentAccountDetails']=''
       }
       },
       error => {
