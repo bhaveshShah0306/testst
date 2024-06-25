@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { ContactService } from '../contact.service';
 
@@ -8,6 +8,7 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
+  @ViewChild('content1') content1!: ElementRef;
   contactForm!: FormGroup;
   submitted: boolean = false;
    constructor(private formBuilder:FormBuilder,private service:ContactService){}
@@ -18,11 +19,15 @@ export class ContactComponent {
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required]]
      });
+     this.scrollToSectionOnLoad();
   }
   get formValidation() {
     return this.contactForm.controls;
   }
- 
+  scrollToSectionOnLoad() {
+    this.content1.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
+
   submit(val:any) {
     debugger;
     this.submitted=true;

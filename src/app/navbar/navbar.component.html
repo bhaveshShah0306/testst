@@ -17,20 +17,23 @@
       <!-- Navbar Links -->
       <div class="collapse navbar-collapse" [class.show]="!isMenuCollapsed" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item p-2">
+            <img style="cursor: pointer;" (click)="onclicklogo()" src="/assets/Logo.png" alt="image">
+          </li>
           <li class="nav-item">
             <a class="nav-link text-dark mt-4" routerLink="Home"><b>Home</b></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark mt-4" routerLink="Services"><b>Services</b></a>
-          </li>
-          <li class="nav-item p-2">
-            <img style="cursor: pointer;" (click)="onclicklogo()" src="/assets/Logo.png" alt="image">
+            <a class="nav-link text-dark mt-4" routerLink="ApplicationForm"><b>Application Form</b></a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark mt-4" routerLink="Contact"><b>Contact</b></a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark mt-4" routerLink="Membership"><b>Become A Member</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark mt-4" routerLink="Sponsorship"><b>Sponsor Ship</b></a>
           </li>
         </ul>
       </div>

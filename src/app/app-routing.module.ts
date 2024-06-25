@@ -8,15 +8,17 @@ import { BecomememberComponent } from './becomemember/becomemember.component';
 import { LoginModule } from './login/login.module';
 import {LayoutcomponentComponent} from './layoutcomponent/layoutcomponent.component'
 import { Content2Component } from './content2/content2.component';
+import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
 const routes: Routes = [
   {path:'', 
   component:LayoutcomponentComponent,
    children:[ 
     { path:'', redirectTo:'Home', pathMatch:'full'},
     { path:'Home', component: Content2Component},
-    { path:'Services', component: CharityComponent},
+    { path:'ApplicationForm', component: CharityComponent},
     { path:'Membership', component: CareerComponent},
     {path:'Contact',component:ContactComponent},
+    {path:'Sponsorship',component:SponsorShipComponent},
     //{path:'becomemember',component:BecomememberComponent},
       ]
     },

@@ -19,6 +19,7 @@ import { LayoutcomponentComponent } from './layoutcomponent/layoutcomponent.comp
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ContactComponent,
     BecomememberComponent,
     LayoutcomponentComponent,
+    SponsorShipComponent
 
    
   ],

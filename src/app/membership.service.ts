@@ -37,4 +37,23 @@ export class MembershipService extends HttpResponseService {
         }),
       )
   }
+  postdatasponsor(data: any): Observable<any> {
+    const token = "";
+    debugger;
+    // Set up the headers with the bearer token
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    var url = `${this.baseUrl}Sponserships`;
+    return this.http.post<Membership>(url, data, { headers: headers })
+      .pipe(
+        map(res => {
+          return this.formatHttpOkResponse<Membership>(res);
+        }),
+        catchError((err: HttpErrorResponse) => {
+          return of(this.formatHttpErrorResponse(err));
+        }),
+      )
+  }
 }

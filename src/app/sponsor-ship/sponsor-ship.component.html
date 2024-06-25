@@ -1,0 +1,171 @@
+
+<style>
+    h1{
+        color: #834333;
+    }
+    .content {
+        display: flex; 
+        justify-content: space-between;
+        background-color: #f0f0f0;
+    }
+     .left-side {   
+       line-height: normal;
+        height: auto;    
+        width: 90%; 
+        padding-left: 90px;  
+        margin-top: 90px;    
+    }
+     .right-side {       
+       margin-top: 30px;
+        width: 100%;   
+        padding-right: 50px;
+    }
+
+.form-member{
+border: 1px solid black;
+  border-radius: 20px;
+  width: 60%; 
+  margin: 10px auto 30px; 
+   
+}
+.form-row {
+  padding-top: 20px;
+   padding-left:10px;
+   padding-right: 10px;
+}
+
+
+
+ input[type=text],input[type=address],input[type=date], select{ 
+border: none;
+outline: none;
+border-bottom: 2px solid #f0f0f0;
+border-radius: 0%;
+height: 45px;
+}
+ input[type=text]:focus,input[type=address]:focus,input[type=date]:focus,select:focus,input[type=file] { 
+border-bottom-color: black;
+box-shadow: none;
+} 
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+ .btn{
+  background-color: #834333;
+  margin-bottom: 20px;
+   border: none;
+  height:50px;
+  color: white;
+  border-radius: 10px;
+  width: 200px;
+ /* align-items: center;
+   display: flex;
+  justify-content: center; 
+  margin-left: 300px;*/
+ }   
+ .btn:hover{
+  background-color: #834333;
+ }
+ @media (max-width: 768px) {
+  .content {
+        display: flex; 
+        flex-direction: column;
+        background-color: #f0f0f0;
+    }
+    .left-side, .right-side {   
+       line-height: normal;
+        width: 100%; 
+        padding-left: 10px;  
+        margin-top: 30px;    
+    }
+    .form-member{
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 85%; 
+  margin: 10px auto 30px; 
+   
+}
+ }
+
+ @media (max-width: 480px) {
+
+  .content {
+        display: flex; 
+        /* justify-content: space-between; */
+        flex-direction: column;
+        background-color: #f0f0f0;
+    }
+     .left-side, .right-side {   
+       line-height: normal;
+        width: 100%; 
+        padding-left: 10px;  
+        margin-top: 30px;    
+    }
+    .d{
+      font-size: 18;
+      letter-spacing:normal;
+    } 
+   
+ }
+</style>
+<div class="content">
+    <div class="left-side">                  
+     
+      <p class="d" style="font-size: 55px;letter-spacing:1.2;font-family: Verdana;">Step into the Future with the<span style="color: #834333;"><strong> Prajapati Foundation</strong></span></p>
+      <p style=" font-size: 16px;">Join our community: Embrace the journey to support, learn, and grow with the Prajapati Foundation.</p>                   
+      <!-- <button  class="btn1">Become A Member</button>                  -->
+     </div>           
+     <div class="right-side">
+        <img src="/assets/Frame 427319477.png" alt="image"  class="d-block" style="width:100%;height: 570px;">       
+     </div>                     
+ </div> 
+ <img src="/assets/cloud.png" alt="image"  style="background-color: #f0f0f0;width:100%"> 
+ 
+ <h1 style="text-align: center; color: #834333;margin-top: 20px;"><strong>SponsorShip</strong></h1>
+ <p style="text-align: center;color: #666;">Please Fill Out: Apply for sponsorship</p>
+ <div class="form-member">
+   <form [formGroup]="sponsorship" >
+    <div class="form-row">
+      <div class="col-md-6 mb-4 px-3">
+        <label for="name">Name<span style="color: red;">*</span></label>
+        <input type="text" formControlName="name" class="form-control" id="name">
+        <p *ngIf="sponsorship.get('name')?.hasError('required') && sponsorship.get('name')?.touched" class="text-danger"> Name is required</p>
+      </div>
+      <div class="col-md-6 mb-4 px-3">
+        <label for="dob">DOB<span style="color: red;">*</span></label>
+        <input type="date" formControlName="dob" class="form-control" id="dob">  
+        <p *ngIf="sponsorship.get('dob')?.hasError('required') && sponsorship.get('dob')?.touched" class="text-danger"> Date Of Birth is required</p>    
+      </div>
+      
+        
+       
+     <div class="form-group col-md-12 mb-4 px-3">
+        <label for="contact">contact<span style="color: red;">*</span></label>
+        <input type="text" formControlName="contact" class="form-control" id="contact"(input)="limitDigits($event,10,1)">  
+        <p *ngIf="sponsorship.get('contact')?.hasError('required') && sponsorship.get('contact')?.touched" class="text-danger"> Contact is required</p>    
+      </div>
+     
+      <div class="col-md-6 mb-4 px-3">
+        <label for="pan">PAN<span style="color: red;">*</span></label>
+        <input type="text" formControlName="pan" class="form-control" id="pan">      
+        <p *ngIf="sponsorship.get('pan')?.hasError('required') && sponsorship.get('pan')?.touched" class="text-danger"> PAN Number is required</p>
+      </div> 
+      <div class="col-md-6 mb-4 px-3">
+        <label for="aadhar">Aadhar<span style="color: red;">*</span></label>
+        <input type="text" formControlName="aadhar" class="form-control" id="aadhar"(input)="limitDigits($event,12,2)"> 
+        <p *ngIf="sponsorship.get('aadhar')?.hasError('required') && sponsorship.get('aadhar')?.touched" class="text-danger"> Aadhar is required</p>     
+      </div> 
+      <div class="form-group col-md-12 mb-4 px-3">
+        <label for="address">Address<span style="color: red;">*</span></label>
+        <input type="text" formControlName="address" class="form-control" id="address" >
+        <p *ngIf="sponsorship.get('address')?.hasError('required') && sponsorship.get('address')?.touched" class="text-danger"> Address is required</p>      
+      </div> 
+    </div>
+    <div class="button-container">
+    <button type="submit" class="btn" (click)="onsubmit(this.sponsorship.value)">Submit</button>
+</div>
+  </form>
+  </div>
+
+
