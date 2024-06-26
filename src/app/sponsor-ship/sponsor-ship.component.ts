@@ -1,80 +1,92 @@
-import { Component, ElementRef, ViewChild} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
-import { ContactService } from '../contact.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MembershipService } from '../membership.service';
-
 
 @Component({
   selector: 'app-sponsor-ship',
   templateUrl: './sponsor-ship.component.html',
-  styleUrl: './sponsor-ship.component.css'
+  styleUrls: ['./sponsor-ship.component.css']
 })
 export class SponsorShipComponent {
   submitted: boolean = false;
   sponsorship!: FormGroup;
-  constructor(private formBuilder:FormBuilder,private service:MembershipService){}
- ngOnInit(): void { 
-   this.sponsorship = this.formBuilder.group({
-     name: ['',[Validators.required]],
-     dob: ['',[Validators.required]],
-     address: ['',[Validators.required]],
-     contact: ['',[Validators.required]],
-     pan: ['',[Validators.required]],
-     aadhar: ['',[Validators.required]]
-    });
- }
- get formValidation() {
-   return this.sponsorship.controls;
- }
+  checkbox1: boolean = false;
+  checkbox2: boolean = false;
 
+  constructor(private formBuilder: FormBuilder, private service: MembershipService) {}
 
- onsubmit(val:any) {
-   debugger;
-   this.submitted=true;
-   if (this.sponsorship.valid) {
-
-     var obj={
-      sponsershipId:0,
-       name:val.name,
-       dob:val.dob,
-       address:val.address,
-       contact:val.contact,
-       pan:val.pan,
-       aadhar:val.aadhar,
-     }
-     
-    // console.log('Form submitted:', this.sponsorship.value);
-     this.service.postdatasponsor(obj).subscribe(apidata=>{
-       window.alert("Form Submitted Success");
-       this.sponsorship.reset();
-     })
-   }
-   else{
-    this.sponsorship.markAsTouched;
-   }
- } 
-
- limitDigits(event: Event,num:any,flag:any): void {
-  debugger;
-  const input = event.target as HTMLInputElement;
-  let value = input.value;
-
-  // Remove non-numeric characters
-  value = value.replace(/\D/g, '');
-
-  // Limit to 10 digits
-  const limitedValue = value.slice(0, num);
-  if(flag==1){
-
-    this.sponsorship.controls['contact'].setValue(limitedValue);
-  }
-  if(flag==2){
-    
-    Object.keys(this.sponsorship.controls).forEach(field => {
-      const control = this.sponsorship.get(field);
-      control?.markAsTouched({ onlySelf: true });
+  ngOnInit(): void {
+    this.sponsorship = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      dob: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      contact: ['', [Validators.required]],
+      pan: ['', [Validators.required]],
+      aadhar: ['', [Validators.required]],
+      preferredState: ['']
     });
   }
-  // Update input value using square brackets
-}
+
+  get formValidation() {
+    return this.sponsorship.controls;
+  }
+
+  checked1(e: any) {
+    this.checkbox1 = e.target.checked;
+  }
+
+  checked2(e: any) {
+    this.checkbox2 = e.target.checked;
+  }
+
+  uncheckCheckboxes(): void {
+    this.checkbox1 = false;
+    this.checkbox2 = false;
+  }
+
+  onsubmit(val: any) {
+    this.submitted = true;
+    if (this.sponsorship.valid && this.checkbox1 && this.checkbox2) {
+      const obj = {
+        sponsershipId: 0,
+        name: val.name,
+        dob: val.dob,
+        address: val.address,
+        contact: val.contact,
+        pan: val.pan,
+        aadhar: val.aadhar,
+        preferredState: val.preferredState
+      };
+
+      this.service.postdatasponsor(obj).subscribe(apidata => {
+        window.alert("Form Submitted Successfully");
+        this.sponsorship.reset();
+        window.location.reload();
+        this.submitted = false; // Reset submission flag after successful submission
+      });
+    } else {
+      // Mark all form controls as touched to trigger validation messages
+      Object.values(this.sponsorship.controls).forEach(control => {
+        control.markAsTouched();
+      });
+    }
+  }
+
+  limitDigits(event: Event, num: number, flag: number): void {
+    const input = event.target as HTMLInputElement;
+    let value = input.value;
+
+    // Remove non-numeric characters
+    value = value.replace(/\D/g, '');
+
+    // Limit to specified number of digits
+    const limitedValue = value.slice(0, num);
+
+    // Update input value based on flag
+    if (flag === 1) {
+      this.sponsorship.controls['contact'].setValue(limitedValue);
+    } else if (flag === 2) {
+      this.sponsorship.controls['aadhar'].setValue(limitedValue);
+    }
+  }
 }
