@@ -24,7 +24,7 @@ export class FooterComponent {
 
 
        onclicklogo(){
-        this.router.navigateByUrl('/Home')
+        this.router.navigateByUrl('/')
       }
   }
 
