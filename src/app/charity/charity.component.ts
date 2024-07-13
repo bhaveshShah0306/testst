@@ -9,53 +9,54 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./charity.component.css']
 })
 export class CharityComponent {
-  studentForm = new FormGroup({
-studentApplicationsId:new FormControl(''),
-studentName:new FormControl(''),
-email:new FormControl(''),
-dob:new FormControl(''),
-mobile:new FormControl(''),
-adhaarCard:new FormControl(''),
-studentQualificationDetailsId:new FormControl(''),
-ssccgpa:new FormControl(''),
-hsccgpa:new FormControl(''),
-granduationCGPA:new FormControl(''),
-otherGraduation:new FormControl(''),
-granduationproofs:new FormControl(''),
-otherCGPA:new FormControl(''),
-appliedFor:new FormControl(''),
-collegeName:new FormControl(''),
-annualFee:new FormControl(''),
-studentAccountDetails:new FormControl(''),
-collegeDetails:new FormControl(''),
-collegeAccountDetails:new FormControl(''),
-collegeType:new FormControl(''),
-collegeWebsite:new FormControl(''),
-collegeMail:new FormControl(''),
-collegeContact:new FormControl(''),
-periodForRequiredGrant:new FormControl(''),
-familyDetailsId:new FormControl(''),
-fatherName:new FormControl(''),
-fatherNumber:new FormControl(''),
-adhaarNumber:new FormControl(''),
-fatherOccupation:new FormControl(''),
-proofofincome:new FormControl(''),
-motherName:new FormControl(''),
-motherNumber:new FormControl(''),
-motherAdhaarNumber:new FormControl(''),
-motherOccupation:new FormControl(''),
-motherProofOfIncome:new FormControl(''),
-familyAnnualIncome:new FormControl(''),
-pincode:new FormControl(''),
-dependentsInTheFamily:new FormControl(''),
-isConnectedToPrajapathiCommunity:new FormControl(''),
-refer1:new FormControl(''),
-refer1Contact:new FormControl(''),
-refer1Address:new FormControl(''),
-refer2:new FormControl(''),
-refer2Contact:new FormControl(''),
-refer2Address:new FormControl(''),
-  });
+  studentForm : any;
+//   new FormGroup({
+// studentApplicationsId:new FormControl(''),
+// studentName:new FormControl(''),
+// email:new FormControl(''),
+// dob:new FormControl(''),
+// mobile:new FormControl(''),
+// adhaarCard:new FormControl(''),
+// studentQualificationDetailsId:new FormControl(''),
+// ssccgpa:new FormControl(''),
+// hsccgpa:new FormControl(''),
+// granduationCGPA:new FormControl(''),
+// otherGraduation:new FormControl(''),
+// granduationproofs:new FormControl(''),
+// otherCGPA:new FormControl(''),
+// appliedFor:new FormControl(''),
+// collegeName:new FormControl(''),
+// annualFee:new FormControl(''),
+// studentAccountDetails:new FormControl(''),
+// collegeDetails:new FormControl(''),
+// collegeAccountDetails:new FormControl(''),
+// collegeType:new FormControl(''),
+// collegeWebsite:new FormControl(''),
+// collegeMail:new FormControl(''),
+// collegeContact:new FormControl(''),
+// periodForRequiredGrant:new FormControl(''),
+// familyDetailsId:new FormControl(''),
+// fatherName:new FormControl(''),
+// fatherNumber:new FormControl(''),
+// adhaarNumber:new FormControl(''),
+// fatherOccupation:new FormControl(''),
+// proofofincome:new FormControl(''),
+// motherName:new FormControl(''),
+// motherNumber:new FormControl(''),
+// motherAdhaarNumber:new FormControl(''),
+// motherOccupation:new FormControl(''),
+// motherProofOfIncome:new FormControl(''),
+// familyAnnualIncome:new FormControl(''),
+// pincode:new FormControl(''),
+// dependentsInTheFamily:new FormControl(''),
+// isConnectedToPrajapathiCommunity:new FormControl(''),
+// refer1:new FormControl(''),
+// refer1Contact:new FormControl(''),
+// refer1Address:new FormControl(''),
+// refer2:new FormControl(''),
+// refer2Contact:new FormControl(''),
+// refer2Address:new FormControl(''),
+//   });
   fileName: { [key: string]: string } = {};
   inputadhaarCard: boolean=false;
   inputgranduationproofs: boolean=false;
@@ -69,44 +70,41 @@ refer2Address:new FormControl(''),
   ngOnInit(): void { 
     this.studentForm = this.formBuilder.group({
       studentApplicationsId: [''],
-      studentName: [''],
-      email: [''] ,
-      dob: [''],
-      mobile: ['' ],
+      studentName: ['', Validators.required],
+      email: ['', Validators.required , Validators.email] ,
+      dob: ['', Validators.required],
+      mobile: ['', Validators.required ],
       adhaarCard: [''],
       studentQualificationDetailsId: [''],
-      ssccgpa: [''],
-      hsccgpa: [''],
-      granduationCGPA: [''],
+      ssccgpa: ['', Validators.required],
+      hsccgpa: ['', Validators.required],
+      granduationCGPA: ['', Validators.required],
       otherGraduation: [''],
       granduationproofs: [''],
-      otherCGPA: [''],
-      appliedFor: [''],
-      collegeName: [''],
-      collegeType: [''],
-      collegeWebsite: [''],
-      collegeMail: [''],
-      annualFee: [''],
+      otherCGPA: ['', Validators.required],
+      appliedFor: ['', Validators.required],
+      collegeName: ['', Validators.required],
+      annualFee: ['', Validators.required],
       studentAccountDetails: [''],
-      collegeDetails: [''],
-      collegeAccountDetails: [''],
-      collegeContact: [''],
-      periodForRequiredGrant: [''],
+      collegeDetails: ['', Validators.required],
+      collegeAccountDetails: ['', Validators.required],
+      collegeContact: ['', Validators.required],
+      periodForRequiredGrant: ['', Validators.required],
       familyDetailsId: [''],
-      fatherName: [''],
-      fatherNumber: [''],
+      fatherName: ['', Validators.required],
+      fatherNumber: ['', Validators.required ],
       adhaarNumber: [''],
-      fatherOccupation: [''],
+      fatherOccupation: ['', Validators.required],
       proofofincome: [''],
-      motherName: [''],
-      motherNumber: [''],
+      motherName: ['', Validators.required],
+      motherNumber: ['', Validators.required],
       motherAdhaarNumber: [''],
-      motherOccupation: [''],
+      motherOccupation: ['', Validators.required],
       motherProofOfIncome: [''],
-      familyAnnualIncome: [''],
-      pincode: [''],
-      dependentsInTheFamily: [''],
-      isConnectedToPrajapathiCommunity: [''],
+      familyAnnualIncome: ['', Validators.required],
+      pincode: ['', Validators.required],
+      dependentsInTheFamily: ['', Validators.required],
+      isConnectedToPrajapathiCommunity: ['', Validators.required],
       refer1: [''],
       refer1Contact: [''],
       refer1Address: [''],
@@ -167,19 +165,19 @@ refer2Address:new FormControl(''),
     const connectedToCommunityControl = this.studentForm.get('isConnectedToPrajapathiCommunity');
     const controlsToValidate = ['refer1', 'refer1Contact', 'refer1Address', 'refer2', 'refer2Contact', 'refer2Address'];
   
-    // for (const controlName of controlsToValidate) {
-    //   const control = this.studentForm.get(controlName);
-    //   if (connectedToCommunityControl?.value === 'yes') {
-    //     control?.setValidators([Validators.required]);
-    //     control?.markAsUntouched();
+    for (const controlName of controlsToValidate) {
+      const control = this.studentForm.get(controlName);
+      if (connectedToCommunityControl?.value === 'yes') {
+        control?.setValidators([Validators.required]);
+        control?.markAsUntouched();
        
-    //   } else {
-    //     control?.clearValidators();
-    //     control?.patchValue('')
-    //   }
-    //   control?.updateValueAndValidity();
+      } else {
+        control?.clearValidators();
+        control?.patchValue('')
+      }
+      control?.updateValueAndValidity();
       
-    // }
+    }
   } 
   // showSuccess() {
   //   this.toastr.success('Hello world!', 'Toastr fun!');
