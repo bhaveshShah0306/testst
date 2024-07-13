@@ -28,40 +28,42 @@
       style="background-color: #834333;color: white; text-align: center;width: 100%;border-top-left-radius: 20px;border-top-right-radius: 20px;margin-bottom: 20px;">
       STUDENT'S BASIC DETAILS</div>
 
-    <form [formGroup]="studentForm" >
+    <form [formGroup]="studentForm"  >
       <div class="form-row">
         <div class="col-md-4 mb-4 px-3">
-          <label for="studentName">Full Name</label>
+          <label for="studentName">Full Name <span class="text-danger">*</span></label>
           <input type="text" formControlName="studentName" class="form-control" id="studentName">
           <p *ngIf="studentForm.get('studentName')?.hasError('required') && studentForm.get('studentName')?.touched" class="text-danger">Full Name is required</p>
         </div>
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="email">Email</label>
+          <label for="email">Email<span class="text-danger">*</span></label>
           <input type="email" formControlName="email" class="form-control" id="email">
-          <p *ngIf="studentForm.get('email')?.hasError('required') && studentForm.get('email')?.touched" class="text-danger">Valid email is required</p>
+          <p *ngIf="studentForm.get('email')?.hasError('required') && studentForm.get('email')?.touched" class="text-danger">Email is required</p>
+          <p *ngIf="studentForm.get('email')?.hasError('email') && studentForm.get('email')?.touched && studentForm.get('email')?.value" class="text-danger">Valid email is required</p>
         </div>
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="dob">Date of Birth</label>
+          <label for="dob">Date of Birth<span class="text-danger">*</span></label>
           <input type="date" formControlName="dob" class="form-control" id="dob">
           <p *ngIf="studentForm.get('dob')?.hasError('required') && studentForm.get('dob')?.touched" class="text-danger">Date of Birth is required</p>
         </div>
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="mobile">Mobile Number</label>
+          <label for="mobile">Mobile Number<span class="text-danger">*</span></label>
           <input type="text"   (input)="onMobileInput($event)" onKeyPress="if(this.value.length==10) return false" formControlName="mobile" class="form-control" id="mobile">
           <p *ngIf="studentForm.get('mobile')?.hasError('required') && studentForm.get('mobile')?.touched" class="text-danger">Mobile Number is required</p>
         </div>
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="adhaarCard">Aadhar card photo </label>
+          <label for="adhaarCard">Aadhar card photo<span class="text-danger">*</span> </label>
           <button class="Update_file" (click)="fileInputAadhar.click()">
             <img src='/assets/fileupload.png' alt="">
             <label for="">Click to Upload</label>
           </button>
           <input type="file" #fileInputAadhar style="display: none;" formControlName="adhaarCard" (change)="handleFileInput($event, 'adhaarCard')">
           <p *ngIf="fileName['adhaarCard']">Selected file: {{ fileName['adhaarCard'] }}</p>
+          <p *ngIf="studentForm.get('adhaarCard')?.hasError('required') && studentForm.get('adhaarCard')?.touched" class="text-danger">Student's Adhaar Card  is required</p>
         </div>
         
       </div>
@@ -73,21 +75,21 @@
       
         <div class="form-row">
           <div class="col-md-4 mb-4  px-3">
-            <label for="ssccgpa">SSC Grade</label>
+            <label for="ssccgpa">SSC Grade<span class="text-danger">*</span></label>
             <input type="text" id="ssccgpa" name="ssccgpa" formControlName="ssccgpa" class="form-control">
             <span class="description">Percentage / CGPA</span>
             <p *ngIf="studentForm.get('ssccgpa')?.hasError('required') && studentForm.get('ssccgpa')?.touched" class="text-danger">SSC Grade is required</p>
           </div>
       
           <div class="col-md-4 mb-4 px-3">
-            <label for="hsccgpa">HSC Grade</label>
+            <label for="hsccgpa">HSC Grade<span class="text-danger">*</span></label>
             <input type="text" id="hsccgpa" name="hsccgpa" formControlName="hsccgpa" class="form-control">
             <span class="description">Percentage / CGPA</span>
             <p *ngIf="studentForm.get('hsccgpa')?.hasError('required') && studentForm.get('hsccgpa')?.touched" class="text-danger">HSC Grade is required</p>
           </div>
       
           <div class="col-md-4 mb-4  px-3">
-            <label for="granduationCGPA">Graduation Grade</label>
+            <label for="granduationCGPA">Graduation Grade<span class="text-danger">*</span></label>
             <input type="text" id="granduationCGPA" name="granduationCGPA" formControlName="granduationCGPA"
               class="form-control">
             <span class="description">Percentage / CGPA</span>
@@ -95,7 +97,7 @@
           </div>
       
           <div class="col-md-4 mb-4 px-3">
-            <label for="otherCGPA">Qualification Details(Qualification-CGPA)</label>
+            <label for="otherCGPA">Qualification Details(Qualification-CGPA)<span class="text-danger">*</span></label>
             <input type="text" id="otherCGPA" name="otherCGPA" formControlName="otherCGPA"
               class="form-control">
             <span class="description">If any other than above please specify with Percentage / CGPA</span>
@@ -103,7 +105,7 @@
           </div>
       
           <div class="col-md-4 mb-4 px-3">
-            <label for="granduationproofs">Educational certificate photo </label>
+            <label for="granduationproofs">Educational certificate photo<span class="text-danger">*</span> </label>
             <div>
               <button class="Update_file" (click)="filegranduationproofs.click()">
                 <img src='/assets/fileupload.png' alt="">
@@ -114,10 +116,11 @@
             </div>
             <span class="description">Attach all Educational proof/ Results(SSC/HSC/Graduation etc)</span>
             <p *ngIf="fileName['granduationproofs']">Selected file: {{ fileName['granduationproofs'] }}</p>
+            <p *ngIf="studentForm.get('granduationproofs')?.hasError('required') && studentForm.get('granduationproofs')?.touched" class="text-danger">Graduation Proofs  is  required</p>
           </div>
           
           <div class="col-md-4 mb-4 px-3">
-            <label for="appliedFor">Select the course</label>
+            <label for="appliedFor">Select the course<span class="text-danger">*</span></label>
             <select id="appliedFor" formControlName="appliedFor" class="form-control">
               
               <option value="Post Graduation Proffessional's Only">Post Graduation Proffessional's Only</option>
@@ -126,22 +129,22 @@
             <p *ngIf="studentForm.get('appliedFor')?.hasError('required') && studentForm.get('appliedFor')?.touched" class="text-danger">Application course  is  required</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
-            <label for="collegeDetails">School and College address ( Write full address with pincode )</label>
+            <label for="collegeDetails">School and College address ( Write full address with pincode )<span class="text-danger">*</span></label>
             <input type="text" id="collegeDetails" name="collegeDetails" formControlName="collegeDetails"
               class="form-control">
             <p *ngIf="studentForm.get('collegeDetails')?.hasError('required') && studentForm.get('collegeDetails')?.touched"
               class="text-danger">School and College address</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
-            <label for="periodForRequiredGrant">Grant for the period of <small>(Years)</small></label>
+            <label for="periodForRequiredGrant">Grant for the period of <small>(Years)</small><span class="text-danger">*</span></label>
             <input type="text" id="periodForRequiredGrant" formControlName="periodForRequiredGrant" class="form-control">
             
-            <span class="description">Kindly select for how many years you need the grant</span>
+            <span class="description">Kindly select for how many years you need the grant<span class="text-danger">*</span></span>
             <p *ngIf="studentForm.get('periodForRequiredGrant')?.hasError('required') && studentForm.get('periodForRequiredGrant')?.touched"
               class="text-danger">Grant period is required</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
-            <label for="annualFee">Annual College fees per year (Rs)</label>
+            <label for="annualFee">Annual College fees per year (Rs)<span class="text-danger">*</span></label>
             <input type="text" id="annualFee" name="annualFee" formControlName="annualFee" class="form-control">
             <p *ngIf="studentForm.get('annualFee')?.hasError('required') && studentForm.get('annualFee')?.touched"
               class="text-danger">Annual College fees is required</p>
@@ -153,43 +156,45 @@
         DETAILS</div>
         <div class="form-row">
           <div class="col-md-4 mb-4 px-3">
-            <label for="fatherName">Full Name</label>
+            <label for="fatherName">Full Name<span class="text-danger">*</span></label>
             <input type="text" id="fatherName" name="fatherName" formControlName="fatherName" class="form-control">
             <p *ngIf="studentForm.get('fatherName')?.hasError('required') && studentForm.get('fatherName')?.touched" class="text-danger">Full Name is required</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
-            <label for="fatherNumber">Mobile Number</label>
+            <label for="fatherNumber">Mobile Number<span class="text-danger">*</span></label>
             <input type="text" (input)="onMobileInput1($event)" onKeyPress="if(this.value.length==10) return false" id="fatherNumber" name="fatherNumber" formControlName="fatherNumber" class="form-control">
             <p *ngIf="studentForm.get('fatherNumber')?.hasError('required') && studentForm.get('fatherNumber')?.touched" class="text-danger">Mobile Number is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="adhaarNumber">Aadhar card photo </label>
+            <label for="adhaarNumber">Aadhar card photo<span class="text-danger">*</span> </label>
             <div>
               <button class="Update_file" (click)="fileInputadhaarNumber.click()">
                 <img src='/assets/fileupload.png' alt="">
                 <label for="">Click to Upload</label>
               </button>
               <input type="file" #fileInputadhaarNumber style="display: none;" formControlName="adhaarNumber" (change)="handleFileInput($event,'adhaarNumber')">
+              <p *ngIf="studentForm.get('adhaarNumber')?.hasError('required') && studentForm.get('adhaarNumber')?.touched" class="text-danger">Father's Aadhar Card Photo is required</p>
             </div>
             
             
             <p *ngIf="fileName['adhaarNumber']">Selected file: {{ fileName['adhaarNumber'] }}</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
-            <label for="fatherOccupation">Father's Occupation</label> 
+            <label for="fatherOccupation">Father's Occupation<span class="text-danger">*</span></label> 
             <input type="text" id="fatherOccupation"  formControlName="fatherOccupation" class="form-control">
             <p *ngIf="studentForm.get('fatherOccupation')?.hasError('required') && studentForm.get('fatherOccupation')?.touched" class="text-danger">Father's Occupation is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="proofofincome">Proof of income</label>
+            <label for="proofofincome">Proof of income<span class="text-danger">*</span></label>
             <div>
               <button class="Update_file" (click)="fileInputproofofincome.click()">
                 <img src='/assets/fileupload.png' alt="">
                 <label for="">Click to Upload</label>
               </button>
               <input type="file" #fileInputproofofincome style="display: none;" formControlName="proofofincome" (change)="handleFileInput($event,'proofofincome')">
+              <p *ngIf="studentForm.get('proofofincome')?.hasError('required') && studentForm.get('proofofincome')?.touched" class="text-danger">Father's Proof Of Income is required</p>
             </div>
             <p *ngIf="fileName['proofofincome']">Selected file: {{ fileName['proofofincome'] }}</p>
           </div>
@@ -198,7 +203,7 @@
         
       <!-- Mother's details fields here -->
       <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">MOTHER'S
-        DETAILS</div>
+        DETAILS<span class="text-danger">*</span></div>
         <div class="form-row">
           <div class="col-md-4 mb-4 px-3">
             <label for="motherName">Full Name</label>
@@ -207,65 +212,68 @@
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="motherNumber">Mobile Number</label>
+            <label for="motherNumber">Mobile Number<span class="text-danger">*</span></label>
             <input type="text" (input)="onMobileInput2($event)" onKeyPress="if(this.value.length==10) return false" id="motherNumber" name="motherNumber" formControlName="motherNumber" class="form-control">
             <p *ngIf="studentForm.get('motherNumber')?.hasError('required') && studentForm.get('motherNumber')?.touched" class="text-danger">Mobile Number is required</p>
           </div>
         
           <div class="col-md-4 mb-4">
-            <label for="motherAdhaarNumber">Aadhar card photo </label>
+            <label for="motherAdhaarNumber">Aadhar card photo <span class="text-danger">*</span></label>
             <div>
               <button class="Update_file" (click)="fileInputmotherAdhaarNumber.click()">
                 <img src='/assets/fileupload.png' alt="">
                 <label for="">Click to Upload</label>
               </button>
               <input type="file" #fileInputmotherAdhaarNumber style="display: none;" formControlName="motherAdhaarNumber" (change)="handleFileInput($event,'motherAdhaarNumber')">
+              <p *ngIf="studentForm.get('motherAdhaarNumber')?.hasError('required') && studentForm.get('motherAdhaarNumber')?.touched" class="text-danger">Mother's Adhaar Card is required</p>
             </div>
            
            
             <p *ngIf="fileName['motherAdhaarNumber']">Selected file: {{ fileName['motherAdhaarNumber'] }}</p>
           </div>
           <div class="col-md-4 mb-4 px-3">
-            <label for="motherOccupation">Mother's Occupation</label>
+            <label for="motherOccupation">Mother's Occupation<span class="text-danger">*</span></label>
             <input type="text" id="motherOccupation" formControlName="motherOccupation" class="form-control">
             
             <p *ngIf="studentForm.get('motherOccupation')?.hasError('required') && studentForm.get('motherOccupation')?.touched" class="text-danger">Mother's Occupation is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="motherProofOfIncome">Proof of income </label>
+            <label for="motherProofOfIncome">Proof of income <span class="text-danger">*</span></label>
             <div>
               <button class="Update_file" (click)="fileInputmotherProofOfIncome.click()">
                 <img src='/assets/fileupload.png' alt="">
                 <label for="">Click to Upload</label>
               </button>
               <input type="file" #fileInputmotherProofOfIncome style="display: none;" formControlName="motherProofOfIncome" (change)="handleFileInput($event,'motherProofOfIncome')">
+              <p *ngIf="studentForm.get('motherProofOfIncome')?.hasError('required') && studentForm.get('motherProofOfIncome')?.touched" class="text-danger">Mother's Proof Of Income is required</p>
             </div>
            
            
             <p *ngIf="fileName['motherProofOfIncome']">Selected file: {{ fileName['motherProofOfIncome'] }}</p>
+
           </div>
         </div>
         
 
       <!-- Family details fields here -->
       <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">FAMILY
-        DETAILS</div>
+        DETAILS<span class="text-danger">*</span></div>
         <div class="form-row">
           <div class="col-md-4 mb-4 px-3">
-            <label for="familyAnnualIncome">Family's Annual Income</label>
+            <label for="familyAnnualIncome">Family's Annual Income<span class="text-danger">*</span></label>
             <input type="text" id="familyAnnualIncome" name="familyAnnualIncome" formControlName="familyAnnualIncome" class="form-control">
             <p *ngIf="studentForm.get('familyAnnualIncome')?.hasError('required') && studentForm.get('familyAnnualIncome')?.touched" class="text-danger">Family's Annual Income is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="pincode">Postal address and Pin code (Write full address with tehsil, district and state details )</label>
+            <label for="pincode">Postal address and Pin code (Write full address with tehsil, district and state details )<span class="text-danger">*</span></label>
             <input type="text" id="pincode" name="pincode" onKeyPress="if(this.value.length==6) return false" formControlName="pincode" class="form-control">
             <p *ngIf="studentForm.get('pincode')?.hasError('required') && studentForm.get('pincode')?.touched" class="text-danger">Postal Address & Pin Code is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="dependentsInTheFamily">Number of Dependent's in your family</label>
+            <label for="dependentsInTheFamily">Number of Dependent's in your family<span class="text-danger">*</span></label>
             <input type="text" id="dependentsInTheFamily" (input)="onMobileInputFamily($event)"  formControlName="dependentsInTheFamily" class="form-control">
             <!-- <select id="dependentsInTheFamily" formControlName="dependentsInTheFamily" class="form-control">
              
@@ -277,14 +285,14 @@
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="isConnectedToPrajapathiCommunity">Association</label>
+            <label for="isConnectedToPrajapathiCommunity">Association<span class="text-danger">*</span></label>
             <select id="isConnectedToPrajapathiCommunity" formControlName="isConnectedToPrajapathiCommunity" class="form-control" (change)="onAssociationChange()">
              
              
               <option value="yes">Yes</option>
               <option value="No">No</option>
             </select>
-            <span class="description">Are you or your family members connected with the local Prajapati community</span>
+            <span class="description">Are you or your family members connected with the local Prajapati community<span class="text-danger">*</span></span>
             <p *ngIf="studentForm.get('isConnectedToPrajapathiCommunity')?.hasError('required') && studentForm.get('isConnectedToPrajapathiCommunity')?.touched" class="text-danger">Association is required</p>
           </div>
         </div>
@@ -298,19 +306,19 @@
         Community / Society</div>
         <div class="form-row">
           <div class="col-md-4 mb-4 px-3">
-            <label for="refer1">Full name </label>
+            <label for="refer1">Full name <span class="text-danger">*</span></label>
             <input type="text" id="refer1" name="refer1" formControlName="refer1" class="form-control">
             <p *ngIf="studentForm.get('refer1')?.hasError('required') && studentForm.get('refer1')?.touched" class="text-danger">Full name  is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="refer1Contact">Mobile Number</label>
+            <label for="refer1Contact">Mobile Number<span class="text-danger">*</span></label>
             <input type="text" (input)="onMobileInput4($event)" onKeyPress="if(this.value.length==10) return false"  id="refer1Contact" name="refer1Contact" formControlName="refer1Contact" class="form-control">
             <p *ngIf="studentForm.get('refer1Contact')?.hasError('required') && studentForm.get('refer1Contact')?.touched" class="text-danger">Mobile Number is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="refer1Address">Address ( Write address with tehsil, district and state details )</label>
+            <label for="refer1Address">Address ( Write address with tehsil, district and state details )<span class="text-danger">*</span></label>
             <input type="text" id="refer1Address" name="refer1Address" formControlName="refer1Address" class="form-control">
             <p *ngIf="studentForm.get('refer1Address')?.hasError('required') && studentForm.get('refer1Address')?.touched" class="text-danger">Address is required</p>
           </div>
@@ -321,22 +329,22 @@
       <div style="background-color: #834333;color: white; width: 100%;margin-bottom: 30px;text-align: center;">
         REFERENCE-2</div>
       <div style="text-align: center;padding-bottom: 20px;">Reference of 2 well known persons of your local prajapati
-        Community / Society</div>
+        Community / Society<span class="text-danger">*</span></div>
         <div class="form-row">
           <div class="col-md-4 mb-4 px-3">
-            <label for="refer2">Full Name</label>
+            <label for="refer2">Full Name<span class="text-danger">*</span></label>
             <input type="text" id="refer2" name="refer2" formControlName="refer2" class="form-control">
             <p *ngIf="studentForm.get('refer2')?.hasError('required') && studentForm.get('refer2')?.touched" class="text-danger">Name is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="refer2Contact">Mobile Number</label>
+            <label for="refer2Contact">Mobile Number<span class="text-danger">*</span></label>
             <input type="text" (input)="onMobileInput5($event)" onKeyPress="if(this.value.length==10) return false" id="refer2Contact" name="refer2Contact" formControlName="refer2Contact" class="form-control">
             <p *ngIf="studentForm.get('refer2Contact')?.hasError('required') && studentForm.get('refer2Contact')?.touched" class="text-danger">Mobile Number is required</p>
           </div>
         
           <div class="col-md-4 mb-4 px-3">
-            <label for="refer2Address">Address(Write address with tehsil, district and state details )</label>
+            <label for="refer2Address">Address(Write address with tehsil, district and state details )<span class="text-danger">*</span></label>
             <input type="text" id="refer2Address" name="refer2Address" formControlName="refer2Address" class="form-control">
             <p *ngIf="studentForm.get('refer2Address')?.hasError('required') && studentForm.get('refer2Address')?.touched" class="text-danger">Address is required</p>
           </div>
@@ -348,7 +356,7 @@
       </div>
       <div class="form-row">
         <div class="col-md-4 mb-4 px-3">
-          <label for="studentAccountDetails">Account details of student </label>
+          <label for="studentAccountDetails">Account details of student<span class="text-danger">*</span> </label>
           <div>
             <button class="Update_file" (click)="fileInputstudentAccountDetails.click()">
               <img src='/assets/fileupload.png' alt="">
@@ -358,23 +366,24 @@
           </div>
           <p *ngIf="fileName['studentAccountDetails']">Selected file: {{ fileName['studentAccountDetails'] }}</p>
           <span class="description">Student's bank Passbook / Student's bank Statement</span>
+          <p *ngIf="studentForm.get('studentAccountDetails')?.hasError('required') && studentForm.get('studentAccountDetails')?.touched" class="text-danger">Student Account Details is required</p>
         </div>
         
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeAccountDetails">Account details of College</label>
+          <label for="collegeAccountDetails">Account details of College<span class="text-danger">*</span></label>
           <input type="text" id="collegeAccountDetails" name="collegeAccountDetails" formControlName="collegeAccountDetails" class="form-control">
           <p *ngIf="studentForm.get('collegeAccountDetails')?.hasError('required') && studentForm.get('collegeAccountDetails')?.touched" class="text-danger">Account details of College is required</p>
           <span class="description">Account details of College where Grant Needed</span>
         </div>
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeName"> College Name (Write full name of college)</label>
+          <label for="collegeName"> College Name (Write full name of college)<span class="text-danger">*</span></label>
           <input type="text" id="collegeName" name="collegeName" formControlName="collegeName" class="form-control">
           <p *ngIf="studentForm.get('collegeName')?.hasError('required') && studentForm.get('collegeName')?.touched" class="text-danger">College Name is required</p>
         </div>
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeType">College Type</label>
+          <label for="collegeType">College Type<span class="text-danger">*</span></label>
           <select id="collegeType" formControlName="collegeType" class="form-control">
             
             <option value="Government College">Government College</option>
@@ -383,26 +392,26 @@
             <option value="Private College">Private College</option>
             <option value="Other ">Other </option>
           </select>
-          <p *ngIf="studentForm.get('collegeType')?.hasError('required') && studentForm.get('collegeType')?.touched" class="text-danger">Application course  is  required</p>
+          <p *ngIf="studentForm.get('collegeType')?.hasError('required') && studentForm.get('collegeType')?.touched" class="text-danger">College Type course  is  required</p>
         </div>
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeDetails">College Address (Write full address with tehsil, district state and pin code details )</label>
+          <label for="collegeDetails">College Address (Write full address with tehsil, district state and pin code details )<span class="text-danger">*</span></label>
           <input type="text" id="collegeDetails" name="collegeDetails" formControlName="collegeDetails" class="form-control">
           <p *ngIf="studentForm.get('collegeDetails')?.hasError('required') && studentForm.get('collegeDetails')?.touched" class="text-danger">College Address is required</p>
         </div>
         
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeContact">College Contact No</label>
+          <label for="collegeContact">College Contact No<span class="text-danger">*</span></label>
           <input type="text" (input)="onMobileInput6($event)" onKeyPress="if(this.value.length==10) return false" id="collegeContact" name="collegeContact" formControlName="collegeContact" class="form-control">
           <p *ngIf="studentForm.get('collegeContact')?.hasError('required') && studentForm.get('collegeContact')?.touched" class="text-danger">College Contact No is required</p>
         </div>
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeWebsite">College Website</label>
+          <label for="collegeWebsite">College Website<span class="text-danger">*</span></label>
           <input type="text" id="collegeWebsite" name="collegeWebsite" formControlName="collegeWebsite" class="form-control">
           <p *ngIf="studentForm.get('collegeWebsite')?.hasError('required') && studentForm.get('collegeWebsite')?.touched" class="text-danger">College Website is required</p>
         </div>
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeMail">College Mail</label>
+          <label for="collegeMail">College Mail<span class="text-danger">*</span></label>
           <input type="text" id="collegeMail" name="collegeMail" formControlName="collegeMail" class="form-control">
           <p *ngIf="studentForm.get('collegeMail')?.hasError('required') && studentForm.get('collegeMail')?.touched" class="text-danger">College Mail is required</p>
         </div>

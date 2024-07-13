@@ -71,36 +71,39 @@ export class CharityComponent {
     this.studentForm = this.formBuilder.group({
       studentApplicationsId: [''],
       studentName: ['', Validators.required],
-      email: ['', Validators.required , Validators.email] ,
+      email: ['', Validators.required ] ,
       dob: ['', Validators.required],
       mobile: ['', Validators.required ],
-      adhaarCard: [''],
+      adhaarCard: ['', Validators.required],
       studentQualificationDetailsId: [''],
       ssccgpa: ['', Validators.required],
       hsccgpa: ['', Validators.required],
       granduationCGPA: ['', Validators.required],
-      otherGraduation: [''],
-      granduationproofs: [''],
+      // otherGraduation: ['', Validators.required],
+      granduationproofs: ['', Validators.required],
       otherCGPA: ['', Validators.required],
       appliedFor: ['', Validators.required],
       collegeName: ['', Validators.required],
       annualFee: ['', Validators.required],
-      studentAccountDetails: [''],
+      studentAccountDetails: ['', Validators.required],
       collegeDetails: ['', Validators.required],
+      collegeMail: ['', Validators.required],
+      collegeType: ['', Validators.required],
+      collegeWebsite: ['', Validators.required],
       collegeAccountDetails: ['', Validators.required],
       collegeContact: ['', Validators.required],
       periodForRequiredGrant: ['', Validators.required],
       familyDetailsId: [''],
       fatherName: ['', Validators.required],
       fatherNumber: ['', Validators.required ],
-      adhaarNumber: [''],
+      adhaarNumber: ['', Validators.required],
       fatherOccupation: ['', Validators.required],
-      proofofincome: [''],
+      proofofincome: ['', Validators.required],
       motherName: ['', Validators.required],
       motherNumber: ['', Validators.required],
-      motherAdhaarNumber: [''],
+      motherAdhaarNumber: ['', Validators.required],
       motherOccupation: ['', Validators.required],
-      motherProofOfIncome: [''],
+      motherProofOfIncome: ['', Validators.required],
       familyAnnualIncome: ['', Validators.required],
       pincode: ['', Validators.required],
       dependentsInTheFamily: ['', Validators.required],
@@ -262,14 +265,11 @@ onMobileInput6(event:any){
 }
   
  onSubmit() {
-   if(this.studentForm.invalid){
+  debugger;
+   if(!this.studentForm.valid){
     this.studentForm.markAllAsTouched();
-    return;
   }
-   if(this.studentForm.invalid){
-    this.studentForm.markAllAsTouched();
-    return;
-  }
+ 
   
 
       let prajapathicommunity = false; // Assuming the default value is false
