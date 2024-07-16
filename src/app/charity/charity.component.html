@@ -371,7 +371,7 @@
         
       
         <div class="col-md-4 mb-4 px-3">
-          <label for="collegeAccountDetails">Account details of College<span class="text-danger">*</span></label>
+          <label for="collegeAccountDetails">Account details of College (Write account holder name, bank name, account number, IFSC code and branch name with pin code)<span class="text-danger">*</span></label>
           <input type="text" id="collegeAccountDetails" name="collegeAccountDetails" formControlName="collegeAccountDetails" class="form-control">
           <p *ngIf="studentForm.get('collegeAccountDetails')?.hasError('required') && studentForm.get('collegeAccountDetails')?.touched" class="text-danger">Account details of College is required</p>
           <span class="description">Account details of College where Grant Needed</span>
