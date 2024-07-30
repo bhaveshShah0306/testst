@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+// Define your custom primary and accent colors
+$primary: mat-palette($mat-grey, 900); // Dark grey
+$accent: mat-palette($mat-grey, 700);  // Slightly lighter grey
+
+// Create the theme object
+$custom-theme: mat-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent
+    )
+  )
+);
+
+// Include the theme styles for the component
+.custom-theme {
+  @include angular-material-theme($custom-theme);
+}
