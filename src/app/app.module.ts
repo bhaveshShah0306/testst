@@ -20,7 +20,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
-
+import { EventsComponent } from './events/events.component';
+import { EventdetailsComponent } from './eventdetails/eventdetails.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -35,8 +37,9 @@ import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
     ContactComponent,
     BecomememberComponent,
     LayoutcomponentComponent,
-    SponsorShipComponent
-
+    SponsorShipComponent,
+    EventsComponent,
+    EventdetailsComponent
    
   ],
   imports: [
@@ -45,7 +48,7 @@ import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule  ,NgbModule,MatSnackBarModule, 
+    RouterModule  ,NgbModule,MatSnackBarModule, MatTabsModule
   ],
   providers: [
     provideAnimationsAsync()

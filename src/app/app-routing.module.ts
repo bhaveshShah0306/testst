@@ -9,6 +9,8 @@ import { LoginModule } from './login/login.module';
 import {LayoutcomponentComponent} from './layoutcomponent/layoutcomponent.component'
 import { Content2Component } from './content2/content2.component';
 import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
+import { EventsComponent } from './events/events.component';
+import { EventdetailsComponent } from './eventdetails/eventdetails.component';
 const routes: Routes = [
   {path:'', 
   component:LayoutcomponentComponent,
@@ -19,6 +21,8 @@ const routes: Routes = [
     { path:'Membership', component: CareerComponent},
     {path:'Contact',component:ContactComponent},
     {path:'Sponsorship',component:SponsorShipComponent},
+    {path:'Events',component:EventsComponent},
+    {path:'Eventdetails/:id',component:EventdetailsComponent},
     //{path:'becomemember',component:BecomememberComponent},
       ]
     },

@@ -1,0 +1,130 @@
+.btn1 {
+    background-color: #834333;
+    color: white;
+    border-radius: 10px;
+    width: 190px;
+    height: 50px; 
+    border: none;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.inspirational-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 68.32px;
+    text-align: left;
+}
+
+.styled-text {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 68.32px;
+    text-align: left;
+    color: #3a5e52;
+}
+
+.clouds {
+    background: url('/assets/Vector.png') no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.white-background {
+    background-color: white;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    padding-top: 60px;
+    padding-bottom: 20px; /* Add padding bottom to give some space */
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 992px) {
+    .inspirational-text, .styled-text {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .btn1 {
+        width: 150px;
+        height: 40px;
+    }
+
+    .clouds {
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .inspirational-text, .styled-text {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .btn1 {
+        width: 130px;
+        height: 35px;
+    }
+
+    .clouds {
+        height: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .inspirational-text, .styled-text {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .btn1 {
+        width: 170px;
+        height: 30px;
+    }
+
+    .clouds {
+        height: 50px;
+    }
+}
+
+.custom-nav-pills {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.custom-nav-pills .nav-item {
+    flex: 1;
+    text-align: center;
+}
+
+.custom-nav-pills .nav-link {
+    background-color: #2a2a2a;
+    color: white;
+    border-radius: 50px;
+    margin: 0 5px;
+    transition: all 0.3s ease-in-out;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.custom-nav-pills .nav-link.active {
+    background-color: white;
+    color: #2a2a2a;
+}
