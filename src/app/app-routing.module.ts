@@ -11,6 +11,9 @@ import { Content2Component } from './content2/content2.component';
 import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
 import { EventsComponent } from './events/events.component';
 import { EventdetailsComponent } from './eventdetails/eventdetails.component';
+import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
+import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
+import { ReturnpolicyComponent } from './returnpolicy/returnpolicy.component';
 const routes: Routes = [
   {path:'', 
   component:LayoutcomponentComponent,
@@ -23,7 +26,10 @@ const routes: Routes = [
     {path:'Sponsorship',component:SponsorShipComponent},
     {path:'Events',component:EventsComponent},
     {path:'Eventdetails/:id',component:EventdetailsComponent},
-    //{path:'becomemember',component:BecomememberComponent},
+      // {path:'Membership',component:BecomememberComponent},
+    {path:'Termsandconditions',component:TermsandconditionsComponent},
+    {path:'Privacypolicy',component:PrivacypolicyComponent},
+    {path:'Returnpolicy',component:ReturnpolicyComponent},
       ]
     },
     

@@ -26,5 +26,10 @@ export class FooterComponent {
        onclicklogo(){
         this.router.navigateByUrl('/')
       }
+
+      
+      onclickmembership(){
+        this.router.navigateByUrl("/Membership")
+         }
   }
 
