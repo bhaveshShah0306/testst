@@ -14,6 +14,7 @@ import { EventdetailsComponent } from './eventdetails/eventdetails.component';
 import { TermsandconditionsComponent } from './termsandconditions/termsandconditions.component';
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { ReturnpolicyComponent } from './returnpolicy/returnpolicy.component';
+import { HeaderSampleComponent } from './header-sample/header-sample.component';
 const routes: Routes = [
   {path:'', 
   component:LayoutcomponentComponent,
@@ -30,6 +31,7 @@ const routes: Routes = [
     {path:'Termsandconditions',component:TermsandconditionsComponent},
     {path:'Privacypolicy',component:PrivacypolicyComponent},
     {path:'Returnpolicy',component:ReturnpolicyComponent},
+    {path:'donation',component:HeaderSampleComponent},
       ]
     },
     

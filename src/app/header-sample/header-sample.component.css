@@ -1,0 +1,236 @@
+
+
+
+
+
+.hero-container {
+    max-width: 1586px;
+    position: relative; /* Add this */
+  }
+  
+  .hero-section {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-section2 {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    top: 104%;
+    left: 18%;
+    transform: translate(-17%, -67%);
+  }
+  
+  .hero-text {
+    position: absolute;
+    line-height: 42px;
+    top: 22%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    color: black;
+    text-align: left;
+    font-size: 40px; 
+    font-weight: bold;
+    width: 25%; 
+  }
+  .hero-text span{
+    color: #3A5E52;
+  }
+  .hero-subtitle{
+    position: absolute;
+    top: 28%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    margin-top: 10px;
+    line-height: 20px;
+    font-size: 12px;
+  }
+  .donner-button{
+    position: absolute;
+    top: 33%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    margin-top: 10px;
+    width: 15%;
+    align-items: left;
+    background-color: #743A2F;
+    border: 1px solid #743A2F;
+  
+  }
+  body {
+    background-color: #F8F9FA;
+  }
+  .main-container{
+  display: flex;
+  flex-direction: column;
+  }
+  .container {
+
+    height: auto;
+    top: 150%;
+    left: 30%;
+    max-width: 600px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .section-title {
+    background: #E9ECEF;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border-radius: 20px 20px 0px 0px;
+    width: 600px;
+    margin-left: -12px;
+  }
+  .section-title1 {
+    background: #E9ECEF;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 600px;
+    margin-left: -12px;
+  }
+  .donation-amount button {
+    width: 100px;
+    margin: 5px;
+  }
+  .payment-option {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: left;
+    padding: 10px;
+     /* border-bottom: 1px solid #ddd; */
+  }
+  .payment-option:last-child {
+    border-bottom: none;
+  }
+  .payment-option p{
+    margin-left: 20px;
+  }
+  .payment-option1 {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 10px;
+    /* border-bottom: 1px solid #ddd; */
+  }
+  .payment-option1 p{
+    margin-left: 20px;
+  }
+  .payment-img{
+    width: 58px;
+    height: 30px;
+  }
+  .btn-disabled {
+    width: 100%;
+    background: #D6D6D6;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .form-group2 {
+    display: flex;
+    width: 346px;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    margin: 20px auto;
+    width: 30%;
+  }
+  
+  
+  
+  .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-right: 46px;
+  }
+  .btn-outline-primary{
+    border-color: #E6E6E6;
+    color:black ;
+    border-radius: 16px;
+  }
+  .input-line {
+    border: none;
+    border-bottom: 1px solid #E6E6E6;
+    padding: 5px 0;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+  }
+  
+  .input-line:focus {
+    border-bottom: 2px solid #743A2F; /* Blue underline when focused */
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .line {
+    flex: 1;
+    height: 1px;
+    background-color: #cecece; /* Change color as needed */
+    border: none;
+  }
+  
+  .text-center {
+    margin: 0 15px;
+    font-weight:800;
+    font-size: 18px;
+  }
+  .text-center1{
+    margin: 0 15px;
+  }
+  .text-center strong{
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  }
+  .text-muted{
+   margin-left: 200px;
+  
+  }
+  .text-muted1{
+    margin: 0 90px;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .payment-option img{
+    display: flex;
+    width: 60px;
+    height: 42px;
+    padding: 7px 4.6px 7px 5.4px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4.8px;
+  border: 1px solid var(--Light-Neutral-300, #E1E6EF);
+  background: var(--Light-Neutral-White, #FFF);
+  }
+  
+  

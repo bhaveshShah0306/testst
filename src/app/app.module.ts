@@ -23,6 +23,7 @@ import { SponsorShipComponent } from './sponsor-ship/sponsor-ship.component';
 import { EventsComponent } from './events/events.component';
 import { EventdetailsComponent } from './eventdetails/eventdetails.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { HeaderSampleComponent } from './header-sample/header-sample.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     FooterComponent,
     Content2Component,
     ServicesComponent,
-    CharityComponent,
+    CharityComponent,HeaderSampleComponent,
     CareerComponent,
     BlogComponent,
     ContactComponent,
