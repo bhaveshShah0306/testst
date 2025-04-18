@@ -21,7 +21,7 @@
 </div>
 <img src="/assets/cloud.png" alt="image" style="background-color: #f0f0f0;width:100%">
 <div class="second-sec">
-  <h1 style="text-align: center; color: #834333;"><strong>Application form of scholarship</strong></h1>
+  <h1 style="text-align: center; color: #834333;"><strong>Financial Assistance Program </strong></h1>
   <p style="font-size: 12px;font-family: Verdana;line-height: 1;text-align: center;">Fill all details correctly and upload documents properly. Keep your device in the network while filling the application.</p>
   <div class="form-sec">
     <div
@@ -265,12 +265,14 @@
             <input type="text" id="familyAnnualIncome" name="familyAnnualIncome" formControlName="familyAnnualIncome" class="form-control">
             <p *ngIf="studentForm.get('familyAnnualIncome')?.hasError('required') && studentForm.get('familyAnnualIncome')?.touched" class="text-danger">Family's Annual Income is required</p>
           </div>
-        
           <div class="col-md-4 mb-4 px-3">
-            <label for="pincode">Postal address and Pin code (Write full address with tehsil, district and state details )<span class="text-danger">*</span></label>
-            <input type="text" id="pincode" name="pincode" onKeyPress="if(this.value.length==6) return false" formControlName="pincode" class="form-control">
-            <p *ngIf="studentForm.get('pincode')?.hasError('required') && studentForm.get('pincode')?.touched" class="text-danger">Postal Address & Pin Code is required</p>
+            <label for="pincode">Postal Address and Pin Code (Write full address with tehsil, district, and state details) <span class="text-danger">*</span></label>
+            <input type="text" id="pincode" name="pincode" formControlName="pincode" class="form-control" placeholder="Enter full address with pin code">
+            <p *ngIf="studentForm.get('pincode')?.hasError('required') && studentForm.get('pincode')?.touched" class="text-danger">
+              Postal Address & Pin Code is required
+            </p>
           </div>
+          
         
           <div class="col-md-4 mb-4 px-3">
             <label for="dependentsInTheFamily">Number of Dependent's in your family<span class="text-danger">*</span></label>
