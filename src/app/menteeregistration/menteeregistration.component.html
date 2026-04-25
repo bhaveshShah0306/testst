@@ -1,0 +1,842 @@
+<div class="form-sec">
+  <div class="form-header">
+    <h2>Registration for Mentee</h2>
+    <p class="subtitle">मेंटी के लिए पंजीकरण - मेंटर मेंटी कार्यक्रम</p>
+  </div>
+
+  <form [formGroup]="menteeForm" (ngSubmit)="onSubmit()">
+    <div class="section-header">
+      <h3>Personal Information / व्यक्तिगत जानकारी</h3>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name" class="required">Name / नाम</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control"
+          [class.is-invalid]="submitted && f['name'].errors"
+          placeholder="Enter your full name"
+        />
+        @if (submitted && f["name"].errors) {
+          <div class="invalid-feedback">
+            @if (f["name"].errors["required"]) {
+              <span>Name is required/नाम अनिवार्य है</span>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth" class="required"
+          >Date of Birth / जन्म तिथि</label
+        >
+        <input
+          type="date"
+          id="dateOfBirth"
+          formControlName="dateOfBirth"
+          class="form-control"
+          [max]="maxDate"
+          [class.is-invalid]="submitted && f['dateOfBirth'].errors"
+        />
+        @if (submitted && f["dateOfBirth"].errors) {
+          <div class="invalid-feedback">
+            <span>Date of birth is required/जन्म तिथि अनिवार्य है</span>
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="currentAge" class="required"
+          >Current Age / वर्तमान आयु</label
+        >
+        <input
+          type="number"
+          id="currentAge"
+          formControlName="currentAge"
+          class="form-control"
+          readonly
+          [class.is-invalid]="submitted && f['currentAge'].errors"
+          placeholder="Auto-calculated"
+        />
+        @if (submitted && f["currentAge"].errors) {
+          <div class="invalid-feedback">
+            <span>Age is required/आयु अनिवार्य है</span>
+          </div>
+        }
+      </div>
+      <div class="form-group">
+        <div class="input-control">
+          <label class="required">Gender / लिंग</label>
+          <div class="gender-options">
+            <label class="radio-label">
+              <input type="radio" formControlName="gender" value="Male" />
+              <span>Male / पुरुष</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" formControlName="gender" value="Female" />
+              <span>Female / महिला</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" formControlName="gender" value="Other" />
+              <span>Other / अन्य</span>
+            </label>
+          </div>
+        </div>
+        @if (submitted && f["gender"].errors) {
+          <div class="invalid-feedback d-block">
+            <span>Please select gender/सही लिंग चुनें</span>
+          </div>
+        }
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <div class="input-control">
+          <label for="address" class="required">Address / पता</label>
+          <textarea
+            id="address"
+            formControlName="address"
+            class="form-control"
+            rows="3"
+            [class.is-invalid]="submitted && f['address'].errors"
+            placeholder="Enter your complete address"
+          ></textarea>
+          @if (submitted && f["address"].errors) {
+            <div class="invalid-feedback">
+              <span>Address is required/पता अनिवार्य है</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Mobile and Email -->
+      <div class="form-group">
+        <label for="mobileNumber">
+
+          Mobile Number / मोबाइल नंबर
+          <span class="required">*</span>
+          <small class="text-muted">(WhatsApp / व्हाट्सएप नंबर)</small>
+        </label>
+        <input
+          type="tel"
+          id="mobileNumber"
+          formControlName="mobileNumber"
+          class="form-control"
+          [class.is-invalid]="submitted && f['mobileNumber'].errors"
+          placeholder="10-digit mobile number"
+          maxlength="10"
+        />
+        @if (submitted && f["mobileNumber"].errors) {
+          <div class="invalid-feedback">
+            @if (f["mobileNumber"].errors["required"]) {
+              <span>Mobile number is required/मोबाइल नंबर अनिवार्य है</span>
+            }
+            @if (f["mobileNumber"].errors["pattern"]) {
+              <span>Enter valid 10-digit number/वैध 10 अंकीय नंबर दर्ज करें</span>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="required">Email / ईमेल</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          [class.is-invalid]="submitted && f['email'].errors"
+          placeholder="your.email@example.com"
+        />
+        @if (submitted && f["email"].errors) {
+          <div class="invalid-feedback">
+            @if (f["email"].errors["required"]) {
+              <span>Email is required/ईमेल अनिवार्य है</span>
+            }
+            @if (f["email"].errors["email"]) {
+              <span>वैध ईमेल अनिवार्य है/Enter valid email</span>
+            }
+          </div>
+        }
+      </div>
+      <!-- Qualification -->
+      <div class="form-group">
+        <label for="qualification" class="required"
+          >Qualification / शैक्षिक अहर्ता</label
+        >
+        <input
+          type="text"
+          id="qualification"
+          formControlName="qualification"
+          class="form-control"
+          [class.is-invalid]="submitted && f['qualification'].errors"
+          placeholder="e.g., 12th Pass, B.Tech, MBA"
+        />
+        @if (submitted && f["qualification"].errors) {
+          <div class="invalid-feedback">
+            <span>Qualification is required/शैक्षिक अहर्ता अनिवार्य है</span>
+          </div>
+        }
+      </div>
+
+      <!-- Present Status -->
+      <div class="form-group">
+        <label for="presentStatus" class="required"
+          >Present Status / वर्तमान स्थिति</label
+        >
+        <select
+          id="presentStatus"
+          formControlName="presentStatus"
+          class="form-control"
+          [class.is-invalid]="submitted && f['presentStatus'].errors"
+        >
+          <option value="">-- Select Status --</option>
+          @for (option of presentStatusOptions; track option.value) {
+            <option [value]="option.value">
+              {{ option.label }}
+            </option>
+          }
+        </select>
+        @if (submitted && f["presentStatus"].errors) {
+          <div class="invalid-feedback">
+            <span>Please select present status/कृपया वर्तमान स्थिति चुनें</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Conditional: Employed Fields -->
+    @if (showEmployedFields()) {
+      <div class="section-header">
+        <h4>Employment Details / रोजगार विवरण</h4>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="employedPosition" class="required">
+            Position/Designation Name / पद का नाम
+          </label>
+          <input
+            type="text"
+            id="employedPosition"
+            formControlName="employedPosition"
+            class="form-control"
+            [class.is-invalid]="submitted && f['employedPosition'].errors"
+            placeholder="e.g., Software Developer, Manager"
+          />
+          @if (submitted && f["employedPosition"].errors) {
+            <div class="invalid-feedback">
+              <span>Position is required/रोजगार का पद अनिवार्य है</span>
+            </div>
+          }
+        </div>
+        <div class="form-group">
+          <label for="employedCompany" class="required">
+            Company Name and Location / कंपनी का नाम और पता
+          </label>
+          <input
+            type="text"
+            id="employedCompany"
+            formControlName="employedCompany"
+            class="form-control"
+            [class.is-invalid]="submitted && f['employedCompany'].errors"
+            placeholder="e.g., ABC Corp, Hyderabad"
+          />
+          @if (submitted && f["employedCompany"].errors) {
+            <div class="invalid-feedback">
+              <span>Company details are required/कंपनी विवरण अनिवार्य है</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+
+    <!-- Conditional: Student Fields -->
+    @if (showStudentFields()) {
+      <div class="conditional-section">
+        <div class="section-header">
+          <h4>Student Details / छात्र विवरण</h4>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="studentCourse" class="required">
+              Name of Course/Degree / पाठ्यक्रम/डिग्री का नाम
+            </label>
+            <input
+              type="text"
+              id="studentCourse"
+              formControlName="studentCourse"
+              class="form-control"
+              [class.is-invalid]="submitted && f['studentCourse'].errors"
+              placeholder="e.g., B.Tech Computer Science"
+            />
+            @if (submitted && f["studentCourse"].errors) {
+              <div class="invalid-feedback">
+                <span>Course name is required/कोर्स का नाम अनिवार्य है</span>
+              </div>
+            }
+          </div>
+          <div class="form-group">
+            <label for="studentDuration" class="required">
+              Duration & Current Year / अवधि और वर्तमान वर्ष
+            </label>
+            <input
+              type="text"
+              id="studentDuration"
+              formControlName="studentDuration"
+              class="form-control"
+              [class.is-invalid]="submitted && f['studentDuration'].errors"
+              placeholder="e.g., 4 years, Currently in 2nd year"
+            />
+            @if (submitted && f["studentDuration"].errors) {
+              <div class="invalid-feedback">
+                <span>Duration is required/कॉलेज की अवधि अनिवार्य है</span>
+              </div>
+            }
+          </div>
+          <div class="form-group">
+            <label for="studentCollege" class="required">
+              College Name & Address / कॉलेज का नाम और पता
+            </label>
+            <textarea
+              id="studentCollege"
+              formControlName="studentCollege"
+              class="form-control"
+              rows="2"
+              [class.is-invalid]="submitted && f['studentCollege'].errors"
+              placeholder="College name and complete address"
+            ></textarea>
+            @if (submitted && f["studentCollege"].errors) {
+              <div class="invalid-feedback">
+                <span>College details are required/कॉलेज विवरण अनिवार्य है</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Conditional: Entrepreneur Fields -->
+    @if (showEntrepreneurFields()) {
+      <div class="conditional-section">
+        <div class="section-header">
+          <h4>Business Details / व्यवसाय विवरण</h4>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="businessName" class="required">
+              Business Name and Type / व्यवसाय का नाम और प्रकार
+            </label>
+            <input
+              type="text"
+              id="businessName"
+              formControlName="businessName"
+              class="form-control"
+              [class.is-invalid]="submitted && f['businessName'].errors"
+              placeholder="e.g., XYZ Enterprises (Sole Proprietorship)"
+            />
+            @if (submitted && f["businessName"].errors) {
+              <div class="invalid-feedback">
+                <span>Business name is required/व्यवसाय का नाम अनिवार्य है</span>
+              </div>
+            }
+          </div>
+          <div class="form-group">
+            <label for="businessNature" class="required">
+              Nature of Business / व्यवसाय की प्रकृति
+            </label>
+            <input
+              type="text"
+              id="businessNature"
+              formControlName="businessNature"
+              class="form-control"
+              [class.is-invalid]="submitted && f['businessNature'].errors"
+              placeholder="e.g., Retail, Manufacturing, Services"
+            />
+            @if (submitted && f["businessNature"].errors) {
+              <div class="invalid-feedback">
+                <span>Nature of business is required/व्यवसाय की प्रकृति अनिवार्य है</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="form-group.btn-primary">
+          <label for="businessAddress" class="required">
+            Business Address / व्यवसाय का पता
+          </label>
+          <textarea
+            id="businessAddress"
+            formControlName="businessAddress"
+            class="form-control"
+            rows="2"
+            [class.is-invalid]="submitted && f['businessAddress'].errors"
+            placeholder="Complete business address"
+          ></textarea>
+          @if (submitted && f["businessAddress"].errors) {
+            <div class="invalid-feedback">
+              <span>Business address is required/व्यवसाय का पता अनिवार्य है</span>
+            </div>
+          }
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="businessContact" class="required">
+              Contact Number / संपर्क नंबर
+            </label>
+            <input
+              type="tel"
+              id="businessContact"
+              formControlName="businessContact"
+              class="form-control"
+              [class.is-invalid]="submitted && f['businessContact'].errors"
+              placeholder="10-digit number"
+              maxlength="10"
+            />
+            @if (submitted && f["businessContact"].errors) {
+              <div
+                class="invalid-feedback"
+                *ngIf="submitted && f['businessContact'].errors"
+              >
+                <span>Valid contact number is required/वैध संपर्क नंबर अनिवार्य है</span>
+              </div>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="businessEmail" class="required">
+              Business Email / व्यवसाय ईमेल
+            </label>
+            <input
+              type="email"
+              id="businessEmail"
+              formControlName="businessEmail"
+              class="form-control"
+              [class.is-invalid]="submitted && f['businessEmail'].errors"
+              placeholder="business@example.com"
+            />
+            @if (submitted && f["businessEmail"].errors) {
+              <div class="invalid-feedback">
+                @if (f["businessEmail"].errors["required"]) {
+                  <span>Business email is required/व्यावसायिक ईमेल अनिवार्य है</span>
+                }
+                @if (f["businessEmail"].errors["email"]) {
+                  <span>Enter valid business email/वैध व्यावसायिक ईमेल दर्ज करें</span>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    }
+
+    <!-- Conditional: Homemaker Fields -->
+    @if (showHomemakerFields()) {
+      <div class="conditional-section">
+        <div class="section-header">
+          <h4>Course Information / पाठ्यक्रम जानकारी</h4>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="required">
+              Currently pursuing any online/offline course? / क्या वर्तमान में
+              कोई कोर्स ऑनलाइन/ऑफलाइन कर रही हैं?
+            </label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  formControlName="homemakerPursuingCourse"
+                  value="Yes"
+                  (change)="onHomemakerCourseChange()"
+                />
+                <span>Yes / हाँ</span>
+              </label>
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  formControlName="homemakerPursuingCourse"
+                  value="No"
+                  (change)="onHomemakerCourseChange()"
+                />
+                <span>No / नहीं</span>
+              </label>
+            </div>
+            @if (submitted && f["homemakerPursuingCourse"].errors) {
+              <div class="invalid-feedback d-block">
+                <span>Please select an option/कृपया उपयुक्त विकल्प चुनें</span>
+              </div>
+            }
+          </div>
+        </div>
+        @if (isPursuingCourse()) {
+          <div class="form-row">
+            <div class="form-group">
+              <label for="homemakerCourseName" class="required">
+                Course Name / कोर्स का नाम
+              </label>
+              <input
+                type="text"
+                id="homemakerCourseName"
+                formControlName="homemakerCourseName"
+                class="form-control"
+                [class.is-invalid]="
+                  submitted && f['homemakerCourseName'].errors
+                "
+                placeholder="Enter course name"
+              />
+              @if (submitted && f["homemakerCourseName"].errors) {
+                <div class="invalid-feedback">
+                  <span>Course name is required/कोर्स का नाम अनिवार्य है </span>
+                </div>
+              }
+            </div>
+            <div class="form-group">
+              <label for="homemakerCourseDuration" class="required">
+                Course Duration / कोर्स की अवधि
+              </label>
+              <input
+                type="text"
+                id="homemakerCourseDuration"
+                formControlName="homemakerCourseDuration"
+                class="form-control"
+                [class.is-invalid]="
+                  submitted && f['homemakerCourseDuration'].errors
+                "
+                placeholder="e.g., 6 months, 1 year"
+              />
+              @if (submitted && f["homemakerCourseDuration"].errors) {
+                <div class="invalid-feedback">
+                  <span>Course duration is required/कोर्स की अवधि अनिवार्य है</span>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Section: Parent Information -->
+    <div class="section-header mt-4">
+      <h3>Parent Information / माता-पिता की जानकारी</h3>
+    </div>
+
+    <!-- Father's Information -->
+    <div class="parent-subsection">
+      <h4>Father's Details / पिता का विवरण</h4>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fatherName" class="required"
+            >Father's Name / पिता का नाम</label
+          >
+          <input
+            type="text"
+            id="fatherName"
+            formControlName="fatherName"
+            class="form-control"
+            [class.is-invalid]="submitted && f['fatherName'].errors"
+          />
+          @if (submitted && f["fatherName"].errors) {
+            <div class="invalid-feedback">
+              <span>Father's name is required/पिता का नाम अनिवार्य है</span>
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="fatherAge">Father's Age/पिता की आयु</label>
+          <input
+            type="number"
+            id="fatherAge"
+            formControlName="fatherAge"
+            class="form-control"
+          />
+          <!-- 
+          on label class="required"  
+          on input field  [class.is-invalid]="submitted && f['fatherAge'].errors"
+          
+          @if (submitted && f["fatherAge"].errors) {
+            <div class="invalid-feedback">
+              <span>Father's age is required</span>
+            </div>
+          } -->
+        </div>
+
+        <div class="form-group">
+          <label for="fatherQualification">
+            Father's Qualification / पिता की शैक्षिक अहर्ता
+          </label>
+          <input
+            type="text"
+            id="fatherQualification"
+            formControlName="fatherQualification"
+            class="form-control"
+          />
+          <!--
+          on label class="required"
+          on input field[class.is-invalid]="submitted && f['fatherQualification'].errors"
+          
+          @if (submitted && f["fatherQualification"].errors) {
+            <div class="invalid-feedback">
+              <span>Father's qualification is required</span>
+            </div>
+          } -->
+        </div>
+
+        <div class="form-group">
+          <label for="fatherOccupation">
+            Father's Occupation / पिता का व्यवसाय
+          </label>
+          <input
+            type="text"
+            id="fatherOccupation"
+            formControlName="fatherOccupation"
+            class="form-control"
+          />
+          <!-- 
+          on label  class="required"
+
+          on input [class.is-invalid]="submitted && f['fatherOccupation'].errors"
+          
+          @if (submitted && f["fatherOccupation"].errors) {
+            <div class="invalid-feedback">
+              <span>Father's occupation is required</span>
+            </div>
+          } -->
+        </div>
+
+        <div class="form-group">
+          <label for="fatherIncome">
+            Father's Annual Income (₹) / पिता की वार्षिक आय
+          </label>
+          <input
+            type="number"
+            id="fatherIncome"
+            formControlName="fatherIncome"
+            class="form-control"
+            placeholder="INR ₹"
+          />
+          <!-- 
+          on label class="required"
+          on input [class.is-invalid]="submitted && f['fatherIncome'].errors"
+          @if (submitted && f["fatherIncome"].errors) {
+            <div class="invalid-feedback">
+              <span>Father's income is required</span>
+            </div>
+          } -->
+        </div>
+
+        <div class="form-group">
+          <label for="fatherMobile">
+            Father's Mobile Number / पिता का मोबाइल नंबर
+          </label>
+          <input
+            type="tel"
+            id="fatherMobile"
+            formControlName="fatherMobile"
+            class="form-control"
+            maxlength="10"
+          />
+          <!-- 
+          On label class="required"
+          on input [class.is-invalid]="submitted && f['fatherMobile'].errors"
+          @if (submitted && f["fatherMobile"].errors) {
+            <div class="invalid-feedback">
+              <span>Valid 10-digit mobile number is required</span>
+            </div>
+          } -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Mother's Information -->
+    <div class="parent-subsection">
+      <h4>Mother's Details / माता का विवरण</h4>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="motherName" class="required"
+            >Mother's Name / माता का नाम</label
+          >
+          <input
+            type="text"
+            id="motherName"
+            formControlName="motherName"
+            class="form-control"
+            [class.is-invalid]="submitted && f['motherName'].errors"
+          />
+
+          @if (submitted && f["motherName"].errors) {
+            <div class="invalid-feedback">
+              <span>Mother's name is required/माता का नाम अनिवार्य है</span>
+            </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="motherAge">Mother's Age / माता की आयु</label>
+          <input
+            type="number"
+            id="motherAge"
+            formControlName="motherAge"
+            class="form-control"
+          />
+        </div>
+        <!-- 
+        on label class="required"
+        
+        on input field [class.is-invalid]="submitted && f['motherAge'].errors"
+        
+        @if (submitted && f["motherAge"].errors) {
+          <div class="invalid-feedback">
+            <span>Mother's Age cannot be more 120</span>
+          </div>
+        } -->
+
+        <div class="form-group">
+          <label for="motherQualification">
+            Mother's Qualification / माता की शैक्षिक अहर्ता
+          </label>
+          <input
+            type="text"
+            id="motherQualification"
+            formControlName="motherQualification"
+            class="form-control"
+          />
+        </div>
+
+        <!--
+        on label class="required"
+
+        on input field [class.is-invalid]="submitted && f['motherQualification'].errors"
+        
+        @if(submitted && f['motherQualification'].errors) 
+        {
+          <div class="invalid-feedback">
+            <span>Mother's Qualification cannot be more 120</span>
+          </div>
+        } -->
+        <div class="form-group">
+          <label for="motherOccupation">
+            Mother's Occupation / माता का पेशा
+          </label>
+          <input
+            type="text"
+            id="motherOccupation"
+            formControlName="motherOccupation"
+            class="form-control"
+          />
+          <!-- 
+          on labelclass="required"
+          on input field [class.is-invalid]="submitted && f['motherOccupation'].errors"
+          @if (submitted && f["motherOccupation"].errors) {
+            <div class="invalid-feedback">
+              <span>Mother's Occupation is required</span>
+            </div>
+          } -->
+        </div>
+        <div class="form-group">
+          <label for="motherIncome">
+            Mother's Annual Income (₹) / माता की वार्षिक आय
+          </label>
+          <input
+            type="number"
+            id="motherIncome"
+            formControlName="motherIncome"
+            class="form-control"
+            placeholder="INR ₹"
+          />
+          <!--
+          on label class="required"
+
+          on input field [class.is-invalid]="submitted && f['motherIncome'].errors"
+          
+          @if (submitted && f["motherIncome"].errors) {
+            <div class="invalid-feedback">
+              <span>Mother's Annual Income is required</span>
+            </div>
+          } -->
+        </div>
+
+        <div class="form-group">
+          <label for="motherMobile">
+            Mother's Mobile Number / माता का मोबाइल नंबर
+          </label>
+          <input
+            type="tel"
+            id="motherMobile"
+            formControlName="motherMobile"
+            class="form-control"
+            [class.is-invalid]="submitted && f['motherMobile'].errors"
+            maxlength="10"
+          />
+          <!-- 
+          on label class="required"
+
+          on input field [class.is-invalid]="submitted && f['motherMobile'].errors"
+
+          @if (submitted && f["motherMobile"].errors) {
+            <div class="invalid-feedback">
+              <span>Valid 10-digit mobile number is required</span>
+            </div>
+          } -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Purpose -->
+    <div class="section-header mt-4">
+      <h3>Purpose / उद्देश्य</h3>
+    </div>
+
+    <div class="form-group full-width">
+      <label id="purpose-label2" for="purpose">
+        Purpose of taking mentoring (maximum 100 words)
+      </label>
+      <label id="purpose-label2" for="purpose" class="required">मार्गदर्शन प्राप्त
+        करने का उद्देश्य 100 शब्दों में लिखें</label>
+      <textarea
+        id="purpose"
+        formControlName="purpose"
+        class="form-control"
+        rows="5"
+        [class.is-invalid]="submitted && f['purpose'].errors"
+        placeholder="Explain why you want mentoring and what you hope to achieve..."
+      ></textarea>
+      <div class="word-count">
+        {{ getWordCount(menteeForm.get("purpose")?.value || "") }} / 100 words
+      </div>
+      @if (submitted && f["purpose"].errors) {
+        <div class="invalid-feedback">
+          @if (f["purpose"].errors["required"]) {
+            <span>उद्देश्य अनिवार्य है / Purpose is required</span>
+          }
+          @if (f["purpose"].errors["maxWords"]; as maxError) {
+            <span>
+             Purpose must not exceed 100 words (current:
+              {{ maxError.value }}) words/उद्देश्य 100 शब्दों से अधिक नहीं होना चाहिए (वर्तमान:
+              {{ maxError.value }}) शब्द
+            </span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Form Actions -->
+    <div class="button-container">
+      <button type="submit" class="button">
+        <!-- <i class="fas fa-paper-plane"></i>  -->
+        Submit Registration
+      </button>
+      <!-- <button type="button" class="btn btn-secondary" (click)="onReset()">
+              <i class="fas fa-redo"></i> Reset Form
+            </button> -->
+    </div>
+  </form>
+</div>

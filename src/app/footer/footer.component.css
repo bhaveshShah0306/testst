@@ -1,0 +1,29 @@
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icons a i {
+  font-size: 18px;
+}
+
+.social-icons a:hover {
+  background-color: #fff;
+  color: #000;
+  border-color: #fff;
+}

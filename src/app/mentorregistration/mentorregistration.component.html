@@ -1,0 +1,264 @@
+    <div class="form-sec">
+      <div class="form-header">
+        <h2>Registration for Mentor</h2>
+        <p class="subtitle">मेंटर के लिए पंजीकरण - मेंटर मेंटी कार्यक्रम</p>
+      </div>
+
+  <form [formGroup]="mentorForm" (ngSubmit)="onSubmit()">
+    <div class="section-header">
+      <h3>Personal Information / व्यक्तिगत जानकारी</h3>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="name" class="required">Name / नाम</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control"
+          [class.is-invalid]="submitted && f['name'].errors"
+          placeholder="Enter your full name"
+        />
+        @if (submitted && f["name"].errors) {
+          <div class="invalid-feedback">
+            @if (f["name"].errors["required"]) {
+              <span>Name is required / नाम आवश्यक है</span>
+            }
+          </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth" class="required"
+          >Date of Birth / जन्म तिथि</label
+        >
+        <input
+          type="date"
+          id="dateOfBirth"
+          formControlName="dateOfBirth"
+          class="form-control"
+          [max]="maxDate"
+          [class.is-invalid]="submitted && f['dateOfBirth'].errors"
+        />
+        @if (submitted && f["dateOfBirth"].errors) {
+          <div class="invalid-feedback">
+            <span>Date of birth is required</span>
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="currentAge" class="required"
+          >Current Age / वर्तमान आयु</label
+        >
+        <input
+          type="number"
+          id="currentAge"
+          formControlName="currentAge"
+          class="form-control"
+          readonly
+          [class.is-invalid]="submitted && f['currentAge'].errors"
+          placeholder="Auto-calculated"
+        />
+        @if (submitted && f["currentAge"].errors) {
+          <div class="invalid-feedback">
+            <span>Age is required</span>
+          </div>
+        }
+      </div>
+      <div class="form-group">
+        <div class="input-control">
+          <label class="required">Gender / लिंग</label>
+          <div class="gender-options">
+            <label class="radio-label">
+              <input type="radio" formControlName="gender" value="Male" />
+              <span>Male / पुरुष</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" formControlName="gender" value="Female" />
+              <span>Female / महिला</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" formControlName="gender" value="Other" />
+              <span>Other / अन्य</span>
+            </label>
+          </div>
+        </div>
+        @if (submitted && f["gender"].errors) {
+          <div class="invalid-feedback d-block">
+            <span>Please select gender</span>
+          </div>
+        }
+      </div>
+
+      <!-- Qualification -->
+      <div class="form-group">
+        <label for="qualification" class="required"
+          >Qualification / शैक्षिक अहर्ता</label
+        >
+        <input
+          type="text"
+          id="qualification"
+          formControlName="qualification"
+          class="form-control"
+          [class.is-invalid]="submitted && f['qualification'].errors"
+          placeholder="e.g., B.Tech, MBA, Ph.D."
+        />
+        @if (submitted && f["qualification"].errors) {
+          <div class="invalid-feedback">
+            <span>Qualification is required</span>
+          </div>
+        }
+      </div>
+
+      <!-- Present Occupation -->
+      <div class="form-group">
+        <label for="presentOccupation" class="required"
+          >Present Occupation / वर्तमान पेशा</label
+        >
+        <input
+          type="text"
+          id="presentOccupation"
+          formControlName="presentOccupation"
+          class="form-control"
+          [class.is-invalid]="submitted && f['presentOccupation'].errors"
+          placeholder="e.g., Software Engineer, Teacher, Doctor"
+        />
+        @if (submitted && f["presentOccupation"].errors) {
+          <div class="invalid-feedback">
+            <span>Present occupation is required</span>
+          </div>
+        }
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <div class="input-control">
+          <label for="address" class="required">Address / पता</label>
+          <textarea
+            id="address"
+            formControlName="address"
+            class="form-control"
+            rows="3"
+            [class.is-invalid]="submitted && f['address'].errors"
+            placeholder="Enter your complete address"
+          ></textarea>
+          @if (submitted && f["address"].errors) {
+            <div class="invalid-feedback">
+              <span>Address is required</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Mobile and Email -->
+      <div class="form-group">
+        <label for="mobileNumber">
+
+          Mobile Number / मोबाइल नंबर
+          <span class="required">*</span>
+          <small class="text-muted">(WhatsApp / व्हाट्सएप नंबर)</small>
+        </label>
+        <input
+          type="tel"
+          id="mobileNumber"
+          formControlName="mobileNumber"
+          class="form-control"
+          [class.is-invalid]="submitted && f['mobileNumber'].errors"
+          placeholder="10-digit mobile number"
+          maxlength="10"
+        />
+        @if (submitted && f["mobileNumber"].errors) {
+          <div class="invalid-feedback">
+            @if (f["mobileNumber"].errors["required"]) {
+              <span>Mobile number is required</span>
+            }
+            @if (f["mobileNumber"].errors["pattern"]) {
+              <span>Enter valid 10-digit number</span>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="required">Email / ईमेल</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          [class.is-invalid]="submitted && f['email'].errors"
+          placeholder="your.email@example.com"
+        />
+        @if (submitted && f["email"].errors) {
+          <div class="invalid-feedback">
+            @if (f["email"].errors["required"]) {
+              <span>Email is required</span>
+            }
+            @if (f["email"].errors["email"]) {
+              <span>Enter valid email</span>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- Mentor Field -->
+      <div class="form-group">
+        <label for="mentorField" class="required"
+          >Field in which you wish to serve as Mentor / मेंटर के रूप में सेवा करने का क्षेत्र</label
+        >
+        <input
+          type="text"
+          id="mentorField"
+          formControlName="mentorField"
+          class="form-control"
+          [class.is-invalid]="submitted && f['mentorField'].errors"
+          placeholder="e.g., Career Guidance, Technical Skills, Business Development"
+        />
+        @if (submitted && f["mentorField"].errors) {
+          <div class="invalid-feedback">
+            <span>Mentor field is required</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="form-group full-width">
+      <label for="introduction" class="required">
+        Introduction about self (maximum 100 words) / स्वयं के बारे में 100 शब्दों में जानकारी
+      </label>
+      <textarea
+        id="introduction"
+        formControlName="introduction"
+        class="form-control"
+        rows="5"
+        [class.is-invalid]="submitted && f['introduction'].errors"
+        placeholder="Write a brief introduction about yourself..."
+      ></textarea>
+      <div class="word-count">
+        {{ getWordCount(mentorForm.get("introduction")?.value || "") }} / 100 words
+      </div>
+      @if (submitted && f["introduction"].errors) {
+        <div class="invalid-feedback">
+          @if (f["introduction"].errors["required"]) {
+            <span>Introduction is required</span>
+          }
+          @if (f["introduction"].errors["maxWords"]; as maxError) {
+            <span>
+              Introduction must not exceed 100 words (current:
+              {{ maxError.value }}) words
+            </span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Form Actions -->
+    <div class="button-container">
+      <button type="submit" class="button">
+        Submit Registration
+      </button>
+    </div>
+  </form>
+    </div>

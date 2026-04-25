@@ -13,7 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { BecomememberComponent } from './becomemember/becomemember.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LayoutcomponentComponent } from './layoutcomponent/layoutcomponent.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +24,7 @@ import { EventsComponent } from './events/events.component';
 import { EventdetailsComponent } from './eventdetails/eventdetails.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { HeaderSampleComponent } from './header-sample/header-sample.component';
+import { CredentialsInterceptor } from './secure-cookie-setup.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,8 +41,7 @@ import { HeaderSampleComponent } from './header-sample/header-sample.component';
     LayoutcomponentComponent,
     SponsorShipComponent,
     EventsComponent,
-    EventdetailsComponent
-   
+    EventdetailsComponent, 
   ],
   imports: [
     BrowserModule,
@@ -52,7 +52,12 @@ import { HeaderSampleComponent } from './header-sample/header-sample.component';
     RouterModule  ,NgbModule,MatSnackBarModule, MatTabsModule
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: CredentialsInterceptor,
+    multi: true
+  }
   ],
   bootstrap: [AppComponent]
 })

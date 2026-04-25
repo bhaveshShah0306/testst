@@ -18,7 +18,6 @@ export class EventserviceService  extends HttpResponseService{
 
     getevents(): Observable<any>{
       const token ="";
-debugger;
       // Set up the headers with the bearer token
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
@@ -37,7 +36,6 @@ debugger;
      }
     geteventgallery(): Observable<any>{
       const token ="";
-debugger;
       // Set up the headers with the bearer token
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',

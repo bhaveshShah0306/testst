@@ -1,43 +1,486 @@
 /* General Styles */
 .nav-link {
-    font-family: Arial;
-    font-size: 15px;
+  font-family: Arial;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+/* :host {
+  height: 80px;  spacer so page content doesn't hide under the fixed bar 
+  box-sizing: border-box;
+} */
+.main {
+  background-color: #f0f0f0;
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+/* Center Navbar Brand and Links on Large Screens */
+.navbar {
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  overflow: visible; /* ensure toggler and dropdowns can overflow safely */
+}
+
+/* Keep the immediate container from clipping the toggler on small devices */
+.main > .container {
+  overflow: visible;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  /* margin-top:20px; */
+}
+
+.navbar-expand-lg {
+  margin-top: 20px;
+    border-radius: 8px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+  background-color: white;
+}
+
+.navbar-nav {
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+}
+
+.navbar-collapse {
+  justify-content: center;
+  z-index: 1001;
+}
+
+/* Mobile collapse tweaks: visual panel and close button */
+.navbar-collapse {
+  border-radius: 12px;
+}
+
+.close-mobile {
+  position: absolute;
+  top: calc(10px + env(safe-area-inset-top, 0));
+  right: calc(14px + env(safe-area-inset-right, 0));
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: #834333;
+  padding: 6px;
+  z-index: 1202;
+  cursor: pointer;
+}
+
+/* Fix invisible hamburger icon */
+.navbar-toggler {
+  border: 2px solid #834333;
+  padding: 0.45rem 0.6rem;
+  background: transparent;
+  position: relative;
+  z-index: 1205; /* sit above collapse panel */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23834333' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  width: 1.6em;
+  height: 1.6em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(131, 67, 51, 0.25);
+}
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+.nav-item .registration-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 400px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 25px 55px rgba(27, 17, 10, 0.2);
+  z-index: 1200;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  margin-top: 8px;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.registration-dropdown .panel-content {
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Improve panel spacing and font color */
+.registration-dropdown .panel-content {
+  padding: 12px 18px;
+  box-sizing: border-box;
+}
+
+.registration-dropdown .panel-title {
+  color: #2b2b2b;
+  font-size: 1rem;
+  margin: 0 0 12px 0;
+  padding-top: 4px;
+}
+
+.registration-dropdown.show .panel-content > * {
+  animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.registration-dropdown.show .panel-title {
+  animation-delay: 0.05s;
+}
+
+.registration-dropdown.show .divider {
+  animation-delay: 0.1s;
+}
+
+.registration-dropdown.show .btn-group {
+  animation-delay: 0.15s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
   }
-  
-  .main {
-    background-color: #f0f0f0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Center Navbar Brand and Links on Large Screens */
+}
+
+.registration-dropdown .panel-title {
+  font-family: Arial;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.registration-dropdown .divider {
+  border-top: 1px solid lightgray;
+  width: 100%;
+  margin-bottom: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.registration-dropdown .btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.registration-dropdown .reg-btn {
+  flex: 1 1 auto;
+  background-color: #834333;
+  color: white;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+  font-family: Arial;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 64px;
+  max-width: 360px;
+  margin: 0 auto;
+  box-shadow: 0 6px 14px rgba(131, 67, 51, 0.12);
+  transition:
+    background-color 0.2s ease,
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Ensure icons/images in registration buttons are centered */
+.registration-dropdown .reg-btn {
+  justify-content: center;
+  text-align: center;
+}
+
+.registration-dropdown .reg-btn img,
+.registration-dropdown .reg-btn .icon {
+  display: block;
+  margin: 0 auto;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.registration-dropdown .reg-btn .text {
+  display: block;
+  width: 100%;
+}
+
+.nav-item .registration-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.registration-dropdown .reg-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(131, 67, 51, 0.4);
+  transition-duration: 0.1s;
+}
+
+.registration-dropdown .reg-btn .icon {
+  font-size: 1.6rem;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  transition: transform 0.18s ease;
+}
+
+.registration-dropdown .reg-btn:hover .icon {
+  transform: scale(1.1);
+}
+
+.registration-dropdown .reg-btn .text {
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Mobile Styles */
+@media (max-width: 992px) {
+  /* CRITICAL: Show hamburger on mobile - must override Bootstrap's display: none */
+  .navbar-toggler {
+    display: block !important;
+    visibility: visible !important;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-left: auto;
+    margin-right: 0.75rem;
+    padding: 0.35rem 0.5rem;
+    z-index: 1300;
+    border: 2px solid rgba(131, 67, 51, 0.5);
+  }
+
   .navbar {
-    justify-content: center; /* Centers the navbar content */
+    /* Break out of centered container to full viewport width */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    justify-content: space-between;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
   }
-  
+
+  .navbar .d-lg-none {
+    margin-left: 4px;
+  }
+
+  /* Slightly smaller mobile logo so it doesn't push the toggler off-screen */
+  .navbar img.d-lg-none {
+    width: 48px;
+    height: auto;
+    object-fit: contain;
+    margin-right: 8px;
+  }
+
+  /* Make the mobile collapse full-viewport so it can't be clipped by the
+     centered container. Keep a small top offset to sit under the header. */
+  .navbar-collapse {
+    background-color: white;
+    position: fixed;
+    top: 48px; /* navbar header height - adjust if needed */
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    z-index: 1400;
+    padding: 0.6rem 0.75rem 1rem 0.75rem; /* extra padding so close button doesn't overlap links */
+    border-radius: 0 0 12px 12px;
+    display: none; /* hidden by default on mobile */
+  }
+
+  /* Show the menu when .show class is applied */
+  .navbar-collapse.show {
+    display: block !important;
+  }
+
   .navbar-nav {
-    justify-content:  space-around;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .nav-item {
     width: 100%;
   }
-  
-  .navbar-collapse {
-    justify-content: center;
+
+  .nav-item img {
+    width: 80px;
+    height: 30px;
   }
-  
-  /* Adjustments for smaller screens */
-  @media (max-width: 992px) {
-    .navbar-toggler {
-      display: block; /* Show the toggler on smaller screens */
-    }
-  
-    .navbar-nav {
-      flex-direction: column; /* Stack the nav items vertically on smaller screens */
-    }
-  
-    .nav-item img {
-      width: 60px; /* Adjust based on preference */
-    }
-  
-    .nav-link, .navbar-nav .nav-item {
-      margin: 8px 0; /* Adjust for better touch targets */
-    }
+
+  .nav-link {
+    font-size: 14px;
+    padding: 0.75rem 1rem !important;
+    margin-top: 0 !important;
   }
-  
+
+  /* make mobile links clean and flat (remove cloudy shadow) */
+  .navbar-collapse .nav-link {
+    background: #ffffff;
+    border-radius: 8px;
+    margin: 0.35rem 0;
+    width: calc(100% - 2rem);
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    color: #2b2b2b;
+  }
+
+  .navbar-collapse .nav-link:hover {
+    background: #fffaf9;
+    color: #834333;
+    text-decoration: none;
+    border-color: rgba(131,67,51,0.08);
+  }
+
+  /* Registration dropdown for mobile */
+  .nav-item .registration-dropdown {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 90%;
+    max-width: 400px;
+    margin-top: 0;
+    z-index: 2000;
+  }
+
+  .nav-item .registration-dropdown.show {
+    transform: translate(-50%, -50%);
+  }
+
+  /* Backdrop for mobile dropdown */
+  .nav-item.dropdown.show::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .nav-item img {
+    width: 70px;
+    height: 25px;
+  }
+
+  .registration-dropdown .btn-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .registration-dropdown {
+    padding: 1.25rem;
+    min-width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 0.6rem; /* tighter padding on ultra-narrow screens */
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  /* Make mobile logo even smaller on ultra-narrow devices */
+  .navbar img.d-lg-none {
+    width: 40px;
+    height: auto;
+    margin-right: 4px;
+  }
+
+  /* Tighter toggler spacing on ultra-narrow screens */
+  .navbar-toggler {
+    padding: 0.3rem 0.4rem;
+    margin-right: 0.2rem; /* minimal right margin to keep it on screen */
+  }
+
+  .nav-item img {
+    width: 60px;
+    height: 20px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    padding: 0.6rem 0.8rem !important;
+  }
+
+  .registration-dropdown .reg-btn {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    min-height: 56px;
+  }
+
+  .registration-dropdown .reg-btn .icon {
+    font-size: 1.25rem;
+    width: 32px;
+    height: 32px;
+  }
+
+  .registration-dropdown .panel-title {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .nav-item .registration-dropdown,
+  .registration-dropdown .reg-btn,
+  .registration-dropdown .reg-btn .icon {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* HIDE hamburger on screens larger than 992px (desktop/tablet) */
+@media (min-width: 993px) {
+  .navbar-toggler {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

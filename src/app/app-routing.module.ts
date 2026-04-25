@@ -15,6 +15,8 @@ import { TermsandconditionsComponent } from './termsandconditions/termsandcondit
 import { PrivacypolicyComponent } from './privacypolicy/privacypolicy.component';
 import { ReturnpolicyComponent } from './returnpolicy/returnpolicy.component';
 import { HeaderSampleComponent } from './header-sample/header-sample.component';
+import { MentorregistrationComponent } from './mentorregistration/mentorregistration.component';
+import { MenteeregistrationComponent } from './menteeregistration/menteeregistration.component';
 const routes: Routes = [
   {path:'', 
   component:LayoutcomponentComponent,
@@ -32,6 +34,9 @@ const routes: Routes = [
     {path:'Privacypolicy',component:PrivacypolicyComponent},
     {path:'Returnpolicy',component:ReturnpolicyComponent},
     {path:'donation',component:HeaderSampleComponent},
+    {path: 'mentor-registration',component: MentorregistrationComponent,title: 'Mentor Registration | Prajapati Foundation'},
+    {path: 'mentee-registration',component: MenteeregistrationComponent,title: 'Mentee Registration | Prajapati Foundation'},
+ 
       ]
     },
     

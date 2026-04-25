@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
+    production: true,
       backendAPIURL:'https://api.prajapatifoundation.org/api/',
   
   

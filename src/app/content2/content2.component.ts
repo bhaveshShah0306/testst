@@ -43,7 +43,7 @@ export class Content2Component {
   }
 
   getevents(){
-    debugger;
+    // debugger;
     this.service.getevents().subscribe(apidata=>{
       this.eventdata = apidata.data;
     })
